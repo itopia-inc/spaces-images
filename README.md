@@ -28,3 +28,7 @@ FROM ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-14
 
 # Configure your developers' default environment
 ```
+
+## Feedback
+
+Questions? Requests? [Please let us know on GitHub!](https://github.com/itopia-inc/spaces-images/issues)
