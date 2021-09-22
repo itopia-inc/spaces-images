@@ -26,8 +26,8 @@ jobs:
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
-          username: JanCVanB
-          password: ${{ secrets.PERSONAL_ACCESS_TOKEN_FOR_PUBLISHING_PACKAGES }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build & publish ubuntu-node:20.04-12
         if: contains(steps.changed-files.outputs.modified_files, 'node/node-12-on-ubuntu-focal/Dockerfile')
