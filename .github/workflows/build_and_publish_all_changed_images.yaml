@@ -12,6 +12,12 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 2 # This is for changed-files.
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v1.1.2
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
@@ -24,6 +30,7 @@ jobs:
           password: ${{ secrets.PERSONAL_ACCESS_TOKEN_FOR_PUBLISHING_PACKAGES }}
 
       - name: Build & publish ubuntu-node:20.04-12
+        if: contains(steps.changed-files.outputs.modified_files, 'node/node-12-on-ubuntu-focal/Dockerfile')
         uses: docker/build-push-action@v2
         with:
           context: node/node-12-on-ubuntu-focal
@@ -31,6 +38,7 @@ jobs:
           push: true
 
       - name: Build & publish ubuntu-node:focal-12
+        if: contains(steps.changed-files.outputs.modified_files, 'node/node-12-on-ubuntu-focal/Dockerfile')
         uses: docker/build-push-action@v2
         with:
           context: node/node-12-on-ubuntu-focal
@@ -38,6 +46,7 @@ jobs:
           push: true
 
       - name: Build & publish ubuntu-node:20.04-14
+        if: contains(steps.changed-files.outputs.modified_files, 'node/node-14-on-ubuntu-focal/Dockerfile')
         uses: docker/build-push-action@v2
         with:
           context: node/node-14-on-ubuntu-focal
@@ -45,6 +54,7 @@ jobs:
           push: true
 
       - name: Build & publish ubuntu-node:focal-14
+        if: contains(steps.changed-files.outputs.modified_files, 'node/node-14-on-ubuntu-focal/Dockerfile')
         uses: docker/build-push-action@v2
         with:
           context: node/node-14-on-ubuntu-focal
@@ -52,6 +62,7 @@ jobs:
           push: true
 
       - name: Build & publish ubuntu-node:20.04-16
+        if: contains(steps.changed-files.outputs.modified_files, 'node/node-16-on-ubuntu-focal/Dockerfile')
         uses: docker/build-push-action@v2
         with:
           context: node/node-16-on-ubuntu-focal
@@ -59,6 +70,7 @@ jobs:
           push: true
 
       - name: Build & publish ubuntu-node:focal-16
+        if: contains(steps.changed-files.outputs.modified_files, 'node/node-16-on-ubuntu-focal/Dockerfile')
         uses: docker/build-push-action@v2
         with:
           context: node/node-16-on-ubuntu-focal
@@ -66,6 +78,7 @@ jobs:
           push: true
 
       - name: Build & publish ubuntu-openjdk:20.04-8
+        if: contains(steps.changed-files.outputs.modified_files, 'openjdk/openjdk-8-on-ubuntu-focal/Dockerfile')
         uses: docker/build-push-action@v2
         with:
           context: openjdk/openjdk-8-on-ubuntu-focal
@@ -73,6 +86,7 @@ jobs:
           push: true
 
       - name: Build & publish ubuntu-openjdk:focal-8
+        if: contains(steps.changed-files.outputs.modified_files, 'openjdk/openjdk-8-on-ubuntu-focal/Dockerfile')
         uses: docker/build-push-action@v2
         with:
           context: openjdk/openjdk-8-on-ubuntu-focal
@@ -80,6 +94,7 @@ jobs:
           push: true
 
       - name: Build & publish ubuntu-openjdk:20.04-11
+        if: contains(steps.changed-files.outputs.modified_files, 'openjdk/openjdk-11-on-ubuntu-focal/Dockerfile')
         uses: docker/build-push-action@v2
         with:
           context: openjdk/openjdk-11-on-ubuntu-focal
@@ -87,6 +102,7 @@ jobs:
           push: true
 
       - name: Build & publish ubuntu-openjdk:focal-11
+        if: contains(steps.changed-files.outputs.modified_files, 'openjdk/openjdk-11-on-ubuntu-focal/Dockerfile')
         uses: docker/build-push-action@v2
         with:
           context: openjdk/openjdk-11-on-ubuntu-focal
@@ -94,6 +110,7 @@ jobs:
           push: true
 
       - name: Build & publish ubuntu-python:20.04-2.7
+        if: contains(steps.changed-files.outputs.modified_files, 'python/python-2.7-on-ubuntu-focal/Dockerfile')
         uses: docker/build-push-action@v2
         with:
           context: python/python-2.7-on-ubuntu-focal
@@ -101,6 +118,7 @@ jobs:
           push: true
 
       - name: Build & publish ubuntu-python:focal-2.7
+        if: contains(steps.changed-files.outputs.modified_files, 'python/python-2.7-on-ubuntu-focal/Dockerfile')
         uses: docker/build-push-action@v2
         with:
           context: python/python-2.7-on-ubuntu-focal
@@ -108,6 +126,7 @@ jobs:
           push: true
 
       - name: Build & publish ubuntu-python:20.04-3.6
+        if: contains(steps.changed-files.outputs.modified_files, 'python/python-3.6-on-ubuntu-focal/Dockerfile')
         uses: docker/build-push-action@v2
         with:
           context: python/python-3.6-on-ubuntu-focal
@@ -115,6 +134,7 @@ jobs:
           push: true
 
       - name: Build & publish ubuntu-python:focal-3.6
+        if: contains(steps.changed-files.outputs.modified_files, 'python/python-3.6-on-ubuntu-focal/Dockerfile')
         uses: docker/build-push-action@v2
         with:
           context: python/python-3.6-on-ubuntu-focal
@@ -122,6 +142,7 @@ jobs:
           push: true
 
       - name: Build & publish ubuntu-python:20.04-3.7
+        if: contains(steps.changed-files.outputs.modified_files, 'python/python-3.7-on-ubuntu-focal/Dockerfile')
         uses: docker/build-push-action@v2
         with:
           context: python/python-3.7-on-ubuntu-focal
@@ -129,6 +150,7 @@ jobs:
           push: true
 
       - name: Build & publish ubuntu-python:focal-3.7
+        if: contains(steps.changed-files.outputs.modified_files, 'python/python-3.7-on-ubuntu-focal/Dockerfile')
         uses: docker/build-push-action@v2
         with:
           context: python/python-3.7-on-ubuntu-focal
@@ -136,6 +158,7 @@ jobs:
           push: true
 
       - name: Build & publish ubuntu-python:20.04-3.8
+        if: contains(steps.changed-files.outputs.modified_files, 'python/python-3.8-on-ubuntu-focal/Dockerfile')
         uses: docker/build-push-action@v2
         with:
           context: python/python-3.8-on-ubuntu-focal
@@ -143,6 +166,7 @@ jobs:
           push: true
 
       - name: Build & publish ubuntu-python:focal-3.8
+        if: contains(steps.changed-files.outputs.modified_files, 'python/python-3.8-on-ubuntu-focal/Dockerfile')
         uses: docker/build-push-action@v2
         with:
           context: python/python-3.8-on-ubuntu-focal
@@ -150,6 +174,7 @@ jobs:
           push: true
 
       - name: Build & publish ubuntu-python:20.04-3.9
+        if: contains(steps.changed-files.outputs.modified_files, 'python/python-3.9-on-ubuntu-focal/Dockerfile')
         uses: docker/build-push-action@v2
         with:
           context: python/python-3.9-on-ubuntu-focal
@@ -157,6 +182,7 @@ jobs:
           push: true
 
       - name: Build & publish ubuntu-python:focal-3.9
+        if: contains(steps.changed-files.outputs.modified_files, 'python/python-3.9-on-ubuntu-focal/Dockerfile')
         uses: docker/build-push-action@v2
         with:
           context: python/python-3.9-on-ubuntu-focal
