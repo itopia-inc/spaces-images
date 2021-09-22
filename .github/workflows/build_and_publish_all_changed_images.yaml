@@ -1,4 +1,4 @@
-name: Build & publish all images
+name: Build & publish changed images
 
 on:
   push:
