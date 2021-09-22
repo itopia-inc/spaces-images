@@ -20,142 +20,142 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build & publish ubuntu-node:20.04-12
+      - name: Build & publish spaces-ubuntu-node:20.04-12
         uses: docker/build-push-action@v2
         with:
           context: node/node-12-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/ubuntu-node:20.04-12
+          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-12
           push: true
 
-      - name: Build & publish ubuntu-node:focal-12
+      - name: Build & publish spaces-ubuntu-node:focal-12
         uses: docker/build-push-action@v2
         with:
           context: node/node-12-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/ubuntu-node:focal-12
+          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-12
           push: true
 
-      - name: Build & publish ubuntu-node:20.04-14
+      - name: Build & publish spaces-ubuntu-node:20.04-14
         uses: docker/build-push-action@v2
         with:
           context: node/node-14-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/ubuntu-node:20.04-14
+          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-14
           push: true
 
-      - name: Build & publish ubuntu-node:focal-14
+      - name: Build & publish spaces-ubuntu-node:focal-14
         uses: docker/build-push-action@v2
         with:
           context: node/node-14-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/ubuntu-node:focal-14
+          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-14
           push: true
 
-      - name: Build & publish ubuntu-node:20.04-16
+      - name: Build & publish spaces-ubuntu-node:20.04-16
         uses: docker/build-push-action@v2
         with:
           context: node/node-16-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/ubuntu-node:20.04-16
+          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-16
           push: true
 
-      - name: Build & publish ubuntu-node:focal-16
+      - name: Build & publish spaces-ubuntu-node:focal-16
         uses: docker/build-push-action@v2
         with:
           context: node/node-16-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/ubuntu-node:focal-16
+          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-16
           push: true
 
-      - name: Build & publish ubuntu-openjdk:20.04-8
+      - name: Build & publish spaces-ubuntu-openjdk:20.04-8
         uses: docker/build-push-action@v2
         with:
           context: openjdk/openjdk-8-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/ubuntu-openjdk:20.04-8
+          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:20.04-8
           push: true
 
-      - name: Build & publish ubuntu-openjdk:focal-8
+      - name: Build & publish spaces-ubuntu-openjdk:focal-8
         uses: docker/build-push-action@v2
         with:
           context: openjdk/openjdk-8-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/ubuntu-openjdk:focal-8
+          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:focal-8
           push: true
 
-      - name: Build & publish ubuntu-openjdk:20.04-11
+      - name: Build & publish spaces-ubuntu-openjdk:20.04-11
         uses: docker/build-push-action@v2
         with:
           context: openjdk/openjdk-11-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/ubuntu-openjdk:20.04-11
+          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:20.04-11
           push: true
 
-      - name: Build & publish ubuntu-openjdk:focal-11
+      - name: Build & publish spaces-ubuntu-openjdk:focal-11
         uses: docker/build-push-action@v2
         with:
           context: openjdk/openjdk-11-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/ubuntu-openjdk:focal-11
+          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:focal-11
           push: true
 
-      - name: Build & publish ubuntu-python:20.04-2.7
+      - name: Build & publish spaces-ubuntu-python:20.04-2.7
         uses: docker/build-push-action@v2
         with:
           context: python/python-2.7-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/ubuntu-python:20.04-2.7
+          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-2.7
           push: true
 
-      - name: Build & publish ubuntu-python:focal-2.7
+      - name: Build & publish spaces-ubuntu-python:focal-2.7
         uses: docker/build-push-action@v2
         with:
           context: python/python-2.7-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/ubuntu-python:focal-2.7
+          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-2.7
           push: true
 
-      - name: Build & publish ubuntu-python:20.04-3.6
+      - name: Build & publish spaces-ubuntu-python:20.04-3.6
         uses: docker/build-push-action@v2
         with:
           context: python/python-3.6-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/ubuntu-python:20.04-3.6
+          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.6
           push: true
 
-      - name: Build & publish ubuntu-python:focal-3.6
+      - name: Build & publish spaces-ubuntu-python:focal-3.6
         uses: docker/build-push-action@v2
         with:
           context: python/python-3.6-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/ubuntu-python:focal-3.6
+          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.6
           push: true
 
-      - name: Build & publish ubuntu-python:20.04-3.7
+      - name: Build & publish spaces-ubuntu-python:20.04-3.7
         uses: docker/build-push-action@v2
         with:
           context: python/python-3.7-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/ubuntu-python:20.04-3.7
+          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.7
           push: true
 
-      - name: Build & publish ubuntu-python:focal-3.7
+      - name: Build & publish spaces-ubuntu-python:focal-3.7
         uses: docker/build-push-action@v2
         with:
           context: python/python-3.7-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/ubuntu-python:focal-3.7
+          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.7
           push: true
 
-      - name: Build & publish ubuntu-python:20.04-3.8
+      - name: Build & publish spaces-ubuntu-python:20.04-3.8
         uses: docker/build-push-action@v2
         with:
           context: python/python-3.8-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/ubuntu-python:20.04-3.8
+          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.8
           push: true
 
-      - name: Build & publish ubuntu-python:focal-3.8
+      - name: Build & publish spaces-ubuntu-python:focal-3.8
         uses: docker/build-push-action@v2
         with:
           context: python/python-3.8-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/ubuntu-python:focal-3.8
+          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.8
           push: true
 
-      - name: Build & publish ubuntu-python:20.04-3.9
+      - name: Build & publish spaces-ubuntu-python:20.04-3.9
         uses: docker/build-push-action@v2
         with:
           context: python/python-3.9-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/ubuntu-python:20.04-3.9
+          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.9
           push: true
 
-      - name: Build & publish ubuntu-python:focal-3.9
+      - name: Build & publish spaces-ubuntu-python:focal-3.9
         uses: docker/build-push-action@v2
         with:
           context: python/python-3.9-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/ubuntu-python:focal-3.9
+          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.9
           push: true

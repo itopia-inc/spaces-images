@@ -22,7 +22,7 @@ For example:
 <!-- TODO: Write some example RUN instructions -->
 ```Dockerfile
 # syntax=docker/dockerfile:1
-FROM ghcr.io/itopia-inc/spaces-images/ubuntu-node:focal-14
+FROM ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-14
 
 # Install your developers' tools
 
