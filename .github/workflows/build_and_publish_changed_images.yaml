@@ -1,50 +1,55 @@
 name: Build & publish changed images
 
 on:
-  push:
+  pull_request_target:
     branches:
-      - main
+    - main
 
 jobs:
-  docker:
+
+  detect_image_source_changes:
+    runs-on: ubuntu-latest
+    outputs:
+      node_node-12-on-ubuntu-focal_changed: ${{ steps.changes_to_node_node-12-on-ubuntu-focal.outputs.any_changed }}
+      node_node-14-on-ubuntu-focal_changed: ${{ steps.changes_to_node_node-14-on-ubuntu-focal.outputs.any_changed }}
+      node_node-16-on-ubuntu-focal_changed: ${{ steps.changes_to_node_node-16-on-ubuntu-focal.outputs.any_changed }}
+    steps:
+    - id: changes_to_node_node-12-on-ubuntu-focal
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        path: node/node-12-on-ubuntu-focal
+    - id: changes_to_node_node-14-on-ubuntu-focal
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        path: node/node-14-on-ubuntu-focal
+    - id: changes_to_node_node-16-on-ubuntu-focal
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        path: node/node-16-on-ubuntu-focal
+
+  build_and_publish_node_node-12-on-ubuntu-focal:
+    if: jobs.detect_image_source_changes.outputs.node_node-12-on-ubuntu-focal_changed
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 2 # This is for changed-files.
+      - name: Build, tag, and push
+        run: |
+          echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+          docker build \
+            -t ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-12 \
+            node/node-12-on-ubuntu-focal
+          docker push \
+            ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-12
+          docker tag \
+            ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-12 \
+            ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-12
+          docker push \
+            ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-12
 
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v1.1.2
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-
-      - name: Sign in to GitHub Packages Container registry
-        uses: docker/login-action@v1
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build & publish spaces-ubuntu-node:20.04-12
-        if: contains(steps.changed-files.outputs.modified_files, 'node/node-12-on-ubuntu-focal/Dockerfile')
-        uses: docker/build-push-action@v2
-        with:
-          context: node/node-12-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-12
-          push: true
-
-      - name: Build & publish spaces-ubuntu-node:focal-12
-        if: contains(steps.changed-files.outputs.modified_files, 'node/node-12-on-ubuntu-focal/Dockerfile')
-        uses: docker/build-push-action@v2
-        with:
-          context: node/node-12-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-12
-          push: true
-
+  build_and_publish_others:
+    runs-on: ubuntu-latest
+    steps:
       - name: Build & publish spaces-ubuntu-node:20.04-14
         if: contains(steps.changed-files.outputs.modified_files, 'node/node-14-on-ubuntu-focal/Dockerfile')
         uses: docker/build-push-action@v2
