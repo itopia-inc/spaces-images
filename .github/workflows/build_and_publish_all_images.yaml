@@ -3,36 +3,146 @@ name: Build & publish all images
 on: workflow_dispatch
 
 jobs:
-  docker:
+
+  build_and_publish_node-12-on-ubuntu-focal:
+    needs: detect_image_source_changes
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build_and_publish_image
+      with:
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_source_directory: node/node-12-on-ubuntu-focal
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-12
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-12
+
+  build_and_publish_node-14-on-ubuntu-focal:
+    needs: detect_image_source_changes
+    runs-on: ubuntu-latest
+    steps:
+    - uses: ./.github/actions/build_and_publish_image
+      with:
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_source_directory: node/node-14-on-ubuntu-focal
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-14
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-14
+
+  build_and_publish_node-16-on-ubuntu-focal:
+    needs: detect_image_source_changes
+    runs-on: ubuntu-latest
+    steps:
+    - uses: ./.github/actions/build_and_publish_image
+      with:
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_source_directory: node/node-16-on-ubuntu-focal
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-16
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-16
+
+  build_and_publish_openjdk-8-on-ubuntu-focal:
+    needs: detect_image_source_changes
+    runs-on: ubuntu-latest
+    steps:
+    - uses: ./.github/actions/build_and_publish_image
+      with:
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_source_directory: openjdk/openjdk-8-on-ubuntu-focal
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:20.04-8
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:focal-8
+
+  build_and_publish_openjdk-8-on-ubuntu-focal:
+    needs: detect_image_source_changes
+    runs-on: ubuntu-latest
+    steps:
+    - uses: ./.github/actions/build_and_publish_image
+      with:
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_source_directory: openjdk/openjdk-11-on-ubuntu-focal
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:20.04-11
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:focal-11
+
+  build_and_publish_python-27-on-ubuntu-focal:
+    needs: detect_image_source_changes
+    runs-on: ubuntu-latest
+    steps:
+    - uses: ./.github/actions/build_and_publish_image
+      with:
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_source_directory: python/python-2.7-on-ubuntu-focal
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-2.7
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-2.7
+
+  build_and_publish_python-39-on-ubuntu-focal:
+    needs: detect_image_source_changes
+    runs-on: ubuntu-latest
+    steps:
+    - uses: ./.github/actions/build_and_publish_image
+      with:
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_source_directory: python/python-3.9-on-ubuntu-focal
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.9
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.9
+
+jobs:
+
+  build_and_publish_node_node-12-on-ubuntu-focal:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Authenticate
+        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: Build 20.04
+        run: |
+          docker build \
+            -t ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-12 \
+            node/node-12-on-ubuntu-focal
+      - name: Push 20.04
+        run: |
+          docker push \
+            ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-12
+      - name: Tag focal
+        run: |
+          docker tag \
+            ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-12 \
+            ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-12
+      - name: Push focal
+        run: |
+          docker push \
+            ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-12
+
+  build_and_publish_others:
     runs-on: ubuntu-latest
     steps:
 
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-
-      - name: Sign in to GitHub Packages Container registry
-        uses: docker/login-action@v1
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Authenticate to GitHub Packages Container registry
+        run: |
+          echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Build & publish spaces-ubuntu-node:20.04-12
-        uses: docker/build-push-action@v2
-        with:
-          context: node/node-12-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-12
-          push: true
+        run: |
+          docker build \
+            -t ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-12 \
+            node/node-12-on-ubuntu-focal
+          docker push \
+            ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-12
 
-      - name: Build & publish spaces-ubuntu-node:focal-12
-        uses: docker/build-push-action@v2
-        with:
-          context: node/node-12-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-12
-          push: true
+      - name: Tag & publish spaces-ubuntu-node:focal-12
+        run: |
+          docker tag \
+            ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-12 \
+            ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-12
+          docker push \
+            ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-12
 
       - name: Build & publish spaces-ubuntu-node:20.04-14
         uses: docker/build-push-action@v2
