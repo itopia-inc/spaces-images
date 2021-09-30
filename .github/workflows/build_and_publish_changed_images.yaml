@@ -64,6 +64,7 @@ jobs:
         github_username: ${{ github.actor }}
         image_source_directory: node/node-12-on-ubuntu-focal
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-12
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-12
 
   build_and_publish_node-14-on-ubuntu-focal:
     needs: detect_image_source_changes
