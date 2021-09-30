@@ -18,5 +18,7 @@ runs:
       echo ${{ inputs.github_personal_access_token }} | docker login ghcr.io -u ${{ inputs.github_username }} --password-stdin
       docker build -t ${{ inputs.image_tag_1 }} ${{ inputs.image_source_directory }}
       docker push ${{ inputs.image_tag_1 }}
-      docker tag ${{ inputs.image_tag_1 }} ${{ inputs.image_tag_2 }}
-      docker push ${{ inputs.image_tag_2 }}
+      if [ '${{ inputs.image_tag_2 }}' != '' ]; then
+        docker tag ${{ inputs.image_tag_1 }} ${{ inputs.image_tag_2 }}
+        docker push ${{ inputs.image_tag_2 }}
+      fi
