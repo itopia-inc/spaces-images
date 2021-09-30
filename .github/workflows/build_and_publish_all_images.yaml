@@ -67,6 +67,7 @@ jobs:
   build_and_publish_python-27-on-ubuntu-focal:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - uses: ./.github/actions/build_and_publish_image
       with:
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
@@ -78,6 +79,7 @@ jobs:
   build_and_publish_python-39-on-ubuntu-focal:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - uses: ./.github/actions/build_and_publish_image
       with:
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
