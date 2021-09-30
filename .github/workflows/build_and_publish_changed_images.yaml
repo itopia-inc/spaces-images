@@ -6,185 +6,146 @@ on:
       - main
 
 jobs:
-  docker:
+
+  detect_image_source_changes:
+    runs-on: ubuntu-latest
+    outputs:
+      node-12-on-ubuntu-focal_changed: ${{ steps.changes_to_node-12-on-ubuntu-focal.outputs.any_changed == 'true' || steps.changes_to_node-12-on-ubuntu-focal.outputs.any_deleted == 'true' }}
+      node-14-on-ubuntu-focal_changed: ${{ steps.changes_to_node-14-on-ubuntu-focal.outputs.any_changed == 'true' || steps.changes_to_node-14-on-ubuntu-focal.outputs.any_deleted == 'true' }}
+      node-16-on-ubuntu-focal_changed: ${{ steps.changes_to_node-16-on-ubuntu-focal.outputs.any_changed == 'true' || steps.changes_to_node-16-on-ubuntu-focal.outputs.any_deleted == 'true' }}
+      openjdk-8-on-ubuntu-focal_changed: ${{ steps.changes_to_openjdk-8-on-ubuntu-focal.outputs.any_changed == 'true' || steps.changes_to_openjdk-8-on-ubuntu-focal.outputs.any_deleted == 'true' }}
+      openjdk-11-on-ubuntu-focal_changed: ${{ steps.changes_to_openjdk-11-on-ubuntu-focal.outputs.any_changed == 'true' || steps.changes_to_openjdk-11-on-ubuntu-focal.outputs.any_deleted == 'true' }}
+      python-27-on-ubuntu-focal_changed: ${{ steps.changes_to_python-27-on-ubuntu-focal.outputs.any_changed == 'true' || steps.changes_to_python-27-on-ubuntu-focal.outputs.any_deleted == 'true' }}
+      python-39-on-ubuntu-focal_changed: ${{ steps.changes_to_python-39-on-ubuntu-focal.outputs.any_changed == 'true' || steps.changes_to_python-39-on-ubuntu-focal.outputs.any_deleted == 'true' }}
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 2 # This is for changed-files.
+    - id: changes_to_node-12-on-ubuntu-focal
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: node/node-12-on-ubuntu-focal
+    - run: |
+        echo '${{ toJSON(steps.changes_to_node-12-on-ubuntu-focal) }}'
+    - id: changes_to_node-14-on-ubuntu-focal
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: node/node-14-on-ubuntu-focal
+    - id: changes_to_node-16-on-ubuntu-focal
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: node/node-16-on-ubuntu-focal
+    - id: changes_to_openjdk-8-on-ubuntu-focal
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: openjdk/openjdk-8-on-ubuntu-focal
+    - id: changes_to_openjdk-11-on-ubuntu-focal
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: openjdk/openjdk-11-on-ubuntu-focal
+    - id: changes_to_python-27-on-ubuntu-focal
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: python/python-2.7-on-ubuntu-focal
+    - id: changes_to_python-39-on-ubuntu-focal
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: python/python-3.9-on-ubuntu-focal
+
+  build_and_publish_node-12-on-ubuntu-focal:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.node-12-on-ubuntu-focal_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build_and_publish_image
+      with:
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_source_directory: node/node-12-on-ubuntu-focal
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-12
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-12
 
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 2 # This is for changed-files.
+  build_and_publish_node-14-on-ubuntu-focal:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.node-14-on-ubuntu-focal_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build_and_publish_image
+      with:
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_source_directory: node/node-14-on-ubuntu-focal
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-14
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-14
 
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v1.1.2
+  build_and_publish_node-16-on-ubuntu-focal:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.node-16-on-ubuntu-focal_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build_and_publish_image
+      with:
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_source_directory: node/node-16-on-ubuntu-focal
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-16
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-16
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
+  build_and_publish_openjdk-8-on-ubuntu-focal:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.openjdk-8-on-ubuntu-focal_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build_and_publish_image
+      with:
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_source_directory: openjdk/openjdk-8-on-ubuntu-focal
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:20.04-8
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:focal-8
 
-      - name: Sign in to GitHub Packages Container registry
-        uses: docker/login-action@v1
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+  build_and_publish_openjdk-11-on-ubuntu-focal:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.openjdk-11-on-ubuntu-focal_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build_and_publish_image
+      with:
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_source_directory: openjdk/openjdk-11-on-ubuntu-focal
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:20.04-11
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:focal-11
 
-      - name: Build & publish spaces-ubuntu-node:20.04-12
-        if: contains(steps.changed-files.outputs.modified_files, 'node/node-12-on-ubuntu-focal/Dockerfile')
-        uses: docker/build-push-action@v2
-        with:
-          context: node/node-12-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-12
-          push: true
+  build_and_publish_python-27-on-ubuntu-focal:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.python-27-on-ubuntu-focal_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build_and_publish_image
+      with:
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_source_directory: python/python-2.7-on-ubuntu-focal
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-2.7
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-2.7
 
-      - name: Build & publish spaces-ubuntu-node:focal-12
-        if: contains(steps.changed-files.outputs.modified_files, 'node/node-12-on-ubuntu-focal/Dockerfile')
-        uses: docker/build-push-action@v2
-        with:
-          context: node/node-12-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-12
-          push: true
-
-      - name: Build & publish spaces-ubuntu-node:20.04-14
-        if: contains(steps.changed-files.outputs.modified_files, 'node/node-14-on-ubuntu-focal/Dockerfile')
-        uses: docker/build-push-action@v2
-        with:
-          context: node/node-14-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-14
-          push: true
-
-      - name: Build & publish spaces-ubuntu-node:focal-14
-        if: contains(steps.changed-files.outputs.modified_files, 'node/node-14-on-ubuntu-focal/Dockerfile')
-        uses: docker/build-push-action@v2
-        with:
-          context: node/node-14-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-14
-          push: true
-
-      - name: Build & publish spaces-ubuntu-node:20.04-16
-        if: contains(steps.changed-files.outputs.modified_files, 'node/node-16-on-ubuntu-focal/Dockerfile')
-        uses: docker/build-push-action@v2
-        with:
-          context: node/node-16-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-16
-          push: true
-
-      - name: Build & publish spaces-ubuntu-node:focal-16
-        if: contains(steps.changed-files.outputs.modified_files, 'node/node-16-on-ubuntu-focal/Dockerfile')
-        uses: docker/build-push-action@v2
-        with:
-          context: node/node-16-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-16
-          push: true
-
-      - name: Build & publish spaces-ubuntu-openjdk:20.04-8
-        if: contains(steps.changed-files.outputs.modified_files, 'openjdk/openjdk-8-on-ubuntu-focal/Dockerfile')
-        uses: docker/build-push-action@v2
-        with:
-          context: openjdk/openjdk-8-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:20.04-8
-          push: true
-
-      - name: Build & publish spaces-ubuntu-openjdk:focal-8
-        if: contains(steps.changed-files.outputs.modified_files, 'openjdk/openjdk-8-on-ubuntu-focal/Dockerfile')
-        uses: docker/build-push-action@v2
-        with:
-          context: openjdk/openjdk-8-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:focal-8
-          push: true
-
-      - name: Build & publish spaces-ubuntu-openjdk:20.04-11
-        if: contains(steps.changed-files.outputs.modified_files, 'openjdk/openjdk-11-on-ubuntu-focal/Dockerfile')
-        uses: docker/build-push-action@v2
-        with:
-          context: openjdk/openjdk-11-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:20.04-11
-          push: true
-
-      - name: Build & publish spaces-ubuntu-openjdk:focal-11
-        if: contains(steps.changed-files.outputs.modified_files, 'openjdk/openjdk-11-on-ubuntu-focal/Dockerfile')
-        uses: docker/build-push-action@v2
-        with:
-          context: openjdk/openjdk-11-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:focal-11
-          push: true
-
-      - name: Build & publish spaces-ubuntu-python:20.04-2.7
-        if: contains(steps.changed-files.outputs.modified_files, 'python/python-2.7-on-ubuntu-focal/Dockerfile')
-        uses: docker/build-push-action@v2
-        with:
-          context: python/python-2.7-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-2.7
-          push: true
-
-      - name: Build & publish spaces-ubuntu-python:focal-2.7
-        if: contains(steps.changed-files.outputs.modified_files, 'python/python-2.7-on-ubuntu-focal/Dockerfile')
-        uses: docker/build-push-action@v2
-        with:
-          context: python/python-2.7-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-2.7
-          push: true
-
-      - name: Build & publish spaces-ubuntu-python:20.04-3.6
-        if: contains(steps.changed-files.outputs.modified_files, 'python/python-3.6-on-ubuntu-focal/Dockerfile')
-        uses: docker/build-push-action@v2
-        with:
-          context: python/python-3.6-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.6
-          push: true
-
-      - name: Build & publish spaces-ubuntu-python:focal-3.6
-        if: contains(steps.changed-files.outputs.modified_files, 'python/python-3.6-on-ubuntu-focal/Dockerfile')
-        uses: docker/build-push-action@v2
-        with:
-          context: python/python-3.6-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.6
-          push: true
-
-      - name: Build & publish spaces-ubuntu-python:20.04-3.7
-        if: contains(steps.changed-files.outputs.modified_files, 'python/python-3.7-on-ubuntu-focal/Dockerfile')
-        uses: docker/build-push-action@v2
-        with:
-          context: python/python-3.7-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.7
-          push: true
-
-      - name: Build & publish spaces-ubuntu-python:focal-3.7
-        if: contains(steps.changed-files.outputs.modified_files, 'python/python-3.7-on-ubuntu-focal/Dockerfile')
-        uses: docker/build-push-action@v2
-        with:
-          context: python/python-3.7-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.7
-          push: true
-
-      - name: Build & publish spaces-ubuntu-python:20.04-3.8
-        if: contains(steps.changed-files.outputs.modified_files, 'python/python-3.8-on-ubuntu-focal/Dockerfile')
-        uses: docker/build-push-action@v2
-        with:
-          context: python/python-3.8-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.8
-          push: true
-
-      - name: Build & publish spaces-ubuntu-python:focal-3.8
-        if: contains(steps.changed-files.outputs.modified_files, 'python/python-3.8-on-ubuntu-focal/Dockerfile')
-        uses: docker/build-push-action@v2
-        with:
-          context: python/python-3.8-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.8
-          push: true
-
-      - name: Build & publish spaces-ubuntu-python:20.04-3.9
-        if: contains(steps.changed-files.outputs.modified_files, 'python/python-3.9-on-ubuntu-focal/Dockerfile')
-        uses: docker/build-push-action@v2
-        with:
-          context: python/python-3.9-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.9
-          push: true
-
-      - name: Build & publish spaces-ubuntu-python:focal-3.9
-        if: contains(steps.changed-files.outputs.modified_files, 'python/python-3.9-on-ubuntu-focal/Dockerfile')
-        uses: docker/build-push-action@v2
-        with:
-          context: python/python-3.9-on-ubuntu-focal
-          tags: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.9
-          push: true
+  build_and_publish_python-39-on-ubuntu-focal:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.python-39-on-ubuntu-focal_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build_and_publish_image
+      with:
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_source_directory: python/python-3.9-on-ubuntu-focal
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.9
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.9
