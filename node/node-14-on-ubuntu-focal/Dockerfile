@@ -9,5 +9,3 @@ LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-imag
 # and https://github.com/nodesource/distributions#installation-instructions.
 RUN curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash - && \
     sudo apt-get install -y nodejs=14.18.0-deb-1nodesource1
-
-# TODO: Configure the environment
