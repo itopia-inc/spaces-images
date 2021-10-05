@@ -6,4 +6,4 @@ LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-imag
 
 # TODO: Install OpenJDK 11
 
-# TODO: Install IDEs
+# TODO: Install IntelliJ IDEA
