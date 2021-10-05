@@ -6,4 +6,4 @@ LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-imag
 
 # TODO: Install Python 2.7
 
-# TODO: Install IDEs
+# TODO: Install PyCharm
