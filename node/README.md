@@ -9,8 +9,7 @@ without requiring customization (by administrators) or personalization (by devel
 ## Node.js versions
 
 We support all versions of Node.js that are
-[still maintained](https://nodejs.org/en/about/releases/)
-by Node.js developers.
+[currently stable & maintained by the Node.js team](https://nodejs.org/en/about/releases/).
 
 ## Design choices
 
