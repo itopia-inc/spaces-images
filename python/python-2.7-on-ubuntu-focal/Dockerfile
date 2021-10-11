@@ -8,4 +8,11 @@ LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-imag
 RUN sudo cp /usr/bin/python2.7 /usr/bin/python2 && \
     sudo cp /usr/bin/python2.7 /usr/bin/python
 
-# TODO: Install PyCharm
+# Install PyCharm
+RUN curl -LOs https://download.jetbrains.com/python/pycharm-community-2021.2.2.tar.gz && \
+    curl -LOs https://download.jetbrains.com/python/pycharm-community-2021.2.2.tar.gz.sha256 && \
+    sha256sum -c pycharm-community-2021.2.2.tar.gz.sha256
+RUN sudo tar xzf pycharm-community-2021.2.2.tar.gz -C /opt/ && \
+    cd /opt/pycharm-community-2021.2.2/bin
+
+# TODO: Add a desktop shortcut for PyCharm, via customization script.
