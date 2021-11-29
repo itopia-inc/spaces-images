@@ -4,4 +4,4 @@
 # and https://github.com/nodesource/distributions#installation-instructions.
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 
-sudo apt-get install -y nodejs=16.11.0-deb-1nodesource1
+sudo apt-get install -y nodejs=16.13.0-deb-1nodesource1
