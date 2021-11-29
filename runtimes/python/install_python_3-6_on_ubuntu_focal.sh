@@ -3,7 +3,7 @@
 sudo add-apt-repository -y ppa:deadsnakes/ppa
 
 # Note: This echo command exists for image update automation.
-#       When a new patch version of Python v3.6 for Ubuntu Focal is released to the above PPA,
+#       When a new patch version is released,
 #       update this echo command to invalidate the layer cache.
 echo 'Installing python3.6.15-1+focal1'
 
