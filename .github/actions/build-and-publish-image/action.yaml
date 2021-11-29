@@ -1,0 +1,26 @@
+inputs:
+  docker_build_context_path:
+    required: true
+  dockerfile_path:
+    required: true
+  github_personal_access_token:
+    required: true
+  github_username:
+    required: true
+  image_tag_1:
+    required: true
+  image_tag_2:
+    required: true
+
+runs:
+  using: composite
+  steps:
+  - shell: bash
+    run: |
+      echo ${{ inputs.github_personal_access_token }} | docker login ghcr.io -u ${{ inputs.github_username }} --password-stdin
+      docker build -f ${{ inputs.dockerfile_path }} -t ${{ inputs.image_tag_1 }} .
+      docker push ${{ inputs.image_tag_1 }}
+      if [ '${{ inputs.image_tag_2 }}' != '' ]; then
+        docker tag ${{ inputs.image_tag_1 }} ${{ inputs.image_tag_2 }}
+        docker push ${{ inputs.image_tag_2 }}
+      fi

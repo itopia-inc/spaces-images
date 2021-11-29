@@ -1,9 +1,12 @@
-# Pre-configured images for itopia Spaces
+# Official images for itopia Spaces
 
 [This set of open-source images](https://github.com/orgs/itopia-inc/packages?repo_name=spaces-images)
 provides opinionated software development environments (including IDEs, CLIs, settings, etc.),
 which should enable most developers to be productive in itopia Spaces
 without requiring customization (by administrators) or personalization (by developers).
+
+For information about supported Linux distributions,
+see the [base images](https://github.com/itopia-inc/spaces-base-images).
 
 ## Usage
 
