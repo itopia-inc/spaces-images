@@ -36,6 +36,7 @@ jobs:
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          runtimes/node/install_node_12.sh
           runtimes/node/node_12_on_ubuntu_focal.Dockerfile
     - run: |
         echo '${{ toJSON(steps.changes_to_node_12_on_ubuntu_focal) }}'
@@ -43,69 +44,94 @@ jobs:
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          runtimes/node/install_node_14.sh
           runtimes/node/node_14_on_ubuntu_focal.Dockerfile
     - id: changes_to_node_16_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          runtimes/node/install_node_16.sh
           runtimes/node/node_16_on_ubuntu_focal.Dockerfile
     - id: changes_to_openjdk_8_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          runtimes/openjdk/install_openjdk_8.sh
           runtimes/openjdk/openjdk_8_on_ubuntu_focal.Dockerfile
     - id: changes_to_openjdk_11_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          runtimes/openjdk/install_openjdk_11.sh
           runtimes/openjdk/openjdk_11_on_ubuntu_focal.Dockerfile
     - id: changes_to_pycharm_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          ides/pycharm/configure_to_autostart.sh
+          ides/pycharm/create_desktop_shortcut.sh
           ides/pycharm/Dockerfile
           ides/pycharm/install_pycharm.sh
+          ides/pycharm/jetbrains-pycharm-ce.desktop
     - id: changes_to_python_2-7_and_pycharm_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           complete-setups/python-and-pycharm/python_2-7_and_pycharm_on_ubuntu_focal.Dockerfile
+          ides/pycharm/configure_to_autostart.sh
+          ides/pycharm/create_desktop_shortcut.sh
           ides/pycharm/install_pycharm.sh
+          ides/pycharm/jetbrains-pycharm-ce.desktop
           runtimes/python/install_python_2-7_on_ubuntu_focal.sh
     - id: changes_to_python_3-6_and_pycharm_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           complete-setups/python-and-pycharm/python_3-6_and_pycharm_on_ubuntu_focal.Dockerfile
+          ides/pycharm/configure_to_autostart.sh
+          ides/pycharm/create_desktop_shortcut.sh
           ides/pycharm/install_pycharm.sh
+          ides/pycharm/jetbrains-pycharm-ce.desktop
           runtimes/python/install_python_3-6_on_ubuntu_focal.sh
     - id: changes_to_python_3-7_and_pycharm_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           complete-setups/python-and-pycharm/python_3-7_and_pycharm_on_ubuntu_focal.Dockerfile
+          ides/pycharm/configure_to_autostart.sh
+          ides/pycharm/create_desktop_shortcut.sh
           ides/pycharm/install_pycharm.sh
+          ides/pycharm/jetbrains-pycharm-ce.desktop
           runtimes/python/install_python_3-7_on_ubuntu_focal.sh
     - id: changes_to_python_3-8_and_pycharm_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           complete-setups/python-and-pycharm/python_3-8_and_pycharm_on_ubuntu_focal.Dockerfile
+          ides/pycharm/configure_to_autostart.sh
+          ides/pycharm/create_desktop_shortcut.sh
           ides/pycharm/install_pycharm.sh
+          ides/pycharm/jetbrains-pycharm-ce.desktop
           runtimes/python/configure_python_3-8_on_ubuntu_focal.sh
     - id: changes_to_python_3-9_and_pycharm_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           complete-setups/python-and-pycharm/python_3-9_and_pycharm_on_ubuntu_focal.Dockerfile
+          ides/pycharm/configure_to_autostart.sh
+          ides/pycharm/create_desktop_shortcut.sh
           ides/pycharm/install_pycharm.sh
+          ides/pycharm/jetbrains-pycharm-ce.desktop
           runtimes/python/install_python_3-9_on_ubuntu_focal.sh
     - id: changes_to_python_3-10_and_pycharm_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           complete-setups/python-and-pycharm/python_3-10_and_pycharm_on_ubuntu_focal.Dockerfile
+          ides/pycharm/configure_to_autostart.sh
+          ides/pycharm/create_desktop_shortcut.sh
           ides/pycharm/install_pycharm.sh
+          ides/pycharm/jetbrains-pycharm-ce.desktop
           runtimes/python/install_python_3-10_on_ubuntu_focal.sh
     - id: changes_to_python_2-7_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
