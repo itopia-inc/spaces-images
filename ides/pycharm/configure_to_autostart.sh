@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cp jetbrains-pycharm-ce.desktop /etc/skel/Autostart/
+sudo cp jetbrains-pycharm-ce.desktop /etc/skel/Autostart/
