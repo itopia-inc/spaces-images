@@ -11,3 +11,6 @@ ENV PATH="/opt/pycharm-community/bin:$PATH"
 COPY ides/pycharm/create_desktop_shortcut.sh .
 COPY ides/pycharm/jetbrains-pycharm-ce.desktop .
 RUN bash -c './create_desktop_shortcut.sh'
+
+COPY ides/pycharm/configure_to_autostart.sh .
+RUN bash -c './configure_to_autostart.sh'
