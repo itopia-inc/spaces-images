@@ -7,7 +7,10 @@ LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-imag
 COPY runtimes/python/install_python_3-9_on_ubuntu_focal.sh .
 RUN bash -c './install_python_3-9_on_ubuntu_focal.sh'
 
-COPY ides/pycharm/install_pycharm.sh .
-RUN bash -c './install_pycharm.sh'
+COPY ides/pycharm/install.sh .
+RUN bash -c './install.sh'
 ENV PATH="/opt/pycharm-community/bin:$PATH"
-# TODO: Add a desktop shortcut for PyCharm, via customization script.
+
+COPY ides/pycharm/create_desktop_shortcut.sh .
+COPY ides/pycharm/jetbrains-pycharm-ce.desktop .
+RUN bash -c './create_desktop_shortcut.sh'
