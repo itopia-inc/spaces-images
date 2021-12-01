@@ -339,3 +339,15 @@ jobs:
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-vscode:20.04
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-vscode:focal
+
+  build_and_publish_vscode_and_all_runtimes_on_ubuntu_focal:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: complete-setups/vscode-and-all-runtimes/Dockerfile
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-vscode-runtimes:20.04
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-vscode-runtimes:focal
