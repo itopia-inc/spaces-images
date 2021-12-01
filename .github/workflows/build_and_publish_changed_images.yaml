@@ -15,19 +15,19 @@ jobs:
       node_16_on_ubuntu_focal_changed: ${{ steps.changes_to_node_16_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_node_16_on_ubuntu_focal.outputs.any_deleted == 'true' }}
       openjdk_8_on_ubuntu_focal_changed: ${{ steps.changes_to_openjdk_8_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_openjdk_8_on_ubuntu_focal.outputs.any_deleted == 'true' }}
       openjdk_11_on_ubuntu_focal_changed: ${{ steps.changes_to_openjdk_11_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_openjdk_11_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_2-7_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_2-7_and_pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_python_2-7_and_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_2-7_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_3-6_and_pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-6_and_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-9_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_3-7_and_pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-7_and_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-9_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_3-8_and_pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-8_and_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-9_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_3-9_and_pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-9_and_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-9_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_3-10_and_pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-10_and_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-9_on_ubuntu_focal.outputs.any_deleted == 'true' }}
+      pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_pycharm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
+      python_2-7_and_pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_python_2-7_and_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_2-7_and_pycharm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
+      python_3-6_and_pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-6_and_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-6_and_pycharm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
+      python_3-7_and_pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-7_and_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-7_and_pycharm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
+      python_3-8_and_pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-8_and_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-8_and_pycharm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
+      python_3-9_and_pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-9_and_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-9_and_pycharm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
+      python_3-10_and_pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-10_and_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-10_and_pycharm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
       python_2-7_on_ubuntu_focal_changed: ${{ steps.changes_to_python_2-7_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_2-7_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_3-6_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-6_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-9_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_3-7_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-7_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-9_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_3-8_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-8_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-9_on_ubuntu_focal.outputs.any_deleted == 'true' }}
+      python_3-6_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-6_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-6_on_ubuntu_focal.outputs.any_deleted == 'true' }}
+      python_3-7_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-7_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-7_on_ubuntu_focal.outputs.any_deleted == 'true' }}
+      python_3-8_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-8_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-8_on_ubuntu_focal.outputs.any_deleted == 'true' }}
       python_3-9_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-9_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-9_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_3-10_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-10_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-9_on_ubuntu_focal.outputs.any_deleted == 'true' }}
+      python_3-10_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-10_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-10_on_ubuntu_focal.outputs.any_deleted == 'true' }}
     steps:
     - uses: actions/checkout@v2
       with:
