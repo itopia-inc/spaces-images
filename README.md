@@ -25,7 +25,7 @@ For example:
 <!-- TODO: Write some example RUN instructions -->
 ```Dockerfile
 # syntax=docker/dockerfile:1
-FROM ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-16
+FROM ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-16
 
 # Install your developers' tools
 

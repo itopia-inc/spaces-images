@@ -10,9 +10,9 @@ jobs:
   detect_image_source_changes:
     runs-on: ubuntu-latest
     outputs:
-      node_12_on_ubuntu_focal_changed: ${{ steps.changes_to_node_12_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_node_12_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      node_14_on_ubuntu_focal_changed: ${{ steps.changes_to_node_14_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_node_14_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      node_16_on_ubuntu_focal_changed: ${{ steps.changes_to_node_16_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_node_16_on_ubuntu_focal.outputs.any_deleted == 'true' }}
+      nodejs_12_on_ubuntu_focal_changed: ${{ steps.changes_to_nodejs_12_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_nodejs_12_on_ubuntu_focal.outputs.any_deleted == 'true' }}
+      nodejs_14_on_ubuntu_focal_changed: ${{ steps.changes_to_nodejs_14_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_nodejs_14_on_ubuntu_focal.outputs.any_deleted == 'true' }}
+      nodejs_16_on_ubuntu_focal_changed: ${{ steps.changes_to_nodejs_16_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_nodejs_16_on_ubuntu_focal.outputs.any_deleted == 'true' }}
       openjdk_8_on_ubuntu_focal_changed: ${{ steps.changes_to_openjdk_8_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_openjdk_8_on_ubuntu_focal.outputs.any_deleted == 'true' }}
       openjdk_11_on_ubuntu_focal_changed: ${{ steps.changes_to_openjdk_11_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_openjdk_11_on_ubuntu_focal.outputs.any_deleted == 'true' }}
       pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_pycharm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
@@ -32,26 +32,26 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 2 # This is for changed-files.
-    - id: changes_to_node_12_on_ubuntu_focal
+    - id: changes_to_nodejs_12_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          runtimes/node/install_node_12.sh
-          runtimes/node/node_12_on_ubuntu_focal.Dockerfile
+          runtimes/nodejs/install_nodejs_12_on_ubuntu_focal.sh
+          runtimes/nodejs/nodejs_12_on_ubuntu_focal.Dockerfile
     - run: |
-        echo '${{ toJSON(steps.changes_to_node_12_on_ubuntu_focal) }}'
-    - id: changes_to_node_14_on_ubuntu_focal
+        echo '${{ toJSON(steps.changes_to_nodejs_12_on_ubuntu_focal) }}'
+    - id: changes_to_nodejs_14_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          runtimes/node/install_node_14.sh
-          runtimes/node/node_14_on_ubuntu_focal.Dockerfile
-    - id: changes_to_node_16_on_ubuntu_focal
+          runtimes/nodejs/install_nodejs_14_on_ubuntu_focal.sh
+          runtimes/nodejs/nodejs_14_on_ubuntu_focal.Dockerfile
+    - id: changes_to_nodejs_16_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          runtimes/node/install_node_16.sh
-          runtimes/node/node_16_on_ubuntu_focal.Dockerfile
+          runtimes/nodejs/install_nodejs_16_on_ubuntu_focal.sh
+          runtimes/nodejs/nodejs_16_on_ubuntu_focal.Dockerfile
     - id: changes_to_openjdk_8_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -170,47 +170,47 @@ jobs:
           runtimes/python/install_python_3-10_on_ubuntu_focal.sh
           runtimes/python/python_3-10_on_ubuntu_focal.Dockerfile
 
-  build_and_publish_node_12_on_ubuntu_focal:
+  build_and_publish_nodejs_12_on_ubuntu_focal:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.node_12_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.nodejs_12_on_ubuntu_focal_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/node/node_12_on_ubuntu_focal.Dockerfile
+        dockerfile_path: runtimes/nodejs/nodejs_12_on_ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-12
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-12
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:20.04-12
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-12
 
-  build_and_publish_node_14_on_ubuntu_focal:
+  build_and_publish_nodejs_14_on_ubuntu_focal:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.node_14_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.nodejs_14_on_ubuntu_focal_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/node/node_14_on_ubuntu_focal.Dockerfile
+        dockerfile_path: runtimes/nodejs/nodejs_14_on_ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-14
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-14
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:20.04-14
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-14
 
-  build_and_publish_node_16_on_ubuntu_focal:
+  build_and_publish_nodejs_16_on_ubuntu_focal:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.node_16_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.nodejs_16_on_ubuntu_focal_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/node/node_16_on_ubuntu_focal.Dockerfile
+        dockerfile_path: runtimes/nodejs/nodejs_16_on_ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-16
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-16
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:20.04-16
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-16
 
   build_and_publish_openjdk_8_on_ubuntu_focal:
     needs: detect_image_source_changes

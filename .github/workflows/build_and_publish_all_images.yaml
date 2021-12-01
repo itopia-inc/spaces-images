@@ -4,41 +4,41 @@ on: workflow_dispatch
 
 jobs:
 
-  build_and_publish_node_12_on_ubuntu_focal:
+  build_and_publish_nodejs_12_on_ubuntu_focal:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/node/node_12_on_ubuntu_focal.Dockerfile
+        dockerfile_path: runtimes/nodejs/nodejs_12_on_ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-12
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-12
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:20.04-12
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-12
 
-  build_and_publish_node_14_on_ubuntu_focal:
+  build_and_publish_nodejs_14_on_ubuntu_focal:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/node/node_14_on_ubuntu_focal.Dockerfile
+        dockerfile_path: runtimes/nodejs/nodejs_14_on_ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-14
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-14
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:20.04-14
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-14
 
-  build_and_publish_node_16_on_ubuntu_focal:
+  build_and_publish_nodejs_16_on_ubuntu_focal:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/node/node_16_on_ubuntu_focal.Dockerfile
+        dockerfile_path: runtimes/nodejs/nodejs_16_on_ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:20.04-16
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-node:focal-16
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:20.04-16
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-16
 
   build_and_publish_openjdk_8_on_ubuntu_focal:
     runs-on: ubuntu-latest
