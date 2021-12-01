@@ -46,7 +46,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: complete-setups/nodejs_and_vscode/nodejs_12_and_vscode_on_ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/nodejs-and-vscode/nodejs_12_and_vscode_on_ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:20.04-12
@@ -58,7 +58,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: complete-setups/nodejs_and_vscode/nodejs_14_and_vscode_on_ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/nodejs-and-vscode/nodejs_14_and_vscode_on_ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:20.04-14
@@ -70,7 +70,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: complete-setups/nodejs_and_vscode/nodejs_16_and_vscode_on_ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/nodejs-and-vscode/nodejs_16_and_vscode_on_ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:20.04-16
