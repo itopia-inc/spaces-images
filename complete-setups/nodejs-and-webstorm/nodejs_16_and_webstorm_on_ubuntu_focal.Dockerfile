@@ -10,9 +10,9 @@ RUN bash -c '/usr/share/dev-scripts/install_nodejs_16_on_ubuntu_focal.sh'
 COPY ides/webstorm/install_webstorm.sh /usr/share/dev-scripts/
 RUN bash -c '/usr/share/dev-scripts/install_webstorm.sh'
 
-COPY ides/webstorm/create_desktop_shortcut.sh /usr/share/dev-scripts/
+COPY ides/webstorm/create_webstorm_desktop_shortcut.sh /usr/share/dev-scripts/
 COPY ides/webstorm/jetbrains-webstorm-ce.desktop /usr/share/dev-scripts/
 RUN bash -c '/usr/share/dev-scripts/create_desktop_shortcut.sh'
 
-COPY ides/webstorm/configure_to_autostart.sh /usr/share/dev-scripts/
+COPY ides/webstorm/configure_webstorm_to_autostart.sh /usr/share/dev-scripts/
 RUN bash -c '/usr/share/dev-scripts/configure_to_autostart.sh'

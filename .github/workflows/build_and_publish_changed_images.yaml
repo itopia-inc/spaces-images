@@ -69,21 +69,21 @@ jobs:
       with:
         files: |
           complete-setups/nodejs-and-vscode/nodejs_12_and_vscode_on_ubuntu_focal.Dockerfile
-          ides/vscode/configure_to_autostart.sh
+          ides/vscode/configure_vscode_to_autostart.sh
           runtimes/nodejs/install_nodejs_12_on_ubuntu_focal.sh
     - id: changes_to_nodejs_14_and_vscode_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           complete-setups/nodejs-and-vscode/nodejs_14_and_vscode_on_ubuntu_focal.Dockerfile
-          ides/vscode/configure_to_autostart.sh
+          ides/vscode/configure_vscode_to_autostart.sh
           runtimes/nodejs/install_nodejs_14_on_ubuntu_focal.sh
     - id: changes_to_nodejs_16_and_vscode_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           complete-setups/nodejs-and-vscode/nodejs_16_and_vscode_on_ubuntu_focal.Dockerfile
-          ides/vscode/configure_to_autostart.sh
+          ides/vscode/configure_vscode_to_autostart.sh
           runtimes/nodejs/install_nodejs_16_on_ubuntu_focal.sh
     - id: changes_to_openjdk_8_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
@@ -101,8 +101,8 @@ jobs:
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          ides/pycharm/configure_to_autostart.sh
-          ides/pycharm/create_desktop_shortcut.sh
+          ides/pycharm/configure_pycharm_to_autostart.sh
+          ides/pycharm/create_pycharm_desktop_shortcut.sh
           ides/pycharm/Dockerfile
           ides/pycharm/install_pycharm.sh
           ides/pycharm/jetbrains-pycharm-ce.desktop
@@ -147,8 +147,8 @@ jobs:
       with:
         files: |
           complete-setups/python-and-pycharm/python_2-7_and_pycharm_on_ubuntu_focal.Dockerfile
-          ides/pycharm/configure_to_autostart.sh
-          ides/pycharm/create_desktop_shortcut.sh
+          ides/pycharm/configure_pycharm_to_autostart.sh
+          ides/pycharm/create_pycharm_desktop_shortcut.sh
           ides/pycharm/install_pycharm.sh
           ides/pycharm/jetbrains-pycharm-ce.desktop
           runtimes/python/install_python_2-7_on_ubuntu_focal.sh
@@ -157,8 +157,8 @@ jobs:
       with:
         files: |
           complete-setups/python-and-pycharm/python_3-6_and_pycharm_on_ubuntu_focal.Dockerfile
-          ides/pycharm/configure_to_autostart.sh
-          ides/pycharm/create_desktop_shortcut.sh
+          ides/pycharm/configure_pycharm_to_autostart.sh
+          ides/pycharm/create_pycharm_desktop_shortcut.sh
           ides/pycharm/install_pycharm.sh
           ides/pycharm/jetbrains-pycharm-ce.desktop
           runtimes/python/install_python_3-6_on_ubuntu_focal.sh
@@ -167,8 +167,8 @@ jobs:
       with:
         files: |
           complete-setups/python-and-pycharm/python_3-7_and_pycharm_on_ubuntu_focal.Dockerfile
-          ides/pycharm/configure_to_autostart.sh
-          ides/pycharm/create_desktop_shortcut.sh
+          ides/pycharm/configure_pycharm_to_autostart.sh
+          ides/pycharm/create_pycharm_desktop_shortcut.sh
           ides/pycharm/install_pycharm.sh
           ides/pycharm/jetbrains-pycharm-ce.desktop
           runtimes/python/install_python_3-7_on_ubuntu_focal.sh
@@ -177,8 +177,8 @@ jobs:
       with:
         files: |
           complete-setups/python-and-pycharm/python_3-8_and_pycharm_on_ubuntu_focal.Dockerfile
-          ides/pycharm/configure_to_autostart.sh
-          ides/pycharm/create_desktop_shortcut.sh
+          ides/pycharm/configure_pycharm_to_autostart.sh
+          ides/pycharm/create_pycharm_desktop_shortcut.sh
           ides/pycharm/install_pycharm.sh
           ides/pycharm/jetbrains-pycharm-ce.desktop
           runtimes/python/configure_python_3-8_on_ubuntu_focal.sh
@@ -187,8 +187,8 @@ jobs:
       with:
         files: |
           complete-setups/python-and-pycharm/python_3-9_and_pycharm_on_ubuntu_focal.Dockerfile
-          ides/pycharm/configure_to_autostart.sh
-          ides/pycharm/create_desktop_shortcut.sh
+          ides/pycharm/configure_pycharm_to_autostart.sh
+          ides/pycharm/create_pycharm_desktop_shortcut.sh
           ides/pycharm/install_pycharm.sh
           ides/pycharm/jetbrains-pycharm-ce.desktop
           runtimes/python/install_python_3-9_on_ubuntu_focal.sh
@@ -197,8 +197,8 @@ jobs:
       with:
         files: |
           complete-setups/python-and-pycharm/python_3-10_and_pycharm_on_ubuntu_focal.Dockerfile
-          ides/pycharm/configure_to_autostart.sh
-          ides/pycharm/create_desktop_shortcut.sh
+          ides/pycharm/configure_pycharm_to_autostart.sh
+          ides/pycharm/create_pycharm_desktop_shortcut.sh
           ides/pycharm/install_pycharm.sh
           ides/pycharm/jetbrains-pycharm-ce.desktop
           runtimes/python/install_python_3-10_on_ubuntu_focal.sh
@@ -207,55 +207,55 @@ jobs:
       with:
         files: |
           complete-setups/python-and-vscode/python_2-7_and_vscode_on_ubuntu_focal.Dockerfile
-          ides/vscode/configure_to_autostart.sh
+          ides/vscode/configure_vscode_to_autostart.sh
           runtimes/python/install_python_2-7_on_ubuntu_focal.sh
     - id: changes_to_python_3-6_and_vscode_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           complete-setups/python-and-vscode/python_3-6_and_vscode_on_ubuntu_focal.Dockerfile
-          ides/vscode/configure_to_autostart.sh
+          ides/vscode/configure_vscode_to_autostart.sh
           runtimes/python/install_python_3-6_on_ubuntu_focal.sh
     - id: changes_to_python_3-7_and_vscode_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           complete-setups/python-and-vscode/python_3-7_and_vscode_on_ubuntu_focal.Dockerfile
-          ides/vscode/configure_to_autostart.sh
+          ides/vscode/configure_vscode_to_autostart.sh
           runtimes/python/install_python_3-7_on_ubuntu_focal.sh
     - id: changes_to_python_3-8_and_vscode_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           complete-setups/python-and-vscode/python_3-8_and_vscode_on_ubuntu_focal.Dockerfile
-          ides/vscode/configure_to_autostart.sh
+          ides/vscode/configure_vscode_to_autostart.sh
           runtimes/python/configure_python_3-8_on_ubuntu_focal.sh
     - id: changes_to_python_3-9_and_vscode_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           complete-setups/python-and-vscode/python_3-9_and_vscode_on_ubuntu_focal.Dockerfile
-          ides/vscode/configure_to_autostart.sh
+          ides/vscode/configure_vscode_to_autostart.sh
           runtimes/python/install_python_3-9_on_ubuntu_focal.sh
     - id: changes_to_python_3-10_and_vscode_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           complete-setups/python-and-vscode/python_3-10_and_vscode_on_ubuntu_focal.Dockerfile
-          ides/vscode/configure_to_autostart.sh
+          ides/vscode/configure_vscode_to_autostart.sh
           runtimes/python/install_python_3-10_on_ubuntu_focal.sh
     - id: changes_to_vscode_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          ides/vscode/configure_to_autostart.sh
+          ides/vscode/configure_vscode_to_autostart.sh
           ides/vscode/Dockerfile
     - id: changes_to_webstorm_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          ides/webstorm/configure_to_autostart.sh
-          ides/webstorm/create_desktop_shortcut.sh
+          ides/webstorm/configure_webstorm_to_autostart.sh
+          ides/webstorm/create_webstorm_desktop_shortcut.sh
           ides/webstorm/Dockerfile
           ides/webstorm/install.sh
           ides/webstorm/WebStorm.desktop

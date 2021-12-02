@@ -7,5 +7,5 @@ LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-imag
 COPY runtimes/nodejs/install_nodejs_12_on_ubuntu_focal.sh /usr/share/dev-scripts/
 RUN bash -c '/usr/share/dev-scripts/install_nodejs_12_on_ubuntu_focal.sh'
 
-COPY ides/vscode/configure_to_autostart.sh /usr/share/dev-scripts/
+COPY ides/vscode/configure_vscode_to_autostart.sh /usr/share/dev-scripts/
 RUN bash -c '/usr/share/dev-scripts/configure_to_autostart.sh'
