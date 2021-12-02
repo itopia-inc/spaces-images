@@ -16,6 +16,9 @@ jobs:
       nodejs_12_and_vscode_on_ubuntu_focal_changed: ${{ steps.changes_to_nodejs_12_and_vscode_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_nodejs_12_and_vscode_on_ubuntu_focal.outputs.any_deleted == 'true' }}
       nodejs_14_and_vscode_on_ubuntu_focal_changed: ${{ steps.changes_to_nodejs_14_and_vscode_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_nodejs_14_and_vscode_on_ubuntu_focal.outputs.any_deleted == 'true' }}
       nodejs_16_and_vscode_on_ubuntu_focal_changed: ${{ steps.changes_to_nodejs_16_and_vscode_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_nodejs_16_and_vscode_on_ubuntu_focal.outputs.any_deleted == 'true' }}
+      nodejs_12_and_webstorm_on_ubuntu_focal_changed: ${{ steps.changes_to_nodejs_12_and_webstorm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_nodejs_12_and_webstorm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
+      nodejs_14_and_webstorm_on_ubuntu_focal_changed: ${{ steps.changes_to_nodejs_14_and_webstorm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_nodejs_14_and_webstorm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
+      nodejs_16_and_webstorm_on_ubuntu_focal_changed: ${{ steps.changes_to_nodejs_16_and_webstorm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_nodejs_16_and_webstorm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
       openjdk_8_on_ubuntu_focal_changed: ${{ steps.changes_to_openjdk_8_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_openjdk_8_on_ubuntu_focal.outputs.any_deleted == 'true' }}
       openjdk_11_on_ubuntu_focal_changed: ${{ steps.changes_to_openjdk_11_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_openjdk_11_on_ubuntu_focal.outputs.any_deleted == 'true' }}
       pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_pycharm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
@@ -38,6 +41,7 @@ jobs:
       python_3-9_and_vscode_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-9_and_vscode_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-9_and_vscode_on_ubuntu_focal.outputs.any_deleted == 'true' }}
       python_3-10_and_vscode_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-10_and_vscode_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-10_and_vscode_on_ubuntu_focal.outputs.any_deleted == 'true' }}
       vscode_on_ubuntu_focal_changed: ${{ steps.changes_to_vscode_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_vscode_on_ubuntu_focal.outputs.any_deleted == 'true' }}
+      webstorm_on_ubuntu_focal_changed: ${{ steps.changes_to_webstorm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_webstorm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
     steps:
     - uses: actions/checkout@v2
       with:
@@ -246,6 +250,15 @@ jobs:
         files: |
           ides/vscode/configure_to_autostart.sh
           ides/vscode/Dockerfile
+    - id: changes_to_webstorm_on_ubuntu_focal
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: |
+          ides/webstorm/configure_to_autostart.sh
+          ides/webstorm/create_desktop_shortcut.sh
+          ides/webstorm/Dockerfile
+          ides/webstorm/install.sh
+          ides/webstorm/WebStorm.desktop
 
   build_and_publish_nodejs_12_on_ubuntu_focal:
     needs: detect_image_source_changes
@@ -330,6 +343,48 @@ jobs:
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:20.04-16
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:focal-16
+
+  build_and_publish_nodejs_12_and_webstorm_on_ubuntu_focal:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.nodejs_12_and_webstorm_on_ubuntu_focal_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: complete-setups/nodejs-and-webstorm/nodejs_12_and_webstorm_on_ubuntu_focal.Dockerfile
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:20.04-12
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-12
+
+  build_and_publish_nodejs_14_and_webstorm_on_ubuntu_focal:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.nodejs_14_and_webstorm_on_ubuntu_focal_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: complete-setups/nodejs-and-webstorm/nodejs_14_and_webstorm_on_ubuntu_focal.Dockerfile
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:20.04-14
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-14
+
+  build_and_publish_nodejs_16_and_webstorm_on_ubuntu_focal:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.nodejs_16_and_webstorm_on_ubuntu_focal_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: complete-setups/nodejs/nodejs_16_and_webstorm_on_ubuntu_focal.Dockerfile
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:20.04-16
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-16
 
   build_and_publish_openjdk_8_on_ubuntu_focal:
     needs: detect_image_source_changes
@@ -638,3 +693,17 @@ jobs:
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-vscode:20.04
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-vscode:focal
+
+  build_and_publish_webstorm_on_ubuntu_focal:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.webstorm_on_ubuntu_focal_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: ides/webstorm/webstorm_on_ubuntu_focal.Dockerfile
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-webstorm:20.04
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-webstorm:focal

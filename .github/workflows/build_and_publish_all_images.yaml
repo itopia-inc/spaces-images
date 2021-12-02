@@ -76,6 +76,42 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:20.04-16
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:focal-16
 
+  build_and_publish_nodejs_12_and_webstorm_on_ubuntu_focal:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: complete-setups/nodejs-and-webstorm/nodejs_12_and_webstorm_on_ubuntu_focal.Dockerfile
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:20.04-12
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-12
+
+  build_and_publish_nodejs_14_and_webstorm_on_ubuntu_focal:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: complete-setups/nodejs-and-webstorm/nodejs_14_and_webstorm_on_ubuntu_focal.Dockerfile
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:20.04-14
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-14
+
+  build_and_publish_nodejs_16_and_webstorm_on_ubuntu_focal:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: complete-setups/nodejs-and-webstorm/nodejs_16_and_webstorm_on_ubuntu_focal.Dockerfile
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:20.04-16
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-16
+
   build_and_publish_openjdk_8_on_ubuntu_focal:
     runs-on: ubuntu-latest
     steps:
@@ -339,3 +375,15 @@ jobs:
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-vscode:20.04
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-vscode:focal
+
+  build_and_publish_webstorm_on_ubuntu_focal:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: ides/webstorm/Dockerfile
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-webstorm:20.04
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-webstorm:focal
