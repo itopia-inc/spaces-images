@@ -8,4 +8,4 @@ COPY runtimes/python/configure_python_3-8_on_ubuntu_focal.sh /usr/share/dev-scri
 RUN bash -c '/usr/share/dev-scripts/configure_python_3-8_on_ubuntu_focal.sh'
 
 COPY ides/vscode/configure_vscode_to_autostart.sh /usr/share/dev-scripts/
-RUN bash -c '/usr/share/dev-scripts/configure_to_autostart.sh'
+RUN bash -c '/usr/share/dev-scripts/configure_vscode_to_autostart.sh'
