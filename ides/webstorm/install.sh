@@ -8,3 +8,5 @@ sudo mkdir /opt/WebStorm
 sudo tar xzf WebStorm-2021.3.tar.gz \
     -C /opt/WebStorm \
     --strip-components 1
+
+sudo ln -sf /opt/WebStorm/bin/webstorm.sh /usr/local/bin/webstorm

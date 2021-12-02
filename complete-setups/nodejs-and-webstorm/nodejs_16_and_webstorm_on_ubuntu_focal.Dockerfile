@@ -9,7 +9,6 @@ RUN bash -c './install_nodejs_16_on_ubuntu_focal.sh'
 
 COPY ides/webstorm/install.sh .
 RUN bash -c './install.sh'
-ENV PATH="/opt/webstorm/bin:$PATH"
 
 COPY ides/webstorm/create_desktop_shortcut.sh .
 COPY ides/webstorm/jetbrains-webstorm-ce.desktop .

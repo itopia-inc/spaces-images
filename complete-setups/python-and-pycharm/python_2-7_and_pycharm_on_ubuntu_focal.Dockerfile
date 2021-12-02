@@ -9,7 +9,6 @@ RUN bash -c './install_python_2-7_on_ubuntu_focal.sh'
 
 COPY ides/pycharm/install.sh .
 RUN bash -c './install.sh'
-ENV PATH="/opt/pycharm-community/bin:$PATH"
 
 COPY ides/pycharm/create_desktop_shortcut.sh .
 COPY ides/pycharm/jetbrains-pycharm-ce.desktop .

@@ -8,3 +8,5 @@ sudo mkdir /opt/pycharm-community
 sudo tar xzf pycharm-community-2021.2.2.tar.gz \
     -C /opt/pycharm-community \
     --strip-components 1
+
+sudo ln -sf /opt/pycharm-community/bin/pycharm.sh /usr/local/bin/pycharm

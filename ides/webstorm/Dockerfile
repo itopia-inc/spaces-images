@@ -6,7 +6,6 @@ LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-imag
 
 COPY ides/webstorm/install.sh .
 RUN bash -c './install.sh'
-ENV PATH="/opt/WebStorm/bin:$PATH"
 
 COPY ides/webstorm/create_desktop_shortcut.sh .
 COPY ides/webstorm/WebStorm.desktop .

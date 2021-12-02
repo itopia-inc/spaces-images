@@ -6,7 +6,6 @@ LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-imag
 
 COPY ides/pycharm/install.sh .
 RUN bash -c './install.sh'
-ENV PATH="/opt/pycharm-community/bin:$PATH"
 
 COPY ides/pycharm/create_desktop_shortcut.sh .
 COPY ides/pycharm/jetbrains-pycharm-ce.desktop .
