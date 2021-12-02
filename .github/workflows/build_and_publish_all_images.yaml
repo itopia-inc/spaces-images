@@ -160,42 +160,6 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-2.7
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-2.7
 
-  build_and_publish_python_3-6_on_ubuntu_focal:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
-      with:
-        dockerfile_path: runtimes/python/python_3-6_on_ubuntu_focal.Dockerfile
-        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
-        github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.6
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.6
-
-  build_and_publish_python_3-7_on_ubuntu_focal:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
-      with:
-        dockerfile_path: runtimes/python/python_3-7_on_ubuntu_focal.Dockerfile
-        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
-        github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.7
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.7
-
-  build_and_publish_python_3-8_on_ubuntu_focal:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
-      with:
-        dockerfile_path: runtimes/python/python_3-8_on_ubuntu_focal.Dockerfile
-        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
-        github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.8
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.8
-
   build_and_publish_python_3-9_on_ubuntu_focal:
     runs-on: ubuntu-latest
     steps:
@@ -232,42 +196,6 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-2.7
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-2.7
 
-  build_and_publish_python_3-7_and_pycharm_on_ubuntu_focal:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
-      with:
-        dockerfile_path: complete-setups/python-and-pycharm/python_3-7_and_pycharm_on_ubuntu_focal.Dockerfile
-        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
-        github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-3.7
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-3.7
-
-  build_and_publish_python_3-6_and_pycharm_on_ubuntu_focal:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
-      with:
-        dockerfile_path: complete-setups/python-and-pycharm/python_3-6_and_pycharm_on_ubuntu_focal.Dockerfile
-        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
-        github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-3.6
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-3.6
-
-  build_and_publish_python_3-8_and_pycharm_on_ubuntu_focal:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
-      with:
-        dockerfile_path: complete-setups/python-and-pycharm/python_3-8_and_pycharm_on_ubuntu_focal.Dockerfile
-        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
-        github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-3.8
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-3.8
-
   build_and_publish_python_3-9_and_pycharm_on_ubuntu_focal:
     runs-on: ubuntu-latest
     steps:
@@ -303,42 +231,6 @@ jobs:
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:20.04-2.7
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:focal-2.7
-
-  build_and_publish_python_3-6_and_vscode_on_ubuntu_focal:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
-      with:
-        dockerfile_path: complete-setups/python-and-vscode/python_3-6_and_vscode_on_ubuntu_focal.Dockerfile
-        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
-        github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:20.04-3.6
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:focal-3.6
-
-  build_and_publish_python_3-7_and_vscode_on_ubuntu_focal:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
-      with:
-        dockerfile_path: complete-setups/python-and-vscode/python_3-7_and_vscode_on_ubuntu_focal.Dockerfile
-        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
-        github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:20.04-3.7
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:focal-3.7
-
-  build_and_publish_python_3-8_and_vscode_on_ubuntu_focal:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
-      with:
-        dockerfile_path: complete-setups/python-and-vscode/python_3-8_and_vscode_on_ubuntu_focal.Dockerfile
-        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
-        github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:20.04-3.8
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:focal-3.8
 
   build_and_publish_python_3-9_and_vscode_on_ubuntu_focal:
     runs-on: ubuntu-latest

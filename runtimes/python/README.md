@@ -6,6 +6,6 @@ an [operating system that itopia Spaces supports](https://github.com/itopia-inc/
 
 ## Versions
 
-We support the latest patch versions (`all.all.latest`) of all Python releases that are
-[currently "active"](https://www.python.org/downloads/),
-but we do not
+We support the latest patch version of all bugfix-supported Python 3
+[releases](https://www.python.org/downloads/)
+and Python v2.7.18 .

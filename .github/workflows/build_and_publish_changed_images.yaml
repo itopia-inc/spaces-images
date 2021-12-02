@@ -23,21 +23,12 @@ jobs:
       openjdk_11_on_ubuntu_focal_changed: ${{ steps.changes_to_openjdk_11_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_openjdk_11_on_ubuntu_focal.outputs.any_deleted == 'true' }}
       pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_pycharm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
       python_2-7_on_ubuntu_focal_changed: ${{ steps.changes_to_python_2-7_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_2-7_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_3-6_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-6_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-6_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_3-7_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-7_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-7_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_3-8_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-8_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-8_on_ubuntu_focal.outputs.any_deleted == 'true' }}
       python_3-9_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-9_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-9_on_ubuntu_focal.outputs.any_deleted == 'true' }}
       python_3-10_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-10_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-10_on_ubuntu_focal.outputs.any_deleted == 'true' }}
       python_2-7_and_pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_python_2-7_and_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_2-7_and_pycharm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_3-6_and_pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-6_and_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-6_and_pycharm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_3-7_and_pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-7_and_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-7_and_pycharm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_3-8_and_pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-8_and_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-8_and_pycharm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
       python_3-9_and_pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-9_and_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-9_and_pycharm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
       python_3-10_and_pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-10_and_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-10_and_pycharm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
       python_2-7_and_vscode_on_ubuntu_focal_changed: ${{ steps.changes_to_python_2-7_and_vscode_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_2-7_and_vscode_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_3-6_and_vscode_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-6_and_vscode_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-6_and_vscode_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_3-7_and_vscode_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-7_and_vscode_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-7_and_vscode_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_3-8_and_vscode_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-8_and_vscode_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-8_and_vscode_on_ubuntu_focal.outputs.any_deleted == 'true' }}
       python_3-9_and_vscode_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-9_and_vscode_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-9_and_vscode_on_ubuntu_focal.outputs.any_deleted == 'true' }}
       python_3-10_and_vscode_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-10_and_vscode_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-10_and_vscode_on_ubuntu_focal.outputs.any_deleted == 'true' }}
       vscode_on_ubuntu_focal_changed: ${{ steps.changes_to_vscode_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_vscode_on_ubuntu_focal.outputs.any_deleted == 'true' }}
@@ -112,24 +103,6 @@ jobs:
         files: |
           runtimes/python/install_python_2-7_on_ubuntu_focal.sh
           runtimes/python/python_2-7_on_ubuntu_focal.Dockerfile
-    - id: changes_to_python_3-6_on_ubuntu_focal
-      uses: tj-actions/changed-files@v1.1.2
-      with:
-        files: |
-          runtimes/python/install_python_3-6_on_ubuntu_focal.sh
-          runtimes/python/python_3-6_on_ubuntu_focal.Dockerfile
-    - id: changes_to_python_3-7_on_ubuntu_focal
-      uses: tj-actions/changed-files@v1.1.2
-      with:
-        files: |
-          runtimes/python/install_python_3-7_on_ubuntu_focal.sh
-          runtimes/python/python_3-7_on_ubuntu_focal.Dockerfile
-    - id: changes_to_python_3-8_on_ubuntu_focal
-      uses: tj-actions/changed-files@v1.1.2
-      with:
-        files: |
-          runtimes/python/install_python_3-8_on_ubuntu_focal.sh
-          runtimes/python/python_3-8_on_ubuntu_focal.Dockerfile
     - id: changes_to_python_3-9_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -152,36 +125,6 @@ jobs:
           ides/pycharm/install_pycharm.sh
           ides/pycharm/jetbrains-pycharm-ce.desktop
           runtimes/python/install_python_2-7_on_ubuntu_focal.sh
-    - id: changes_to_python_3-6_and_pycharm_on_ubuntu_focal
-      uses: tj-actions/changed-files@v1.1.2
-      with:
-        files: |
-          complete-setups/python-and-pycharm/python_3-6_and_pycharm_on_ubuntu_focal.Dockerfile
-          ides/pycharm/configure_pycharm_to_autostart.sh
-          ides/pycharm/create_pycharm_desktop_shortcut.sh
-          ides/pycharm/install_pycharm.sh
-          ides/pycharm/jetbrains-pycharm-ce.desktop
-          runtimes/python/install_python_3-6_on_ubuntu_focal.sh
-    - id: changes_to_python_3-7_and_pycharm_on_ubuntu_focal
-      uses: tj-actions/changed-files@v1.1.2
-      with:
-        files: |
-          complete-setups/python-and-pycharm/python_3-7_and_pycharm_on_ubuntu_focal.Dockerfile
-          ides/pycharm/configure_pycharm_to_autostart.sh
-          ides/pycharm/create_pycharm_desktop_shortcut.sh
-          ides/pycharm/install_pycharm.sh
-          ides/pycharm/jetbrains-pycharm-ce.desktop
-          runtimes/python/install_python_3-7_on_ubuntu_focal.sh
-    - id: changes_to_python_3-8_and_pycharm_on_ubuntu_focal
-      uses: tj-actions/changed-files@v1.1.2
-      with:
-        files: |
-          complete-setups/python-and-pycharm/python_3-8_and_pycharm_on_ubuntu_focal.Dockerfile
-          ides/pycharm/configure_pycharm_to_autostart.sh
-          ides/pycharm/create_pycharm_desktop_shortcut.sh
-          ides/pycharm/install_pycharm.sh
-          ides/pycharm/jetbrains-pycharm-ce.desktop
-          runtimes/python/configure_python_3-8_on_ubuntu_focal.sh
     - id: changes_to_python_3-9_and_pycharm_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -209,27 +152,6 @@ jobs:
           complete-setups/python-and-vscode/python_2-7_and_vscode_on_ubuntu_focal.Dockerfile
           ides/vscode/configure_vscode_to_autostart.sh
           runtimes/python/install_python_2-7_on_ubuntu_focal.sh
-    - id: changes_to_python_3-6_and_vscode_on_ubuntu_focal
-      uses: tj-actions/changed-files@v1.1.2
-      with:
-        files: |
-          complete-setups/python-and-vscode/python_3-6_and_vscode_on_ubuntu_focal.Dockerfile
-          ides/vscode/configure_vscode_to_autostart.sh
-          runtimes/python/install_python_3-6_on_ubuntu_focal.sh
-    - id: changes_to_python_3-7_and_vscode_on_ubuntu_focal
-      uses: tj-actions/changed-files@v1.1.2
-      with:
-        files: |
-          complete-setups/python-and-vscode/python_3-7_and_vscode_on_ubuntu_focal.Dockerfile
-          ides/vscode/configure_vscode_to_autostart.sh
-          runtimes/python/install_python_3-7_on_ubuntu_focal.sh
-    - id: changes_to_python_3-8_and_vscode_on_ubuntu_focal
-      uses: tj-actions/changed-files@v1.1.2
-      with:
-        files: |
-          complete-setups/python-and-vscode/python_3-8_and_vscode_on_ubuntu_focal.Dockerfile
-          ides/vscode/configure_vscode_to_autostart.sh
-          runtimes/python/configure_python_3-8_on_ubuntu_focal.sh
     - id: changes_to_python_3-9_and_vscode_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -442,48 +364,6 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-2.7
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-2.7
 
-  build_and_publish_python_3-6_on_ubuntu_focal:
-    needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_3-6_on_ubuntu_focal_changed == 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
-      with:
-        dockerfile_path: runtimes/python/python_3-6_on_ubuntu_focal.Dockerfile
-        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
-        github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.6
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.6
-
-  build_and_publish_python_3-7_on_ubuntu_focal:
-    needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_3-7_on_ubuntu_focal_changed == 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
-      with:
-        dockerfile_path: runtimes/python/python_3-7_on_ubuntu_focal.Dockerfile
-        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
-        github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.7
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.7
-
-  build_and_publish_python_3-8_on_ubuntu_focal:
-    needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_3-8_on_ubuntu_focal_changed == 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
-      with:
-        dockerfile_path: runtimes/python/python_3-8_on_ubuntu_focal.Dockerfile
-        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
-        github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.8
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.8
-
   build_and_publish_python_3-9_on_ubuntu_focal:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.python_3-9_on_ubuntu_focal_changed == 'true' }}
@@ -526,48 +406,6 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-2.7
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-2.7
 
-  build_and_publish_python_3-6_and_pycharm_on_ubuntu_focal:
-    needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_3-6_and_pycharm_on_ubuntu_focal_changed == 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
-      with:
-        dockerfile_path: complete-setups/python-and-pycharm/python_3-6_and_pycharm_on_ubuntu_focal.Dockerfile
-        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
-        github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-3.6
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-3.6
-
-  build_and_publish_python_3-7_and_pycharm_on_ubuntu_focal:
-    needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_3-7_and_pycharm_on_ubuntu_focal_changed == 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
-      with:
-        dockerfile_path: complete-setups/python-and-pycharm/python_3-7_and_pycharm_on_ubuntu_focal.Dockerfile
-        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
-        github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-3.7
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-3.7
-
-  build_and_publish_python_3-8_and_pycharm_on_ubuntu_focal:
-    needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_3-8_and_pycharm_on_ubuntu_focal_changed == 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
-      with:
-        dockerfile_path: complete-setups/python-and-pycharm/python_3-8_and_pycharm_on_ubuntu_focal.Dockerfile
-        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
-        github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-3.8
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-3.8
-
   build_and_publish_python_3-9_and_pycharm_on_ubuntu_focal:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.python_3-9_and_pycharm_on_ubuntu_focal_changed == 'true' }}
@@ -609,48 +447,6 @@ jobs:
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:20.04-2.7
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:focal-2.7
-
-  build_and_publish_python_3-6_and_vscode_on_ubuntu_focal:
-    needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_3-6_and_vscode_on_ubuntu_focal_changed == 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
-      with:
-        dockerfile_path: complete-setups/python-and-vscode/python_3-6_and_vscode_on_ubuntu_focal.Dockerfile
-        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
-        github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:20.04-3.6
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:focal-3.6
-
-  build_and_publish_python_3-7_and_vscode_on_ubuntu_focal:
-    needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_3-7_and_vscode_on_ubuntu_focal_changed == 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
-      with:
-        dockerfile_path: complete-setups/python-and-vscode/python_3-7_and_vscode_on_ubuntu_focal.Dockerfile
-        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
-        github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:20.04-3.7
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:focal-3.7
-
-  build_and_publish_python_3-8_and_vscode_on_ubuntu_focal:
-    needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_3-8_and_vscode_on_ubuntu_focal_changed == 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
-      with:
-        dockerfile_path: complete-setups/python-and-vscode/python_3-8_and_vscode_on_ubuntu_focal.Dockerfile
-        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
-        github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:20.04-3.8
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:focal-3.8
 
   build_and_publish_python_3-9_and_vscode_on_ubuntu_focal:
     needs: detect_image_source_changes
