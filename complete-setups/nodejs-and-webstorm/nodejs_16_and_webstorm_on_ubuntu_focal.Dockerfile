@@ -7,8 +7,8 @@ LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-imag
 COPY runtimes/nodejs/install_nodejs_16_on_ubuntu_focal.sh .
 RUN bash -c './install_nodejs_16_on_ubuntu_focal.sh'
 
-COPY ides/webstorm/install.sh .
-RUN bash -c './install.sh'
+COPY ides/webstorm/install_webstorm.sh .
+RUN bash -c './install_webstorm.sh'
 
 COPY ides/webstorm/create_desktop_shortcut.sh .
 COPY ides/webstorm/jetbrains-webstorm-ce.desktop .
