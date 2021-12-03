@@ -10,6 +10,7 @@ jobs:
   detect_image_source_changes:
     runs-on: ubuntu-latest
     outputs:
+      eclipse_changed: ${{ steps.changes_to_eclipse.outputs.any_changed == 'true' || steps.changes_to_eclipse.outputs.any_deleted == 'true' }}
       nodejs_12_changed: ${{ steps.changes_to_nodejs_12.outputs.any_changed == 'true' || steps.changes_to_nodejs_12.outputs.any_deleted == 'true' }}
       nodejs_14_changed: ${{ steps.changes_to_nodejs_14.outputs.any_changed == 'true' || steps.changes_to_nodejs_14.outputs.any_deleted == 'true' }}
       nodejs_16_changed: ${{ steps.changes_to_nodejs_16.outputs.any_changed == 'true' || steps.changes_to_nodejs_16.outputs.any_deleted == 'true' }}
@@ -21,6 +22,8 @@ jobs:
       nodejs_16_and_webstorm_changed: ${{ steps.changes_to_nodejs_16_and_webstorm.outputs.any_changed == 'true' || steps.changes_to_nodejs_16_and_webstorm.outputs.any_deleted == 'true' }}
       openjdk_8_changed: ${{ steps.changes_to_openjdk_8.outputs.any_changed == 'true' || steps.changes_to_openjdk_8.outputs.any_deleted == 'true' }}
       openjdk_11_changed: ${{ steps.changes_to_openjdk_11.outputs.any_changed == 'true' || steps.changes_to_openjdk_11.outputs.any_deleted == 'true' }}
+      openjdk_8_and_eclipse_changed: ${{ steps.changes_to_openjdk_8_and_eclipse.outputs.any_changed == 'true' || steps.changes_to_openjdk_8_and_eclipse.outputs.any_deleted == 'true' }}
+      openjdk_11_and_eclipse_changed: ${{ steps.changes_to_openjdk_11_and_eclipse.outputs.any_changed == 'true' || steps.changes_to_openjdk_11_and_eclipse.outputs.any_deleted == 'true' }}
       pycharm_changed: ${{ steps.changes_to_pycharm.outputs.any_changed == 'true' || steps.changes_to_pycharm.outputs.any_deleted == 'true' }}
       python_2-7_changed: ${{ steps.changes_to_python_2-7.outputs.any_changed == 'true' || steps.changes_to_python_2-7.outputs.any_deleted == 'true' }}
       python_3-9_changed: ${{ steps.changes_to_python_3-9.outputs.any_changed == 'true' || steps.changes_to_python_3-9.outputs.any_deleted == 'true' }}
@@ -37,6 +40,16 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 2 # This is for changed-files.
+    - id: changes_to_eclipse
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: |
+          .github/workflows/build_and_publish_changed_images.yaml
+          ides/eclipse/configure_eclipse_to_autostart.sh
+          ides/eclipse/create_eclipse_desktop_shortcut.sh
+          ides/eclipse/Dockerfile
+          ides/eclipse/Eclipse.desktop
+          ides/eclipse/install_eclipse.sh
     - id: changes_to_nodejs_12
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -120,6 +133,28 @@ jobs:
           .github/workflows/build_and_publish_changed_images.yaml
           runtimes/openjdk/install_openjdk_11.sh
           runtimes/openjdk/openjdk_11_on_ubuntu_focal.Dockerfile
+    - id: changes_to_openjdk_8_and_eclipse
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: |
+          .github/workflows/build_and_publish_changed_images.yaml
+          complete-setups/openjdk-and-eclipse/openjdk_8_and_eclipse_on_ubuntu_focal.Dockerfile
+          ides/eclipse/configure_eclipse_to_autostart.sh
+          ides/eclipse/create_eclipse_desktop_shortcut.sh
+          ides/eclipse/Eclipse.desktop
+          ides/eclipse/install_eclipse.sh
+          runtimes/openjdk/install_openjdk_8.sh
+    - id: changes_to_openjdk_11_and_eclipse
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: |
+          .github/workflows/build_and_publish_changed_images.yaml
+          complete-setups/openjdk-and-eclipse/openjdk_11_and_eclipse_on_ubuntu_focal.Dockerfile
+          ides/eclipse/configure_eclipse_to_autostart.sh
+          ides/eclipse/create_eclipse_desktop_shortcut.sh
+          ides/eclipse/Eclipse.desktop
+          ides/eclipse/install_eclipse.sh
+          runtimes/openjdk/install_openjdk_11.sh
     - id: changes_to_pycharm
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -225,6 +260,20 @@ jobs:
           ides/webstorm/Dockerfile
           ides/webstorm/install.sh
           ides/webstorm/WebStorm.desktop
+
+  build_and_publish_eclipse:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.eclipse_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: ides/eclipse/Dockerfile
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-eclipse:20.04
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-eclipse:focal
 
   build_and_publish_nodejs_12:
     needs: detect_image_source_changes
@@ -379,6 +428,34 @@ jobs:
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:20.04-11
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:focal-11
+
+  build_and_publish_openjdk_8_and_eclipse:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.openjdk_8_and_eclipse_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: runtimes/openjdk/openjdk_8_and_eclipse_on_ubuntu_focal.Dockerfile
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-eclipse:20.04-8
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-eclipse:focal-8
+
+  build_and_publish_openjdk_11_and_eclipse:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.openjdk_11_and_eclipse_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: runtimes/openjdk/openjdk_11_and_eclipse_on_ubuntu_focal.Dockerfile
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-eclipse:20.04-11
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-eclipse:focal-11
 
   build_and_publish_pycharm:
     needs: detect_image_source_changes

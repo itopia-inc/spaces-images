@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Eclipse
+Icon=/opt/eclipse/icon.xpm
+Exec="/opt/eclipse/eclipse" %f
+Comment=The Leading Open Platform for Professional Developers
+Categories=Development;IDE;
+Terminal=false
+StartupWMClass=Eclipse
+StartupNotify=true
