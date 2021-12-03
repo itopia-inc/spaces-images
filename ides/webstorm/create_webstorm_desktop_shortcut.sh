@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo cp WebStorm.desktop /etc/skel/Desktop/
+sudo cp /usr/share/dev-scripts/WebStorm.desktop /etc/skel/Desktop/

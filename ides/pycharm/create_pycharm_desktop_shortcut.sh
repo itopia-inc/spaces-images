@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo cp PyCharm_CE.desktop /etc/skel/Desktop/
+sudo cp /usr/share/dev-scripts/PyCharm_CE.desktop /etc/skel/Desktop/
