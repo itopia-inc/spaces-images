@@ -203,7 +203,7 @@ jobs:
           ides/webstorm/install.sh
           ides/webstorm/WebStorm.desktop
 
-  build_and_publish_nodejs_12_on_ubuntu_focal:
+  build_and_publish_nodejs_12:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.nodejs_12_on_ubuntu_focal_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -217,7 +217,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:20.04-12
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-12
 
-  build_and_publish_nodejs_14_on_ubuntu_focal:
+  build_and_publish_nodejs_14:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.nodejs_14_on_ubuntu_focal_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -231,7 +231,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:20.04-14
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-14
 
-  build_and_publish_nodejs_16_on_ubuntu_focal:
+  build_and_publish_nodejs_16:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.nodejs_16_on_ubuntu_focal_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -245,7 +245,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:20.04-16
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-16
 
-  build_and_publish_nodejs_12_and_vscode_on_ubuntu_focal:
+  build_and_publish_nodejs_12_and_vscode:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.nodejs_12_and_vscode_on_ubuntu_focal_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -259,7 +259,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:20.04-12
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:focal-12
 
-  build_and_publish_nodejs_14_and_vscode_on_ubuntu_focal:
+  build_and_publish_nodejs_14_and_vscode:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.nodejs_14_and_vscode_on_ubuntu_focal_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -273,7 +273,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:20.04-14
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:focal-14
 
-  build_and_publish_nodejs_16_and_vscode_on_ubuntu_focal:
+  build_and_publish_nodejs_16_and_vscode:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.nodejs_16_and_vscode_on_ubuntu_focal_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -287,7 +287,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:20.04-16
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:focal-16
 
-  build_and_publish_nodejs_12_and_webstorm_on_ubuntu_focal:
+  build_and_publish_nodejs_12_and_webstorm:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.nodejs_12_and_webstorm_on_ubuntu_focal_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -301,7 +301,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:20.04-12
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-12
 
-  build_and_publish_nodejs_14_and_webstorm_on_ubuntu_focal:
+  build_and_publish_nodejs_14_and_webstorm:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.nodejs_14_and_webstorm_on_ubuntu_focal_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -315,7 +315,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:20.04-14
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-14
 
-  build_and_publish_nodejs_16_and_webstorm_on_ubuntu_focal:
+  build_and_publish_nodejs_16_and_webstorm:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.nodejs_16_and_webstorm_on_ubuntu_focal_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -329,7 +329,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:20.04-16
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-16
 
-  build_and_publish_openjdk_8_on_ubuntu_focal:
+  build_and_publish_openjdk_8:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.openjdk_8_on_ubuntu_focal_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -343,7 +343,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:20.04-8
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:focal-8
 
-  build_and_publish_openjdk_11_on_ubuntu_focal:
+  build_and_publish_openjdk_11:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.openjdk_11_on_ubuntu_focal_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -371,7 +371,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-2.7
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-2.7
 
-  build_and_publish_python_2-7_on_ubuntu_focal:
+  build_and_publish_python_2-7:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.python_2-7_on_ubuntu_focal_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -385,7 +385,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-2.7
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-2.7
 
-  build_and_publish_python_3-9_on_ubuntu_focal:
+  build_and_publish_python_3-9:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.python_3-9_on_ubuntu_focal_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -399,7 +399,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.9
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.9
 
-  build_and_publish_python_3-10_on_ubuntu_focal:
+  build_and_publish_python_3-10:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.python_3-10_on_ubuntu_focal_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -413,7 +413,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.10
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.10
 
-  build_and_publish_python_2-7_and_pycharm_on_ubuntu_focal:
+  build_and_publish_python_2-7_and_pycharm:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.python_2-7_and_pycharm_on_ubuntu_focal_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -427,7 +427,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-2.7
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-2.7
 
-  build_and_publish_python_3-9_and_pycharm_on_ubuntu_focal:
+  build_and_publish_python_3-9_and_pycharm:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.python_3-9_and_pycharm_on_ubuntu_focal_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -441,7 +441,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-3.9
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-3.9
 
-  build_and_publish_python_3-10_and_pycharm_on_ubuntu_focal:
+  build_and_publish_python_3-10_and_pycharm:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.python_3-10_and_pycharm_on_ubuntu_focal_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -455,7 +455,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-3.10
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-3.10
 
-  build_and_publish_python_2-7_and_vscode_on_ubuntu_focal:
+  build_and_publish_python_2-7_and_vscode:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.python_2-7_and_vscode_on_ubuntu_focal_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -469,7 +469,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:20.04-2.7
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:focal-2.7
 
-  build_and_publish_python_3-9_and_vscode_on_ubuntu_focal:
+  build_and_publish_python_3-9_and_vscode:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.python_3-9_and_vscode_on_ubuntu_focal_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -483,7 +483,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:20.04-3.9
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:focal-3.9
 
-  build_and_publish_python_3-10_and_vscode_on_ubuntu_focal:
+  build_and_publish_python_3-10_and_vscode:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.python_3-10_and_vscode_on_ubuntu_focal_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -497,7 +497,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-3.10
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-3.10
 
-  build_and_publish_vscode_on_ubuntu_focal:
+  build_and_publish_vscode:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.vscode_on_ubuntu_focal_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -511,7 +511,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-vscode:20.04
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-vscode:focal
 
-  build_and_publish_webstorm_on_ubuntu_focal:
+  build_and_publish_webstorm:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.webstorm_on_ubuntu_focal_changed == 'true' }}
     runs-on: ubuntu-latest
