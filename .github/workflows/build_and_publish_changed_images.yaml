@@ -76,6 +76,27 @@ jobs:
           complete-setups/nodejs-and-vscode/nodejs_16_and_vscode_on_ubuntu_focal.Dockerfile
           ides/vscode/configure_vscode_to_autostart.sh
           runtimes/nodejs/install_nodejs_16_on_ubuntu_focal.sh
+    - id: changes_to_nodejs_12_and_webstorm_on_ubuntu_focal
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: |
+          complete-setups/nodejs-and-webstorm/nodejs_12_and_webstorm_on_ubuntu_focal.Dockerfile
+          ides/webstorm/configure_webstorm_to_autostart.sh
+          runtimes/nodejs/install_nodejs_12_on_ubuntu_focal.sh
+    - id: changes_to_nodejs_14_and_webstorm_on_ubuntu_focal
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: |
+          complete-setups/nodejs-and-webstorm/nodejs_14_and_webstorm_on_ubuntu_focal.Dockerfile
+          ides/webstorm/configure_webstorm_to_autostart.sh
+          runtimes/nodejs/install_nodejs_14_on_ubuntu_focal.sh
+    - id: changes_to_nodejs_16_and_webstorm_on_ubuntu_focal
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: |
+          complete-setups/nodejs-and-webstorm/nodejs_16_and_webstorm_on_ubuntu_focal.Dockerfile
+          ides/webstorm/configure_webstorm_to_autostart.sh
+          runtimes/nodejs/install_nodejs_16_on_ubuntu_focal.sh
     - id: changes_to_openjdk_8_on_ubuntu_focal
       uses: tj-actions/changed-files@v1.1.2
       with:
