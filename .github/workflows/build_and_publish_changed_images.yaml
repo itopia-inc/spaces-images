@@ -41,24 +41,28 @@ jobs:
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          .github/workflows/build_and_publish_changed_images.yaml
           runtimes/nodejs/install_nodejs_12_on_ubuntu_focal.sh
           runtimes/nodejs/nodejs_12_on_ubuntu_focal.Dockerfile
     - id: changes_to_nodejs_14
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          .github/workflows/build_and_publish_changed_images.yaml
           runtimes/nodejs/install_nodejs_14_on_ubuntu_focal.sh
           runtimes/nodejs/nodejs_14_on_ubuntu_focal.Dockerfile
     - id: changes_to_nodejs_16
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          .github/workflows/build_and_publish_changed_images.yaml
           runtimes/nodejs/install_nodejs_16_on_ubuntu_focal.sh
           runtimes/nodejs/nodejs_16_on_ubuntu_focal.Dockerfile
     - id: changes_to_nodejs_12_and_vscode
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          .github/workflows/build_and_publish_changed_images.yaml
           complete-setups/nodejs-and-vscode/nodejs_12_and_vscode_on_ubuntu_focal.Dockerfile
           ides/vscode/configure_vscode_to_autostart.sh
           runtimes/nodejs/install_nodejs_12_on_ubuntu_focal.sh
@@ -66,6 +70,7 @@ jobs:
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          .github/workflows/build_and_publish_changed_images.yaml
           complete-setups/nodejs-and-vscode/nodejs_14_and_vscode_on_ubuntu_focal.Dockerfile
           ides/vscode/configure_vscode_to_autostart.sh
           runtimes/nodejs/install_nodejs_14_on_ubuntu_focal.sh
@@ -73,6 +78,7 @@ jobs:
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          .github/workflows/build_and_publish_changed_images.yaml
           complete-setups/nodejs-and-vscode/nodejs_16_and_vscode_on_ubuntu_focal.Dockerfile
           ides/vscode/configure_vscode_to_autostart.sh
           runtimes/nodejs/install_nodejs_16_on_ubuntu_focal.sh
@@ -80,6 +86,7 @@ jobs:
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          .github/workflows/build_and_publish_changed_images.yaml
           complete-setups/nodejs-and-webstorm/nodejs_12_and_webstorm_on_ubuntu_focal.Dockerfile
           ides/webstorm/configure_webstorm_to_autostart.sh
           runtimes/nodejs/install_nodejs_12_on_ubuntu_focal.sh
@@ -87,6 +94,7 @@ jobs:
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          .github/workflows/build_and_publish_changed_images.yaml
           complete-setups/nodejs-and-webstorm/nodejs_14_and_webstorm_on_ubuntu_focal.Dockerfile
           ides/webstorm/configure_webstorm_to_autostart.sh
           runtimes/nodejs/install_nodejs_14_on_ubuntu_focal.sh
@@ -94,6 +102,7 @@ jobs:
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          .github/workflows/build_and_publish_changed_images.yaml
           complete-setups/nodejs-and-webstorm/nodejs_16_and_webstorm_on_ubuntu_focal.Dockerfile
           ides/webstorm/configure_webstorm_to_autostart.sh
           runtimes/nodejs/install_nodejs_16_on_ubuntu_focal.sh
@@ -101,18 +110,21 @@ jobs:
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          .github/workflows/build_and_publish_changed_images.yaml
           runtimes/openjdk/install_openjdk_8.sh
           runtimes/openjdk/openjdk_8_on_ubuntu_focal.Dockerfile
     - id: changes_to_openjdk_11
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          .github/workflows/build_and_publish_changed_images.yaml
           runtimes/openjdk/install_openjdk_11.sh
           runtimes/openjdk/openjdk_11_on_ubuntu_focal.Dockerfile
     - id: changes_to_pycharm
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          .github/workflows/build_and_publish_changed_images.yaml
           ides/pycharm/configure_pycharm_to_autostart.sh
           ides/pycharm/create_pycharm_desktop_shortcut.sh
           ides/pycharm/Dockerfile
@@ -122,24 +134,28 @@ jobs:
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          .github/workflows/build_and_publish_changed_images.yaml
           runtimes/python/install_python_2-7_on_ubuntu_focal.sh
           runtimes/python/python_2-7_on_ubuntu_focal.Dockerfile
     - id: changes_to_python_3-9
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          .github/workflows/build_and_publish_changed_images.yaml
           runtimes/python/install_python_3-9_on_ubuntu_focal.sh
           runtimes/python/python_3-9_on_ubuntu_focal.Dockerfile
     - id: changes_to_python_3-10
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          .github/workflows/build_and_publish_changed_images.yaml
           runtimes/python/install_python_3-10_on_ubuntu_focal.sh
           runtimes/python/python_3-10_on_ubuntu_focal.Dockerfile
     - id: changes_to_python_2-7_and_pycharm
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          .github/workflows/build_and_publish_changed_images.yaml
           complete-setups/python-and-pycharm/python_2-7_and_pycharm_on_ubuntu_focal.Dockerfile
           ides/pycharm/configure_pycharm_to_autostart.sh
           ides/pycharm/create_pycharm_desktop_shortcut.sh
@@ -150,6 +166,7 @@ jobs:
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          .github/workflows/build_and_publish_changed_images.yaml
           complete-setups/python-and-pycharm/python_3-9_and_pycharm_on_ubuntu_focal.Dockerfile
           ides/pycharm/configure_pycharm_to_autostart.sh
           ides/pycharm/create_pycharm_desktop_shortcut.sh
@@ -160,6 +177,7 @@ jobs:
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          .github/workflows/build_and_publish_changed_images.yaml
           complete-setups/python-and-pycharm/python_3-10_and_pycharm_on_ubuntu_focal.Dockerfile
           ides/pycharm/configure_pycharm_to_autostart.sh
           ides/pycharm/create_pycharm_desktop_shortcut.sh
@@ -170,6 +188,7 @@ jobs:
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          .github/workflows/build_and_publish_changed_images.yaml
           complete-setups/python-and-vscode/python_2-7_and_vscode_on_ubuntu_focal.Dockerfile
           ides/vscode/configure_vscode_to_autostart.sh
           runtimes/python/install_python_2-7_on_ubuntu_focal.sh
@@ -177,6 +196,7 @@ jobs:
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          .github/workflows/build_and_publish_changed_images.yaml
           complete-setups/python-and-vscode/python_3-9_and_vscode_on_ubuntu_focal.Dockerfile
           ides/vscode/configure_vscode_to_autostart.sh
           runtimes/python/install_python_3-9_on_ubuntu_focal.sh
@@ -184,6 +204,7 @@ jobs:
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          .github/workflows/build_and_publish_changed_images.yaml
           complete-setups/python-and-vscode/python_3-10_and_vscode_on_ubuntu_focal.Dockerfile
           ides/vscode/configure_vscode_to_autostart.sh
           runtimes/python/install_python_3-10_on_ubuntu_focal.sh
@@ -191,12 +212,14 @@ jobs:
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          .github/workflows/build_and_publish_changed_images.yaml
           ides/vscode/configure_vscode_to_autostart.sh
           ides/vscode/Dockerfile
     - id: changes_to_webstorm
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
+          .github/workflows/build_and_publish_changed_images.yaml
           ides/webstorm/configure_webstorm_to_autostart.sh
           ides/webstorm/create_webstorm_desktop_shortcut.sh
           ides/webstorm/Dockerfile
