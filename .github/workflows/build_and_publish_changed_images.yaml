@@ -468,8 +468,8 @@ jobs:
         dockerfile_path: ides/pycharm/Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-2.7
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-2.7
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-pycharm:20.04
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-pycharm:focal
 
   build_and_publish_python_2-7:
     needs: detect_image_source_changes
