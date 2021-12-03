@@ -10,106 +10,106 @@ jobs:
   detect_image_source_changes:
     runs-on: ubuntu-latest
     outputs:
-      nodejs_12_on_ubuntu_focal_changed: ${{ steps.changes_to_nodejs_12_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_nodejs_12_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      nodejs_14_on_ubuntu_focal_changed: ${{ steps.changes_to_nodejs_14_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_nodejs_14_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      nodejs_16_on_ubuntu_focal_changed: ${{ steps.changes_to_nodejs_16_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_nodejs_16_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      nodejs_12_and_vscode_on_ubuntu_focal_changed: ${{ steps.changes_to_nodejs_12_and_vscode_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_nodejs_12_and_vscode_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      nodejs_14_and_vscode_on_ubuntu_focal_changed: ${{ steps.changes_to_nodejs_14_and_vscode_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_nodejs_14_and_vscode_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      nodejs_16_and_vscode_on_ubuntu_focal_changed: ${{ steps.changes_to_nodejs_16_and_vscode_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_nodejs_16_and_vscode_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      nodejs_12_and_webstorm_on_ubuntu_focal_changed: ${{ steps.changes_to_nodejs_12_and_webstorm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_nodejs_12_and_webstorm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      nodejs_14_and_webstorm_on_ubuntu_focal_changed: ${{ steps.changes_to_nodejs_14_and_webstorm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_nodejs_14_and_webstorm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      nodejs_16_and_webstorm_on_ubuntu_focal_changed: ${{ steps.changes_to_nodejs_16_and_webstorm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_nodejs_16_and_webstorm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      openjdk_8_on_ubuntu_focal_changed: ${{ steps.changes_to_openjdk_8_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_openjdk_8_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      openjdk_11_on_ubuntu_focal_changed: ${{ steps.changes_to_openjdk_11_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_openjdk_11_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_pycharm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_2-7_on_ubuntu_focal_changed: ${{ steps.changes_to_python_2-7_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_2-7_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_3-9_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-9_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-9_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_3-10_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-10_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-10_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_2-7_and_pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_python_2-7_and_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_2-7_and_pycharm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_3-9_and_pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-9_and_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-9_and_pycharm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_3-10_and_pycharm_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-10_and_pycharm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-10_and_pycharm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_2-7_and_vscode_on_ubuntu_focal_changed: ${{ steps.changes_to_python_2-7_and_vscode_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_2-7_and_vscode_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_3-9_and_vscode_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-9_and_vscode_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-9_and_vscode_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      python_3-10_and_vscode_on_ubuntu_focal_changed: ${{ steps.changes_to_python_3-10_and_vscode_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_python_3-10_and_vscode_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      vscode_on_ubuntu_focal_changed: ${{ steps.changes_to_vscode_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_vscode_on_ubuntu_focal.outputs.any_deleted == 'true' }}
-      webstorm_on_ubuntu_focal_changed: ${{ steps.changes_to_webstorm_on_ubuntu_focal.outputs.any_changed == 'true' || steps.changes_to_webstorm_on_ubuntu_focal.outputs.any_deleted == 'true' }}
+      nodejs_12_changed: ${{ steps.changes_to_nodejs_12.outputs.any_changed == 'true' || steps.changes_to_nodejs_12.outputs.any_deleted == 'true' }}
+      nodejs_14_changed: ${{ steps.changes_to_nodejs_14.outputs.any_changed == 'true' || steps.changes_to_nodejs_14.outputs.any_deleted == 'true' }}
+      nodejs_16_changed: ${{ steps.changes_to_nodejs_16.outputs.any_changed == 'true' || steps.changes_to_nodejs_16.outputs.any_deleted == 'true' }}
+      nodejs_12_and_vscode_changed: ${{ steps.changes_to_nodejs_12_and_vscode.outputs.any_changed == 'true' || steps.changes_to_nodejs_12_and_vscode.outputs.any_deleted == 'true' }}
+      nodejs_14_and_vscode_changed: ${{ steps.changes_to_nodejs_14_and_vscode.outputs.any_changed == 'true' || steps.changes_to_nodejs_14_and_vscode.outputs.any_deleted == 'true' }}
+      nodejs_16_and_vscode_changed: ${{ steps.changes_to_nodejs_16_and_vscode.outputs.any_changed == 'true' || steps.changes_to_nodejs_16_and_vscode.outputs.any_deleted == 'true' }}
+      nodejs_12_and_webstorm_changed: ${{ steps.changes_to_nodejs_12_and_webstorm.outputs.any_changed == 'true' || steps.changes_to_nodejs_12_and_webstorm.outputs.any_deleted == 'true' }}
+      nodejs_14_and_webstorm_changed: ${{ steps.changes_to_nodejs_14_and_webstorm.outputs.any_changed == 'true' || steps.changes_to_nodejs_14_and_webstorm.outputs.any_deleted == 'true' }}
+      nodejs_16_and_webstorm_changed: ${{ steps.changes_to_nodejs_16_and_webstorm.outputs.any_changed == 'true' || steps.changes_to_nodejs_16_and_webstorm.outputs.any_deleted == 'true' }}
+      openjdk_8_changed: ${{ steps.changes_to_openjdk_8.outputs.any_changed == 'true' || steps.changes_to_openjdk_8.outputs.any_deleted == 'true' }}
+      openjdk_11_changed: ${{ steps.changes_to_openjdk_11.outputs.any_changed == 'true' || steps.changes_to_openjdk_11.outputs.any_deleted == 'true' }}
+      pycharm_changed: ${{ steps.changes_to_pycharm.outputs.any_changed == 'true' || steps.changes_to_pycharm.outputs.any_deleted == 'true' }}
+      python_2-7_changed: ${{ steps.changes_to_python_2-7.outputs.any_changed == 'true' || steps.changes_to_python_2-7.outputs.any_deleted == 'true' }}
+      python_3-9_changed: ${{ steps.changes_to_python_3-9.outputs.any_changed == 'true' || steps.changes_to_python_3-9.outputs.any_deleted == 'true' }}
+      python_3-10_changed: ${{ steps.changes_to_python_3-10.outputs.any_changed == 'true' || steps.changes_to_python_3-10.outputs.any_deleted == 'true' }}
+      python_2-7_and_pycharm_changed: ${{ steps.changes_to_python_2-7_and_pycharm.outputs.any_changed == 'true' || steps.changes_to_python_2-7_and_pycharm.outputs.any_deleted == 'true' }}
+      python_3-9_and_pycharm_changed: ${{ steps.changes_to_python_3-9_and_pycharm.outputs.any_changed == 'true' || steps.changes_to_python_3-9_and_pycharm.outputs.any_deleted == 'true' }}
+      python_3-10_and_pycharm_changed: ${{ steps.changes_to_python_3-10_and_pycharm.outputs.any_changed == 'true' || steps.changes_to_python_3-10_and_pycharm.outputs.any_deleted == 'true' }}
+      python_2-7_and_vscode_changed: ${{ steps.changes_to_python_2-7_and_vscode.outputs.any_changed == 'true' || steps.changes_to_python_2-7_and_vscode.outputs.any_deleted == 'true' }}
+      python_3-9_and_vscode_changed: ${{ steps.changes_to_python_3-9_and_vscode.outputs.any_changed == 'true' || steps.changes_to_python_3-9_and_vscode.outputs.any_deleted == 'true' }}
+      python_3-10_and_vscode_changed: ${{ steps.changes_to_python_3-10_and_vscode.outputs.any_changed == 'true' || steps.changes_to_python_3-10_and_vscode.outputs.any_deleted == 'true' }}
+      vscode_changed: ${{ steps.changes_to_vscode.outputs.any_changed == 'true' || steps.changes_to_vscode.outputs.any_deleted == 'true' }}
+      webstorm_changed: ${{ steps.changes_to_webstorm.outputs.any_changed == 'true' || steps.changes_to_webstorm.outputs.any_deleted == 'true' }}
     steps:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 2 # This is for changed-files.
-    - id: changes_to_nodejs_12_on_ubuntu_focal
+    - id: changes_to_nodejs_12
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           runtimes/nodejs/install_nodejs_12_on_ubuntu_focal.sh
           runtimes/nodejs/nodejs_12_on_ubuntu_focal.Dockerfile
-    - id: changes_to_nodejs_14_on_ubuntu_focal
+    - id: changes_to_nodejs_14
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           runtimes/nodejs/install_nodejs_14_on_ubuntu_focal.sh
           runtimes/nodejs/nodejs_14_on_ubuntu_focal.Dockerfile
-    - id: changes_to_nodejs_16_on_ubuntu_focal
+    - id: changes_to_nodejs_16
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           runtimes/nodejs/install_nodejs_16_on_ubuntu_focal.sh
           runtimes/nodejs/nodejs_16_on_ubuntu_focal.Dockerfile
-    - id: changes_to_nodejs_12_and_vscode_on_ubuntu_focal
+    - id: changes_to_nodejs_12_and_vscode
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           complete-setups/nodejs-and-vscode/nodejs_12_and_vscode_on_ubuntu_focal.Dockerfile
           ides/vscode/configure_vscode_to_autostart.sh
           runtimes/nodejs/install_nodejs_12_on_ubuntu_focal.sh
-    - id: changes_to_nodejs_14_and_vscode_on_ubuntu_focal
+    - id: changes_to_nodejs_14_and_vscode
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           complete-setups/nodejs-and-vscode/nodejs_14_and_vscode_on_ubuntu_focal.Dockerfile
           ides/vscode/configure_vscode_to_autostart.sh
           runtimes/nodejs/install_nodejs_14_on_ubuntu_focal.sh
-    - id: changes_to_nodejs_16_and_vscode_on_ubuntu_focal
+    - id: changes_to_nodejs_16_and_vscode
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           complete-setups/nodejs-and-vscode/nodejs_16_and_vscode_on_ubuntu_focal.Dockerfile
           ides/vscode/configure_vscode_to_autostart.sh
           runtimes/nodejs/install_nodejs_16_on_ubuntu_focal.sh
-    - id: changes_to_nodejs_12_and_webstorm_on_ubuntu_focal
+    - id: changes_to_nodejs_12_and_webstorm
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           complete-setups/nodejs-and-webstorm/nodejs_12_and_webstorm_on_ubuntu_focal.Dockerfile
           ides/webstorm/configure_webstorm_to_autostart.sh
           runtimes/nodejs/install_nodejs_12_on_ubuntu_focal.sh
-    - id: changes_to_nodejs_14_and_webstorm_on_ubuntu_focal
+    - id: changes_to_nodejs_14_and_webstorm
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           complete-setups/nodejs-and-webstorm/nodejs_14_and_webstorm_on_ubuntu_focal.Dockerfile
           ides/webstorm/configure_webstorm_to_autostart.sh
           runtimes/nodejs/install_nodejs_14_on_ubuntu_focal.sh
-    - id: changes_to_nodejs_16_and_webstorm_on_ubuntu_focal
+    - id: changes_to_nodejs_16_and_webstorm
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           complete-setups/nodejs-and-webstorm/nodejs_16_and_webstorm_on_ubuntu_focal.Dockerfile
           ides/webstorm/configure_webstorm_to_autostart.sh
           runtimes/nodejs/install_nodejs_16_on_ubuntu_focal.sh
-    - id: changes_to_openjdk_8_on_ubuntu_focal
+    - id: changes_to_openjdk_8
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           runtimes/openjdk/install_openjdk_8.sh
           runtimes/openjdk/openjdk_8_on_ubuntu_focal.Dockerfile
-    - id: changes_to_openjdk_11_on_ubuntu_focal
+    - id: changes_to_openjdk_11
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           runtimes/openjdk/install_openjdk_11.sh
           runtimes/openjdk/openjdk_11_on_ubuntu_focal.Dockerfile
-    - id: changes_to_pycharm_on_ubuntu_focal
+    - id: changes_to_pycharm
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
@@ -118,25 +118,25 @@ jobs:
           ides/pycharm/Dockerfile
           ides/pycharm/install_pycharm.sh
           ides/pycharm/jetbrains-pycharm-ce.desktop
-    - id: changes_to_python_2-7_on_ubuntu_focal
+    - id: changes_to_python_2-7
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           runtimes/python/install_python_2-7_on_ubuntu_focal.sh
           runtimes/python/python_2-7_on_ubuntu_focal.Dockerfile
-    - id: changes_to_python_3-9_on_ubuntu_focal
+    - id: changes_to_python_3-9
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           runtimes/python/install_python_3-9_on_ubuntu_focal.sh
           runtimes/python/python_3-9_on_ubuntu_focal.Dockerfile
-    - id: changes_to_python_3-10_on_ubuntu_focal
+    - id: changes_to_python_3-10
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           runtimes/python/install_python_3-10_on_ubuntu_focal.sh
           runtimes/python/python_3-10_on_ubuntu_focal.Dockerfile
-    - id: changes_to_python_2-7_and_pycharm_on_ubuntu_focal
+    - id: changes_to_python_2-7_and_pycharm
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
@@ -146,7 +146,7 @@ jobs:
           ides/pycharm/install_pycharm.sh
           ides/pycharm/jetbrains-pycharm-ce.desktop
           runtimes/python/install_python_2-7_on_ubuntu_focal.sh
-    - id: changes_to_python_3-9_and_pycharm_on_ubuntu_focal
+    - id: changes_to_python_3-9_and_pycharm
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
@@ -156,7 +156,7 @@ jobs:
           ides/pycharm/install_pycharm.sh
           ides/pycharm/jetbrains-pycharm-ce.desktop
           runtimes/python/install_python_3-9_on_ubuntu_focal.sh
-    - id: changes_to_python_3-10_and_pycharm_on_ubuntu_focal
+    - id: changes_to_python_3-10_and_pycharm
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
@@ -166,34 +166,34 @@ jobs:
           ides/pycharm/install_pycharm.sh
           ides/pycharm/jetbrains-pycharm-ce.desktop
           runtimes/python/install_python_3-10_on_ubuntu_focal.sh
-    - id: changes_to_python_2-7_and_vscode_on_ubuntu_focal
+    - id: changes_to_python_2-7_and_vscode
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           complete-setups/python-and-vscode/python_2-7_and_vscode_on_ubuntu_focal.Dockerfile
           ides/vscode/configure_vscode_to_autostart.sh
           runtimes/python/install_python_2-7_on_ubuntu_focal.sh
-    - id: changes_to_python_3-9_and_vscode_on_ubuntu_focal
+    - id: changes_to_python_3-9_and_vscode
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           complete-setups/python-and-vscode/python_3-9_and_vscode_on_ubuntu_focal.Dockerfile
           ides/vscode/configure_vscode_to_autostart.sh
           runtimes/python/install_python_3-9_on_ubuntu_focal.sh
-    - id: changes_to_python_3-10_and_vscode_on_ubuntu_focal
+    - id: changes_to_python_3-10_and_vscode
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           complete-setups/python-and-vscode/python_3-10_and_vscode_on_ubuntu_focal.Dockerfile
           ides/vscode/configure_vscode_to_autostart.sh
           runtimes/python/install_python_3-10_on_ubuntu_focal.sh
-    - id: changes_to_vscode_on_ubuntu_focal
+    - id: changes_to_vscode
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           ides/vscode/configure_vscode_to_autostart.sh
           ides/vscode/Dockerfile
-    - id: changes_to_webstorm_on_ubuntu_focal
+    - id: changes_to_webstorm
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
@@ -205,7 +205,7 @@ jobs:
 
   build_and_publish_nodejs_12:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.nodejs_12_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.nodejs_12_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -219,7 +219,7 @@ jobs:
 
   build_and_publish_nodejs_14:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.nodejs_14_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.nodejs_14_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -233,7 +233,7 @@ jobs:
 
   build_and_publish_nodejs_16:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.nodejs_16_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.nodejs_16_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -247,7 +247,7 @@ jobs:
 
   build_and_publish_nodejs_12_and_vscode:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.nodejs_12_and_vscode_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.nodejs_12_and_vscode_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -261,7 +261,7 @@ jobs:
 
   build_and_publish_nodejs_14_and_vscode:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.nodejs_14_and_vscode_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.nodejs_14_and_vscode_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -275,7 +275,7 @@ jobs:
 
   build_and_publish_nodejs_16_and_vscode:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.nodejs_16_and_vscode_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.nodejs_16_and_vscode_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -289,7 +289,7 @@ jobs:
 
   build_and_publish_nodejs_12_and_webstorm:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.nodejs_12_and_webstorm_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.nodejs_12_and_webstorm_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -303,7 +303,7 @@ jobs:
 
   build_and_publish_nodejs_14_and_webstorm:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.nodejs_14_and_webstorm_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.nodejs_14_and_webstorm_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -317,7 +317,7 @@ jobs:
 
   build_and_publish_nodejs_16_and_webstorm:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.nodejs_16_and_webstorm_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.nodejs_16_and_webstorm_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -331,7 +331,7 @@ jobs:
 
   build_and_publish_openjdk_8:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.openjdk_8_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.openjdk_8_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -345,7 +345,7 @@ jobs:
 
   build_and_publish_openjdk_11:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.openjdk_11_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.openjdk_11_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -359,7 +359,7 @@ jobs:
 
   build_and_publish_pycharm:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.pycharm_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.pycharm_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -373,7 +373,7 @@ jobs:
 
   build_and_publish_python_2-7:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_2-7_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.python_2-7_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -387,7 +387,7 @@ jobs:
 
   build_and_publish_python_3-9:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_3-9_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.python_3-9_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -401,7 +401,7 @@ jobs:
 
   build_and_publish_python_3-10:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_3-10_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.python_3-10_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -415,7 +415,7 @@ jobs:
 
   build_and_publish_python_2-7_and_pycharm:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_2-7_and_pycharm_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.python_2-7_and_pycharm_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -429,7 +429,7 @@ jobs:
 
   build_and_publish_python_3-9_and_pycharm:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_3-9_and_pycharm_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.python_3-9_and_pycharm_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -443,7 +443,7 @@ jobs:
 
   build_and_publish_python_3-10_and_pycharm:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_3-10_and_pycharm_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.python_3-10_and_pycharm_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -457,7 +457,7 @@ jobs:
 
   build_and_publish_python_2-7_and_vscode:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_2-7_and_vscode_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.python_2-7_and_vscode_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -471,7 +471,7 @@ jobs:
 
   build_and_publish_python_3-9_and_vscode:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_3-9_and_vscode_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.python_3-9_and_vscode_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -485,7 +485,7 @@ jobs:
 
   build_and_publish_python_3-10_and_vscode:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_3-10_and_vscode_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.python_3-10_and_vscode_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -499,7 +499,7 @@ jobs:
 
   build_and_publish_vscode:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.vscode_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.vscode_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -513,7 +513,7 @@ jobs:
 
   build_and_publish_webstorm:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.webstorm_on_ubuntu_focal_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.webstorm_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
