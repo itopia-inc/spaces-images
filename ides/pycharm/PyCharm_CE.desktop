@@ -7,5 +7,5 @@ Exec="/opt/pycharm-community/bin/pycharm.sh" %f
 Comment=Python IDE for Professional Developers
 Categories=Development;IDE;
 Terminal=false
-StartupWMClass=jetbrains-pycharm-ce
+StartupWMClass=PyCharm_CE
 StartupNotify=true
