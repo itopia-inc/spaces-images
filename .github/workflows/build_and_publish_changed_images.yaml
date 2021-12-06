@@ -24,6 +24,8 @@ jobs:
       openjdk_11_changed: ${{ steps.changes_to_openjdk_11.outputs.any_changed == 'true' || steps.changes_to_openjdk_11.outputs.any_deleted == 'true' }}
       openjdk_8_and_eclipse_changed: ${{ steps.changes_to_openjdk_8_and_eclipse.outputs.any_changed == 'true' || steps.changes_to_openjdk_8_and_eclipse.outputs.any_deleted == 'true' }}
       openjdk_11_and_eclipse_changed: ${{ steps.changes_to_openjdk_11_and_eclipse.outputs.any_changed == 'true' || steps.changes_to_openjdk_11_and_eclipse.outputs.any_deleted == 'true' }}
+      openjdk_8_and_vscode_changed: ${{ steps.changes_to_openjdk_8_and_vscode.outputs.any_changed == 'true' || steps.changes_to_openjdk_8_and_vscode.outputs.any_deleted == 'true' }}
+      openjdk_11_and_vscode_changed: ${{ steps.changes_to_openjdk_11_and_vscode.outputs.any_changed == 'true' || steps.changes_to_openjdk_11_and_vscode.outputs.any_deleted == 'true' }}
       pycharm_changed: ${{ steps.changes_to_pycharm.outputs.any_changed == 'true' || steps.changes_to_pycharm.outputs.any_deleted == 'true' }}
       python_2-7_changed: ${{ steps.changes_to_python_2-7.outputs.any_changed == 'true' || steps.changes_to_python_2-7.outputs.any_deleted == 'true' }}
       python_3-9_changed: ${{ steps.changes_to_python_3-9.outputs.any_changed == 'true' || steps.changes_to_python_3-9.outputs.any_deleted == 'true' }}
@@ -154,6 +156,26 @@ jobs:
           ides/eclipse/create_eclipse_desktop_shortcut.sh
           ides/eclipse/Eclipse.desktop
           ides/eclipse/install_eclipse.sh
+          runtimes/openjdk/install_openjdk_11.sh
+    - id: changes_to_openjdk_8_and_vscode
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: |
+          .github/workflows/build_and_publish_changed_images.yaml
+          complete-setups/openjdk-and-vscode/openjdk_8_and_vscode_on_ubuntu_focal.Dockerfile
+          ides/vscode/configure_vscode_to_autostart.sh
+          ides/vscode/create_vscode_desktop_shortcut.sh
+          ides/vscode/install_vscode.sh
+          runtimes/openjdk/install_openjdk_8.sh
+    - id: changes_to_openjdk_11_and_vscode
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: |
+          .github/workflows/build_and_publish_changed_images.yaml
+          complete-setups/openjdk-and-vscode/openjdk_11_and_vscode_on_ubuntu_focal.Dockerfile
+          ides/vscode/configure_vscode_to_autostart.sh
+          ides/vscode/create_vscode_desktop_shortcut.sh
+          ides/vscode/install_vscode.sh
           runtimes/openjdk/install_openjdk_11.sh
     - id: changes_to_pycharm
       uses: tj-actions/changed-files@v1.1.2
@@ -456,6 +478,34 @@ jobs:
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-eclipse:20.04-11
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-eclipse:focal-11
+
+  build_and_publish_openjdk_8_and_vscode:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.openjdk_8_and_vscode_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: runtimes/openjdk/openjdk_8_and_vscode_on_ubuntu_focal.Dockerfile
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-vscode:20.04-8
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-vscode:focal-8
+
+  build_and_publish_openjdk_11_and_vscode:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.openjdk_11_and_vscode_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: runtimes/openjdk/openjdk_11_and_vscode_on_ubuntu_focal.Dockerfile
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-vscode:20.04-11
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-vscode:focal-11
 
   build_and_publish_pycharm:
     needs: detect_image_source_changes
