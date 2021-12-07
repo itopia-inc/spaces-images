@@ -9,4 +9,4 @@ on:
 
 jobs:
   build_and_publish_all_images:
-    uses: itopia-inc/spaces-images/.github/workflows/build_and_publish_all_images@main
+    uses: itopia-inc/spaces-images/.github/workflows/build_and_publish_all_images.yaml@main

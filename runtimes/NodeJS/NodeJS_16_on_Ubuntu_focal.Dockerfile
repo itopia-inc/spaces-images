@@ -5,5 +5,4 @@ LABEL org.opencontainers.image.description="itopia Spaces image with Node.js on 
 LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-images"
 
 COPY runtimes/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh /usr/share/dev-scripts/
-RUN ls
 RUN bash -c '/usr/share/dev-scripts/install_NodeJS_16_on_Ubuntu_focal.sh'
