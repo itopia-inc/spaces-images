@@ -7,12 +7,5 @@ LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-imag
 COPY runtimes/OpenJDK/install_OpenJDK_8_on_Ubuntu_focal.sh /usr/share/dev-scripts/
 RUN bash -c '/usr/share/dev-scripts/install_OpenJDK_8_on_Ubuntu_focal.sh'
 
-COPY ides/VSCode/install_VSCode.sh /usr/share/dev-scripts/
-RUN bash -c '/usr/share/dev-scripts/install_VSCode.sh'
-
-COPY ides/VSCode/create_VSCode_desktop_shortcut.sh /usr/share/dev-scripts/
-COPY ides/VSCode/Code.desktop /usr/share/dev-scripts/
-RUN bash -c '/usr/share/dev-scripts/create_VSCode_desktop_shortcut.sh'
-
 COPY ides/VSCode/configure_VSCode_to_autostart.sh /usr/share/dev-scripts/
 RUN bash -c '/usr/share/dev-scripts/configure_VSCode_to_autostart.sh'
