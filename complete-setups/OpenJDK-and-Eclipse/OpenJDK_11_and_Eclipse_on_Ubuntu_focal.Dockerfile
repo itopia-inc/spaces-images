@@ -7,7 +7,7 @@ LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-imag
 COPY runtimes/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh /usr/share/dev-scripts/
 RUN bash -c '/usr/share/dev-scripts/install_OpenJDK_11_on_Ubuntu_focal.sh'
 
-COPY ides/Eclipse/install_WebStorm.sh /usr/share/dev-scripts/
+COPY ides/Eclipse/install_Eclipse.sh /usr/share/dev-scripts/
 RUN bash -c '/usr/share/dev-scripts/install_Eclipse.sh'
 
 COPY ides/Eclipse/create_Eclipse_desktop_shortcut.sh /usr/share/dev-scripts/
