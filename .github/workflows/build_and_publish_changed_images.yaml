@@ -126,14 +126,14 @@ jobs:
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          runtimes/OpenJDK/install_OpenJDK_8.sh
+          runtimes/OpenJDK/install_OpenJDK_8_on_Ubuntu_focal.sh
           runtimes/OpenJDK/OpenJDK_8_on_Ubuntu_focal.Dockerfile
     - id: changes_to_OpenJDK_11
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          runtimes/OpenJDK/install_OpenJDK_11.sh
+          runtimes/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
           runtimes/OpenJDK/OpenJDK_11_on_Ubuntu_focal.Dockerfile
     - id: changes_to_OpenJDK_8_and_Eclipse
       uses: tj-actions/changed-files@v1.1.2
@@ -145,7 +145,7 @@ jobs:
           ides/Eclipse/create_Eclipse_desktop_shortcut.sh
           ides/Eclipse/Eclipse.desktop
           ides/Eclipse/install_Eclipse.sh
-          runtimes/OpenJDK/install_OpenJDK_8.sh
+          runtimes/OpenJDK/install_OpenJDK_8_on_Ubuntu_focal.sh
     - id: changes_to_OpenJDK_11_and_Eclipse
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -156,7 +156,7 @@ jobs:
           ides/Eclipse/create_Eclipse_desktop_shortcut.sh
           ides/Eclipse/Eclipse.desktop
           ides/Eclipse/install_Eclipse.sh
-          runtimes/OpenJDK/install_OpenJDK_11.sh
+          runtimes/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
     - id: changes_to_OpenJDK_8_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -166,7 +166,7 @@ jobs:
           ides/VSCode/configure_VSCode_to_autostart.sh
           ides/VSCode/create_VSCode_desktop_shortcut.sh
           ides/VSCode/install_VSCode.sh
-          runtimes/OpenJDK/install_OpenJDK_8.sh
+          runtimes/OpenJDK/install_OpenJDK_8_on_Ubuntu_focal.sh
     - id: changes_to_OpenJDK_11_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -176,7 +176,7 @@ jobs:
           ides/VSCode/configure_VSCode_to_autostart.sh
           ides/VSCode/create_VSCode_desktop_shortcut.sh
           ides/VSCode/install_VSCode.sh
-          runtimes/OpenJDK/install_OpenJDK_11.sh
+          runtimes/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
     - id: changes_to_PyCharm
       uses: tj-actions/changed-files@v1.1.2
       with:
