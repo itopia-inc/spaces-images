@@ -10,666 +10,666 @@ jobs:
   detect_image_source_changes:
     runs-on: ubuntu-latest
     outputs:
-      eclipse_changed: ${{ steps.changes_to_eclipse.outputs.any_changed == 'true' || steps.changes_to_eclipse.outputs.any_deleted == 'true' }}
-      nodejs_12_changed: ${{ steps.changes_to_nodejs_12.outputs.any_changed == 'true' || steps.changes_to_nodejs_12.outputs.any_deleted == 'true' }}
-      nodejs_14_changed: ${{ steps.changes_to_nodejs_14.outputs.any_changed == 'true' || steps.changes_to_nodejs_14.outputs.any_deleted == 'true' }}
-      nodejs_16_changed: ${{ steps.changes_to_nodejs_16.outputs.any_changed == 'true' || steps.changes_to_nodejs_16.outputs.any_deleted == 'true' }}
-      nodejs_12_and_vscode_changed: ${{ steps.changes_to_nodejs_12_and_vscode.outputs.any_changed == 'true' || steps.changes_to_nodejs_12_and_vscode.outputs.any_deleted == 'true' }}
-      nodejs_14_and_vscode_changed: ${{ steps.changes_to_nodejs_14_and_vscode.outputs.any_changed == 'true' || steps.changes_to_nodejs_14_and_vscode.outputs.any_deleted == 'true' }}
-      nodejs_16_and_vscode_changed: ${{ steps.changes_to_nodejs_16_and_vscode.outputs.any_changed == 'true' || steps.changes_to_nodejs_16_and_vscode.outputs.any_deleted == 'true' }}
-      nodejs_12_and_webstorm_changed: ${{ steps.changes_to_nodejs_12_and_webstorm.outputs.any_changed == 'true' || steps.changes_to_nodejs_12_and_webstorm.outputs.any_deleted == 'true' }}
-      nodejs_14_and_webstorm_changed: ${{ steps.changes_to_nodejs_14_and_webstorm.outputs.any_changed == 'true' || steps.changes_to_nodejs_14_and_webstorm.outputs.any_deleted == 'true' }}
-      nodejs_16_and_webstorm_changed: ${{ steps.changes_to_nodejs_16_and_webstorm.outputs.any_changed == 'true' || steps.changes_to_nodejs_16_and_webstorm.outputs.any_deleted == 'true' }}
-      openjdk_8_changed: ${{ steps.changes_to_openjdk_8.outputs.any_changed == 'true' || steps.changes_to_openjdk_8.outputs.any_deleted == 'true' }}
-      openjdk_11_changed: ${{ steps.changes_to_openjdk_11.outputs.any_changed == 'true' || steps.changes_to_openjdk_11.outputs.any_deleted == 'true' }}
-      openjdk_8_and_eclipse_changed: ${{ steps.changes_to_openjdk_8_and_eclipse.outputs.any_changed == 'true' || steps.changes_to_openjdk_8_and_eclipse.outputs.any_deleted == 'true' }}
-      openjdk_11_and_eclipse_changed: ${{ steps.changes_to_openjdk_11_and_eclipse.outputs.any_changed == 'true' || steps.changes_to_openjdk_11_and_eclipse.outputs.any_deleted == 'true' }}
-      openjdk_8_and_vscode_changed: ${{ steps.changes_to_openjdk_8_and_vscode.outputs.any_changed == 'true' || steps.changes_to_openjdk_8_and_vscode.outputs.any_deleted == 'true' }}
-      openjdk_11_and_vscode_changed: ${{ steps.changes_to_openjdk_11_and_vscode.outputs.any_changed == 'true' || steps.changes_to_openjdk_11_and_vscode.outputs.any_deleted == 'true' }}
-      pycharm_changed: ${{ steps.changes_to_pycharm.outputs.any_changed == 'true' || steps.changes_to_pycharm.outputs.any_deleted == 'true' }}
-      python_2-7_changed: ${{ steps.changes_to_python_2-7.outputs.any_changed == 'true' || steps.changes_to_python_2-7.outputs.any_deleted == 'true' }}
-      python_3-9_changed: ${{ steps.changes_to_python_3-9.outputs.any_changed == 'true' || steps.changes_to_python_3-9.outputs.any_deleted == 'true' }}
-      python_3-10_changed: ${{ steps.changes_to_python_3-10.outputs.any_changed == 'true' || steps.changes_to_python_3-10.outputs.any_deleted == 'true' }}
-      python_2-7_and_pycharm_changed: ${{ steps.changes_to_python_2-7_and_pycharm.outputs.any_changed == 'true' || steps.changes_to_python_2-7_and_pycharm.outputs.any_deleted == 'true' }}
-      python_3-9_and_pycharm_changed: ${{ steps.changes_to_python_3-9_and_pycharm.outputs.any_changed == 'true' || steps.changes_to_python_3-9_and_pycharm.outputs.any_deleted == 'true' }}
-      python_3-10_and_pycharm_changed: ${{ steps.changes_to_python_3-10_and_pycharm.outputs.any_changed == 'true' || steps.changes_to_python_3-10_and_pycharm.outputs.any_deleted == 'true' }}
-      python_2-7_and_vscode_changed: ${{ steps.changes_to_python_2-7_and_vscode.outputs.any_changed == 'true' || steps.changes_to_python_2-7_and_vscode.outputs.any_deleted == 'true' }}
-      python_3-9_and_vscode_changed: ${{ steps.changes_to_python_3-9_and_vscode.outputs.any_changed == 'true' || steps.changes_to_python_3-9_and_vscode.outputs.any_deleted == 'true' }}
-      python_3-10_and_vscode_changed: ${{ steps.changes_to_python_3-10_and_vscode.outputs.any_changed == 'true' || steps.changes_to_python_3-10_and_vscode.outputs.any_deleted == 'true' }}
-      vscode_changed: ${{ steps.changes_to_vscode.outputs.any_changed == 'true' || steps.changes_to_vscode.outputs.any_deleted == 'true' }}
-      webstorm_changed: ${{ steps.changes_to_webstorm.outputs.any_changed == 'true' || steps.changes_to_webstorm.outputs.any_deleted == 'true' }}
+      Eclipse_changed: ${{ steps.changes_to_Eclipse.outputs.any_changed == 'true' || steps.changes_to_Eclipse.outputs.any_deleted == 'true' }}
+      NodeJS_12_changed: ${{ steps.changes_to_NodeJS_12.outputs.any_changed == 'true' || steps.changes_to_NodeJS_12.outputs.any_deleted == 'true' }}
+      NodeJS_14_changed: ${{ steps.changes_to_NodeJS_14.outputs.any_changed == 'true' || steps.changes_to_NodeJS_14.outputs.any_deleted == 'true' }}
+      NodeJS_16_changed: ${{ steps.changes_to_NodeJS_16.outputs.any_changed == 'true' || steps.changes_to_NodeJS_16.outputs.any_deleted == 'true' }}
+      NodeJS_12_and_VSCode_changed: ${{ steps.changes_to_NodeJS_12_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_NodeJS_12_and_VSCode.outputs.any_deleted == 'true' }}
+      NodeJS_14_and_VSCode_changed: ${{ steps.changes_to_NodeJS_14_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_NodeJS_14_and_VSCode.outputs.any_deleted == 'true' }}
+      NodeJS_16_and_VSCode_changed: ${{ steps.changes_to_NodeJS_16_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_NodeJS_16_and_VSCode.outputs.any_deleted == 'true' }}
+      NodeJS_12_and_WebStorm_changed: ${{ steps.changes_to_NodeJS_12_and_WebStorm.outputs.any_changed == 'true' || steps.changes_to_NodeJS_12_and_WebStorm.outputs.any_deleted == 'true' }}
+      NodeJS_14_and_WebStorm_changed: ${{ steps.changes_to_NodeJS_14_and_WebStorm.outputs.any_changed == 'true' || steps.changes_to_NodeJS_14_and_WebStorm.outputs.any_deleted == 'true' }}
+      NodeJS_16_and_WebStorm_changed: ${{ steps.changes_to_NodeJS_16_and_WebStorm.outputs.any_changed == 'true' || steps.changes_to_NodeJS_16_and_WebStorm.outputs.any_deleted == 'true' }}
+      OpenJDK_8_changed: ${{ steps.changes_to_OpenJDK_8.outputs.any_changed == 'true' || steps.changes_to_OpenJDK_8.outputs.any_deleted == 'true' }}
+      OpenJDK_11_changed: ${{ steps.changes_to_OpenJDK_11.outputs.any_changed == 'true' || steps.changes_to_OpenJDK_11.outputs.any_deleted == 'true' }}
+      OpenJDK_8_and_Eclipse_changed: ${{ steps.changes_to_OpenJDK_8_and_Eclipse.outputs.any_changed == 'true' || steps.changes_to_OpenJDK_8_and_Eclipse.outputs.any_deleted == 'true' }}
+      OpenJDK_11_and_Eclipse_changed: ${{ steps.changes_to_OpenJDK_11_and_Eclipse.outputs.any_changed == 'true' || steps.changes_to_OpenJDK_11_and_Eclipse.outputs.any_deleted == 'true' }}
+      OpenJDK_8_and_VSCode_changed: ${{ steps.changes_to_OpenJDK_8_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_OpenJDK_8_and_VSCode.outputs.any_deleted == 'true' }}
+      OpenJDK_11_and_VSCode_changed: ${{ steps.changes_to_OpenJDK_11_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_OpenJDK_11_and_VSCode.outputs.any_deleted == 'true' }}
+      PyCharm_changed: ${{ steps.changes_to_PyCharm.outputs.any_changed == 'true' || steps.changes_to_PyCharm.outputs.any_deleted == 'true' }}
+      Python_2-7_changed: ${{ steps.changes_to_Python_2-7.outputs.any_changed == 'true' || steps.changes_to_Python_2-7.outputs.any_deleted == 'true' }}
+      Python_3-9_changed: ${{ steps.changes_to_Python_3-9.outputs.any_changed == 'true' || steps.changes_to_Python_3-9.outputs.any_deleted == 'true' }}
+      Python_3-10_changed: ${{ steps.changes_to_Python_3-10.outputs.any_changed == 'true' || steps.changes_to_Python_3-10.outputs.any_deleted == 'true' }}
+      Python_2-7_and_PyCharm_changed: ${{ steps.changes_to_Python_2-7_and_PyCharm.outputs.any_changed == 'true' || steps.changes_to_Python_2-7_and_PyCharm.outputs.any_deleted == 'true' }}
+      Python_3-9_and_PyCharm_changed: ${{ steps.changes_to_Python_3-9_and_PyCharm.outputs.any_changed == 'true' || steps.changes_to_Python_3-9_and_PyCharm.outputs.any_deleted == 'true' }}
+      Python_3-10_and_PyCharm_changed: ${{ steps.changes_to_Python_3-10_and_PyCharm.outputs.any_changed == 'true' || steps.changes_to_Python_3-10_and_PyCharm.outputs.any_deleted == 'true' }}
+      Python_2-7_and_VSCode_changed: ${{ steps.changes_to_Python_2-7_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_Python_2-7_and_VSCode.outputs.any_deleted == 'true' }}
+      Python_3-9_and_VSCode_changed: ${{ steps.changes_to_Python_3-9_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_Python_3-9_and_VSCode.outputs.any_deleted == 'true' }}
+      Python_3-10_and_VSCode_changed: ${{ steps.changes_to_Python_3-10_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_Python_3-10_and_VSCode.outputs.any_deleted == 'true' }}
+      VSCode_changed: ${{ steps.changes_to_VSCode.outputs.any_changed == 'true' || steps.changes_to_VSCode.outputs.any_deleted == 'true' }}
+      WebStorm_changed: ${{ steps.changes_to_WebStorm.outputs.any_changed == 'true' || steps.changes_to_WebStorm.outputs.any_deleted == 'true' }}
     steps:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 2 # This is for changed-files.
-    - id: changes_to_eclipse
+    - id: changes_to_Eclipse
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          ides/eclipse/configure_eclipse_to_autostart.sh
-          ides/eclipse/create_eclipse_desktop_shortcut.sh
-          ides/eclipse/Dockerfile
-          ides/eclipse/Eclipse.desktop
-          ides/eclipse/install_eclipse.sh
-    - id: changes_to_nodejs_12
+          ides/Eclipse/configure_Eclipse_to_autostart.sh
+          ides/Eclipse/create_Eclipse_desktop_shortcut.sh
+          ides/Eclipse/Dockerfile
+          ides/Eclipse/Eclipse.desktop
+          ides/Eclipse/install_Eclipse.sh
+    - id: changes_to_NodeJS_12
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          runtimes/nodejs/install_nodejs_12_on_ubuntu_focal.sh
-          runtimes/nodejs/nodejs_12_on_ubuntu_focal.Dockerfile
-    - id: changes_to_nodejs_14
+          runtimes/NodeJS/install_NodeJS_12_on_Ubuntu_focal.sh
+          runtimes/NodeJS/NodeJS_12_on_Ubuntu_focal.Dockerfile
+    - id: changes_to_NodeJS_14
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          runtimes/nodejs/install_nodejs_14_on_ubuntu_focal.sh
-          runtimes/nodejs/nodejs_14_on_ubuntu_focal.Dockerfile
-    - id: changes_to_nodejs_16
+          runtimes/NodeJS/install_NodeJS_14_on_Ubuntu_focal.sh
+          runtimes/NodeJS/NodeJS_14_on_Ubuntu_focal.Dockerfile
+    - id: changes_to_NodeJS_16
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          runtimes/nodejs/install_nodejs_16_on_ubuntu_focal.sh
-          runtimes/nodejs/nodejs_16_on_ubuntu_focal.Dockerfile
-    - id: changes_to_nodejs_12_and_vscode
+          runtimes/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
+          runtimes/NodeJS/NodeJS_16_on_Ubuntu_focal.Dockerfile
+    - id: changes_to_NodeJS_12_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          complete-setups/nodejs-and-vscode/nodejs_12_and_vscode_on_ubuntu_focal.Dockerfile
-          ides/vscode/configure_vscode_to_autostart.sh
-          runtimes/nodejs/install_nodejs_12_on_ubuntu_focal.sh
-    - id: changes_to_nodejs_14_and_vscode
+          complete-setups/NodeJS-and-VSCode/NodeJS_12_and_VSCode_on_Ubuntu_focal.Dockerfile
+          ides/VSCode/configure_VSCode_to_autostart.sh
+          runtimes/NodeJS/install_NodeJS_12_on_Ubuntu_focal.sh
+    - id: changes_to_NodeJS_14_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          complete-setups/nodejs-and-vscode/nodejs_14_and_vscode_on_ubuntu_focal.Dockerfile
-          ides/vscode/configure_vscode_to_autostart.sh
-          runtimes/nodejs/install_nodejs_14_on_ubuntu_focal.sh
-    - id: changes_to_nodejs_16_and_vscode
+          complete-setups/NodeJS-and-VSCode/NodeJS_14_and_VSCode_on_Ubuntu_focal.Dockerfile
+          ides/VSCode/configure_VSCode_to_autostart.sh
+          runtimes/NodeJS/install_NodeJS_14_on_Ubuntu_focal.sh
+    - id: changes_to_NodeJS_16_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          complete-setups/nodejs-and-vscode/nodejs_16_and_vscode_on_ubuntu_focal.Dockerfile
-          ides/vscode/configure_vscode_to_autostart.sh
-          runtimes/nodejs/install_nodejs_16_on_ubuntu_focal.sh
-    - id: changes_to_nodejs_12_and_webstorm
+          complete-setups/NodeJS-and-VSCode/NodeJS_16_and_VSCode_on_Ubuntu_focal.Dockerfile
+          ides/VSCode/configure_VSCode_to_autostart.sh
+          runtimes/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
+    - id: changes_to_NodeJS_12_and_WebStorm
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          complete-setups/nodejs-and-webstorm/nodejs_12_and_webstorm_on_ubuntu_focal.Dockerfile
-          ides/webstorm/configure_webstorm_to_autostart.sh
-          runtimes/nodejs/install_nodejs_12_on_ubuntu_focal.sh
-    - id: changes_to_nodejs_14_and_webstorm
+          complete-setups/NodeJS-and-WebStorm/NodeJS_12_and_WebStorm_on_Ubuntu_focal.Dockerfile
+          ides/WebStorm/configure_WebStorm_to_autostart.sh
+          runtimes/NodeJS/install_NodeJS_12_on_Ubuntu_focal.sh
+    - id: changes_to_NodeJS_14_and_WebStorm
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          complete-setups/nodejs-and-webstorm/nodejs_14_and_webstorm_on_ubuntu_focal.Dockerfile
-          ides/webstorm/configure_webstorm_to_autostart.sh
-          runtimes/nodejs/install_nodejs_14_on_ubuntu_focal.sh
-    - id: changes_to_nodejs_16_and_webstorm
+          complete-setups/NodeJS-and-WebStorm/NodeJS_14_and_WebStorm_on_Ubuntu_focal.Dockerfile
+          ides/WebStorm/configure_WebStorm_to_autostart.sh
+          runtimes/NodeJS/install_NodeJS_14_on_Ubuntu_focal.sh
+    - id: changes_to_NodeJS_16_and_WebStorm
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          complete-setups/nodejs-and-webstorm/nodejs_16_and_webstorm_on_ubuntu_focal.Dockerfile
-          ides/webstorm/configure_webstorm_to_autostart.sh
-          runtimes/nodejs/install_nodejs_16_on_ubuntu_focal.sh
-    - id: changes_to_openjdk_8
+          complete-setups/NodeJS-and-WebStorm/NodeJS_16_and_WebStorm_on_Ubuntu_focal.Dockerfile
+          ides/WebStorm/configure_WebStorm_to_autostart.sh
+          runtimes/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
+    - id: changes_to_OpenJDK_8
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          runtimes/openjdk/install_openjdk_8.sh
-          runtimes/openjdk/openjdk_8_on_ubuntu_focal.Dockerfile
-    - id: changes_to_openjdk_11
+          runtimes/OpenJDK/install_OpenJDK_8_on_Ubuntu_focal.sh
+          runtimes/OpenJDK/OpenJDK_8_on_Ubuntu_focal.Dockerfile
+    - id: changes_to_OpenJDK_11
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          runtimes/openjdk/install_openjdk_11.sh
-          runtimes/openjdk/openjdk_11_on_ubuntu_focal.Dockerfile
-    - id: changes_to_openjdk_8_and_eclipse
+          runtimes/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
+          runtimes/OpenJDK/OpenJDK_11_on_Ubuntu_focal.Dockerfile
+    - id: changes_to_OpenJDK_8_and_Eclipse
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          complete-setups/openjdk-and-eclipse/openjdk_8_and_eclipse_on_ubuntu_focal.Dockerfile
-          ides/eclipse/configure_eclipse_to_autostart.sh
-          ides/eclipse/create_eclipse_desktop_shortcut.sh
-          ides/eclipse/Eclipse.desktop
-          ides/eclipse/install_eclipse.sh
-          runtimes/openjdk/install_openjdk_8.sh
-    - id: changes_to_openjdk_11_and_eclipse
+          complete-setups/OpenJDK-and-Eclipse/OpenJDK_8_and_Eclipse_on_Ubuntu_focal.Dockerfile
+          ides/Eclipse/configure_Eclipse_to_autostart.sh
+          ides/Eclipse/create_Eclipse_desktop_shortcut.sh
+          ides/Eclipse/Eclipse.desktop
+          ides/Eclipse/install_Eclipse.sh
+          runtimes/OpenJDK/install_OpenJDK_8_on_Ubuntu_focal.sh
+    - id: changes_to_OpenJDK_11_and_Eclipse
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          complete-setups/openjdk-and-eclipse/openjdk_11_and_eclipse_on_ubuntu_focal.Dockerfile
-          ides/eclipse/configure_eclipse_to_autostart.sh
-          ides/eclipse/create_eclipse_desktop_shortcut.sh
-          ides/eclipse/Eclipse.desktop
-          ides/eclipse/install_eclipse.sh
-          runtimes/openjdk/install_openjdk_11.sh
-    - id: changes_to_openjdk_8_and_vscode
+          complete-setups/OpenJDK-and-Eclipse/OpenJDK_11_and_Eclipse_on_Ubuntu_focal.Dockerfile
+          ides/Eclipse/configure_Eclipse_to_autostart.sh
+          ides/Eclipse/create_Eclipse_desktop_shortcut.sh
+          ides/Eclipse/Eclipse.desktop
+          ides/Eclipse/install_Eclipse.sh
+          runtimes/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
+    - id: changes_to_OpenJDK_8_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          complete-setups/openjdk-and-vscode/openjdk_8_and_vscode_on_ubuntu_focal.Dockerfile
-          ides/vscode/configure_vscode_to_autostart.sh
-          ides/vscode/create_vscode_desktop_shortcut.sh
-          ides/vscode/install_vscode.sh
-          runtimes/openjdk/install_openjdk_8.sh
-    - id: changes_to_openjdk_11_and_vscode
+          complete-setups/OpenJDK-and-VSCode/OpenJDK_8_and_VSCode_on_Ubuntu_focal.Dockerfile
+          ides/VSCode/configure_VSCode_to_autostart.sh
+          ides/VSCode/create_VSCode_desktop_shortcut.sh
+          ides/VSCode/install_VSCode.sh
+          runtimes/OpenJDK/install_OpenJDK_8_on_Ubuntu_focal.sh
+    - id: changes_to_OpenJDK_11_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          complete-setups/openjdk-and-vscode/openjdk_11_and_vscode_on_ubuntu_focal.Dockerfile
-          ides/vscode/configure_vscode_to_autostart.sh
-          ides/vscode/create_vscode_desktop_shortcut.sh
-          ides/vscode/install_vscode.sh
-          runtimes/openjdk/install_openjdk_11.sh
-    - id: changes_to_pycharm
+          complete-setups/OpenJDK-and-VSCode/OpenJDK_11_and_VSCode_on_Ubuntu_focal.Dockerfile
+          ides/VSCode/configure_VSCode_to_autostart.sh
+          ides/VSCode/create_VSCode_desktop_shortcut.sh
+          ides/VSCode/install_VSCode.sh
+          runtimes/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
+    - id: changes_to_PyCharm
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          ides/pycharm/configure_pycharm_to_autostart.sh
-          ides/pycharm/create_pycharm_desktop_shortcut.sh
-          ides/pycharm/Dockerfile
-          ides/pycharm/install_pycharm.sh
-          ides/pycharm/jetbrains-pycharm-ce.desktop
-    - id: changes_to_python_2-7
+          ides/PyCharm/configure_PyCharm_to_autostart.sh
+          ides/PyCharm/create_PyCharm_desktop_shortcut.sh
+          ides/PyCharm/Dockerfile
+          ides/PyCharm/install_PyCharm.sh
+          ides/PyCharm/jetbrains-pycharm-ce.desktop
+    - id: changes_to_Python_2-7
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          runtimes/python/install_python_2-7_on_ubuntu_focal.sh
-          runtimes/python/python_2-7_on_ubuntu_focal.Dockerfile
-    - id: changes_to_python_3-9
+          runtimes/Python/install_Python_2-7_on_Ubuntu_focal.sh
+          runtimes/Python/Python_2-7_on_Ubuntu_focal.Dockerfile
+    - id: changes_to_Python_3-9
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          runtimes/python/install_python_3-9_on_ubuntu_focal.sh
-          runtimes/python/python_3-9_on_ubuntu_focal.Dockerfile
-    - id: changes_to_python_3-10
+          runtimes/Python/install_Python_3-9_on_Ubuntu_focal.sh
+          runtimes/Python/Python_3-9_on_Ubuntu_focal.Dockerfile
+    - id: changes_to_Python_3-10
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          runtimes/python/install_python_3-10_on_ubuntu_focal.sh
-          runtimes/python/python_3-10_on_ubuntu_focal.Dockerfile
-    - id: changes_to_python_2-7_and_pycharm
+          runtimes/Python/install_Python_3-10_on_Ubuntu_focal.sh
+          runtimes/Python/Python_3-10_on_Ubuntu_focal.Dockerfile
+    - id: changes_to_Python_2-7_and_PyCharm
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          complete-setups/python-and-pycharm/python_2-7_and_pycharm_on_ubuntu_focal.Dockerfile
-          ides/pycharm/configure_pycharm_to_autostart.sh
-          ides/pycharm/create_pycharm_desktop_shortcut.sh
-          ides/pycharm/install_pycharm.sh
-          ides/pycharm/jetbrains-pycharm-ce.desktop
-          runtimes/python/install_python_2-7_on_ubuntu_focal.sh
-    - id: changes_to_python_3-9_and_pycharm
+          complete-setups/Python-and-PyCharm/Python_2-7_and_PyCharm_on_Ubuntu_focal.Dockerfile
+          ides/PyCharm/configure_PyCharm_to_autostart.sh
+          ides/PyCharm/create_PyCharm_desktop_shortcut.sh
+          ides/PyCharm/install_PyCharm.sh
+          ides/PyCharm/jetbrains-pycharm-ce.desktop
+          runtimes/Python/install_Python_2-7_on_Ubuntu_focal.sh
+    - id: changes_to_Python_3-9_and_PyCharm
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          complete-setups/python-and-pycharm/python_3-9_and_pycharm_on_ubuntu_focal.Dockerfile
-          ides/pycharm/configure_pycharm_to_autostart.sh
-          ides/pycharm/create_pycharm_desktop_shortcut.sh
-          ides/pycharm/install_pycharm.sh
-          ides/pycharm/jetbrains-pycharm-ce.desktop
-          runtimes/python/install_python_3-9_on_ubuntu_focal.sh
-    - id: changes_to_python_3-10_and_pycharm
+          complete-setups/Python-and-PyCharm/Python_3-9_and_PyCharm_on_Ubuntu_focal.Dockerfile
+          ides/PyCharm/configure_PyCharm_to_autostart.sh
+          ides/PyCharm/create_PyCharm_desktop_shortcut.sh
+          ides/PyCharm/install_PyCharm.sh
+          ides/PyCharm/jetbrains-pycharm-ce.desktop
+          runtimes/Python/install_Python_3-9_on_Ubuntu_focal.sh
+    - id: changes_to_Python_3-10_and_PyCharm
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          complete-setups/python-and-pycharm/python_3-10_and_pycharm_on_ubuntu_focal.Dockerfile
-          ides/pycharm/configure_pycharm_to_autostart.sh
-          ides/pycharm/create_pycharm_desktop_shortcut.sh
-          ides/pycharm/install_pycharm.sh
-          ides/pycharm/jetbrains-pycharm-ce.desktop
-          runtimes/python/install_python_3-10_on_ubuntu_focal.sh
-    - id: changes_to_python_2-7_and_vscode
+          complete-setups/Python-and-PyCharm/Python_3-10_and_PyCharm_on_Ubuntu_focal.Dockerfile
+          ides/PyCharm/configure_PyCharm_to_autostart.sh
+          ides/PyCharm/create_PyCharm_desktop_shortcut.sh
+          ides/PyCharm/install_PyCharm.sh
+          ides/PyCharm/jetbrains-pycharm-ce.desktop
+          runtimes/Python/install_Python_3-10_on_Ubuntu_focal.sh
+    - id: changes_to_Python_2-7_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          complete-setups/python-and-vscode/python_2-7_and_vscode_on_ubuntu_focal.Dockerfile
-          ides/vscode/configure_vscode_to_autostart.sh
-          runtimes/python/install_python_2-7_on_ubuntu_focal.sh
-    - id: changes_to_python_3-9_and_vscode
+          complete-setups/Python-and-VSCode/Python_2-7_and_VSCode_on_Ubuntu_focal.Dockerfile
+          ides/VSCode/configure_VSCode_to_autostart.sh
+          runtimes/Python/install_Python_2-7_on_Ubuntu_focal.sh
+    - id: changes_to_Python_3-9_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          complete-setups/python-and-vscode/python_3-9_and_vscode_on_ubuntu_focal.Dockerfile
-          ides/vscode/configure_vscode_to_autostart.sh
-          runtimes/python/install_python_3-9_on_ubuntu_focal.sh
-    - id: changes_to_python_3-10_and_vscode
+          complete-setups/Python-and-VSCode/Python_3-9_and_VSCode_on_Ubuntu_focal.Dockerfile
+          ides/VSCode/configure_VSCode_to_autostart.sh
+          runtimes/Python/install_Python_3-9_on_Ubuntu_focal.sh
+    - id: changes_to_Python_3-10_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          complete-setups/python-and-vscode/python_3-10_and_vscode_on_ubuntu_focal.Dockerfile
-          ides/vscode/configure_vscode_to_autostart.sh
-          runtimes/python/install_python_3-10_on_ubuntu_focal.sh
-    - id: changes_to_vscode
+          complete-setups/Python-and-VSCode/Python_3-10_and_VSCode_on_Ubuntu_focal.Dockerfile
+          ides/VSCode/configure_VSCode_to_autostart.sh
+          runtimes/Python/install_Python_3-10_on_Ubuntu_focal.sh
+    - id: changes_to_VSCode
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          ides/vscode/configure_vscode_to_autostart.sh
-          ides/vscode/Dockerfile
-    - id: changes_to_webstorm
+          ides/VSCode/configure_VSCode_to_autostart.sh
+          ides/VSCode/Dockerfile
+    - id: changes_to_WebStorm
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
-          ides/webstorm/configure_webstorm_to_autostart.sh
-          ides/webstorm/create_webstorm_desktop_shortcut.sh
-          ides/webstorm/Dockerfile
-          ides/webstorm/install.sh
-          ides/webstorm/WebStorm.desktop
+          ides/WebStorm/configure_WebStorm_to_autostart.sh
+          ides/WebStorm/create_WebStorm_desktop_shortcut.sh
+          ides/WebStorm/Dockerfile
+          ides/WebStorm/install.sh
+          ides/WebStorm/WebStorm.desktop
 
-  build_and_publish_eclipse:
+  build_and_publish_Eclipse:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.eclipse_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.Eclipse_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: ides/eclipse/Dockerfile
+        dockerfile_path: ides/Eclipse/Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-eclipse:20.04
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-eclipse:focal
 
-  build_and_publish_nodejs_12:
+  build_and_publish_NodeJS_12:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.nodejs_12_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.NodeJS_12_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/nodejs/nodejs_12_on_ubuntu_focal.Dockerfile
+        dockerfile_path: runtimes/NodeJS/NodeJS_12_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:20.04-12
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-12
 
-  build_and_publish_nodejs_14:
+  build_and_publish_NodeJS_14:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.nodejs_14_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.NodeJS_14_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/nodejs/nodejs_14_on_ubuntu_focal.Dockerfile
+        dockerfile_path: runtimes/NodeJS/NodeJS_14_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:20.04-14
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-14
 
-  build_and_publish_nodejs_16:
+  build_and_publish_NodeJS_16:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.nodejs_16_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.NodeJS_16_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/nodejs/nodejs_16_on_ubuntu_focal.Dockerfile
+        dockerfile_path: runtimes/NodeJS/NodeJS_16_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:20.04-16
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-16
 
-  build_and_publish_nodejs_12_and_vscode:
+  build_and_publish_NodeJS_12_and_VSCode:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.nodejs_12_and_vscode_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.NodeJS_12_and_VSCode_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: complete-setups/nodejs-and-vscode/nodejs_12_and_vscode_on_ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/NodeJS-and-VSCode/NodeJS_12_and_VSCode_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:20.04-12
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:focal-12
 
-  build_and_publish_nodejs_14_and_vscode:
+  build_and_publish_NodeJS_14_and_VSCode:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.nodejs_14_and_vscode_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.NodeJS_14_and_VSCode_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: complete-setups/nodejs-and-vscode/nodejs_14_and_vscode_on_ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/NodeJS-and-VSCode/NodeJS_14_and_VSCode_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:20.04-14
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:focal-14
 
-  build_and_publish_nodejs_16_and_vscode:
+  build_and_publish_NodeJS_16_and_VSCode:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.nodejs_16_and_vscode_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.NodeJS_16_and_VSCode_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: complete-setups/nodejs-and-vscode/nodejs_16_and_vscode_on_ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/NodeJS-and-VSCode/NodeJS_16_and_VSCode_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:20.04-16
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:focal-16
 
-  build_and_publish_nodejs_12_and_webstorm:
+  build_and_publish_NodeJS_12_and_WebStorm:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.nodejs_12_and_webstorm_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.NodeJS_12_and_WebStorm_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: complete-setups/nodejs-and-webstorm/nodejs_12_and_webstorm_on_ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/NodeJS-and-WebStorm/NodeJS_12_and_WebStorm_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:20.04-12
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-12
 
-  build_and_publish_nodejs_14_and_webstorm:
+  build_and_publish_NodeJS_14_and_WebStorm:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.nodejs_14_and_webstorm_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.NodeJS_14_and_WebStorm_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: complete-setups/nodejs-and-webstorm/nodejs_14_and_webstorm_on_ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/NodeJS-and-WebStorm/NodeJS_14_and_WebStorm_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:20.04-14
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-14
 
-  build_and_publish_nodejs_16_and_webstorm:
+  build_and_publish_NodeJS_16_and_WebStorm:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.nodejs_16_and_webstorm_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.NodeJS_16_and_WebStorm_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: complete-setups/nodejs-and-webstorm/nodejs_16_and_webstorm_on_ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/NodeJS-and-WebStorm/NodeJS_16_and_WebStorm_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:20.04-16
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-16
 
-  build_and_publish_openjdk_8:
+  build_and_publish_OpenJDK_8:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.openjdk_8_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.OpenJDK_8_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/openjdk/openjdk_8_on_ubuntu_focal.Dockerfile
+        dockerfile_path: runtimes/OpenJDK/OpenJDK_8_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:20.04-8
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:focal-8
 
-  build_and_publish_openjdk_11:
+  build_and_publish_OpenJDK_11:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.openjdk_11_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.OpenJDK_11_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/openjdk/openjdk_11_on_ubuntu_focal.Dockerfile
+        dockerfile_path: runtimes/OpenJDK/OpenJDK_11_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:20.04-11
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:focal-11
 
-  build_and_publish_openjdk_8_and_eclipse:
+  build_and_publish_OpenJDK_8_and_Eclipse:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.openjdk_8_and_eclipse_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.OpenJDK_8_and_Eclipse_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/openjdk/openjdk_8_and_eclipse_on_ubuntu_focal.Dockerfile
+        dockerfile_path: runtimes/OpenJDK/OpenJDK_8_and_Eclipse_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-eclipse:20.04-8
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-eclipse:focal-8
 
-  build_and_publish_openjdk_11_and_eclipse:
+  build_and_publish_OpenJDK_11_and_Eclipse:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.openjdk_11_and_eclipse_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.OpenJDK_11_and_Eclipse_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/openjdk/openjdk_11_and_eclipse_on_ubuntu_focal.Dockerfile
+        dockerfile_path: runtimes/OpenJDK/OpenJDK_11_and_Eclipse_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-eclipse:20.04-11
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-eclipse:focal-11
 
-  build_and_publish_openjdk_8_and_vscode:
+  build_and_publish_OpenJDK_8_and_VSCode:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.openjdk_8_and_vscode_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.OpenJDK_8_and_VSCode_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/openjdk/openjdk_8_and_vscode_on_ubuntu_focal.Dockerfile
+        dockerfile_path: runtimes/OpenJDK/OpenJDK_8_and_VSCode_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-vscode:20.04-8
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-vscode:focal-8
 
-  build_and_publish_openjdk_11_and_vscode:
+  build_and_publish_OpenJDK_11_and_VSCode:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.openjdk_11_and_vscode_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.OpenJDK_11_and_VSCode_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/openjdk/openjdk_11_and_vscode_on_ubuntu_focal.Dockerfile
+        dockerfile_path: runtimes/OpenJDK/OpenJDK_11_and_VSCode_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-vscode:20.04-11
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-vscode:focal-11
 
-  build_and_publish_pycharm:
+  build_and_publish_PyCharm:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.pycharm_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.PyCharm_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: ides/pycharm/Dockerfile
+        dockerfile_path: ides/PyCharm/Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-pycharm:20.04
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-pycharm:focal
 
-  build_and_publish_python_2-7:
+  build_and_publish_Python_2-7:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_2-7_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.Python_2-7_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/python/python_2-7_on_ubuntu_focal.Dockerfile
+        dockerfile_path: runtimes/Python/Python_2-7_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-2.7
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-2.7
 
-  build_and_publish_python_3-9:
+  build_and_publish_Python_3-9:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_3-9_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.Python_3-9_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/python/python_3-9_on_ubuntu_focal.Dockerfile
+        dockerfile_path: runtimes/Python/Python_3-9_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.9
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.9
 
-  build_and_publish_python_3-10:
+  build_and_publish_Python_3-10:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_3-10_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.Python_3-10_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/python/python_3-10_on_ubuntu_focal.Dockerfile
+        dockerfile_path: runtimes/Python/Python_3-10_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.10
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.10
 
-  build_and_publish_python_2-7_and_pycharm:
+  build_and_publish_Python_2-7_and_PyCharm:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_2-7_and_pycharm_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.Python_2-7_and_PyCharm_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: complete-setups/python-and-pycharm/python_2-7_and_pycharm_on_ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/Python-and-PyCharm/Python_2-7_and_PyCharm_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-2.7
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-2.7
 
-  build_and_publish_python_3-9_and_pycharm:
+  build_and_publish_Python_3-9_and_PyCharm:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_3-9_and_pycharm_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.Python_3-9_and_PyCharm_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: complete-setups/python-and-pycharm/python_3-9_and_pycharm_on_ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/Python-and-PyCharm/Python_3-9_and_PyCharm_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-3.9
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-3.9
 
-  build_and_publish_python_3-10_and_pycharm:
+  build_and_publish_Python_3-10_and_PyCharm:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_3-10_and_pycharm_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.Python_3-10_and_PyCharm_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: complete-setups/python-and-pycharm/python_3-10_and_pycharm_on_ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/Python-and-PyCharm/Python_3-10_and_PyCharm_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-3.10
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-3.10
 
-  build_and_publish_python_2-7_and_vscode:
+  build_and_publish_Python_2-7_and_VSCode:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_2-7_and_vscode_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.Python_2-7_and_VSCode_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: complete-setups/python-and-vscode/python_2-7_and_vscode_on_ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/Python-and-VSCode/Python_2-7_and_VSCode_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:20.04-2.7
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:focal-2.7
 
-  build_and_publish_python_3-9_and_vscode:
+  build_and_publish_Python_3-9_and_VSCode:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_3-9_and_vscode_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.Python_3-9_and_VSCode_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: complete-setups/python-and-vscode/python_3-9_and_vscode_on_ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/Python-and-VSCode/Python_3-9_and_VSCode_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:20.04-3.9
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:focal-3.9
 
-  build_and_publish_python_3-10_and_vscode:
+  build_and_publish_Python_3-10_and_VSCode:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.python_3-10_and_vscode_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.Python_3-10_and_VSCode_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: complete-setups/python-and-vscode/python_3-10_and_vscode_on_ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/Python-and-VSCode/Python_3-10_and_VSCode_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-3.10
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-3.10
 
-  build_and_publish_vscode:
+  build_and_publish_VSCode:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.vscode_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.VSCode_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: ides/vscode/Dockerfile
+        dockerfile_path: ides/VSCode/Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-vscode:20.04
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-vscode:focal
 
-  build_and_publish_webstorm:
+  build_and_publish_WebStorm:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.webstorm_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.WebStorm_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: ides/webstorm/Dockerfile
+        dockerfile_path: ides/WebStorm/Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-webstorm:20.04
