@@ -10,45 +10,65 @@ jobs:
   detect_image_source_changes:
     runs-on: ubuntu-latest
     outputs:
+
       Eclipse_changed: ${{ steps.changes_to_Eclipse.outputs.any_changed == 'true' || steps.changes_to_Eclipse.outputs.any_deleted == 'true' }}
+
       Go_1-16_changed: ${{ steps.changes_to_Go_1-16.outputs.any_changed == 'true' || steps.changes_to_Go_1-16.outputs.any_deleted == 'true' }}
       Go_1-17_changed: ${{ steps.changes_to_Go_1-17.outputs.any_changed == 'true' || steps.changes_to_Go_1-17.outputs.any_deleted == 'true' }}
+
       Go_1-16_and_GoLand_changed: ${{ steps.changes_to_Go_1-16_and_GoLand.outputs.any_changed == 'true' || steps.changes_to_Go_1-16_and_GoLand.outputs.any_deleted == 'true' }}
       Go_1-17_and_GoLand_changed: ${{ steps.changes_to_Go_1-17_and_GoLand.outputs.any_changed == 'true' || steps.changes_to_Go_1-17_and_GoLand.outputs.any_deleted == 'true' }}
+
       Go_1-16_and_VSCode_changed: ${{ steps.changes_to_Go_1-16_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_Go_1-16_and_VSCode.outputs.any_deleted == 'true' }}
       Go_1-17_and_VSCode_changed: ${{ steps.changes_to_Go_1-17_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_Go_1-17_and_VSCode.outputs.any_deleted == 'true' }}
+
       GoLand_changed: ${{ steps.changes_to_GoLand.outputs.any_changed == 'true' || steps.changes_to_GoLand.outputs.any_deleted == 'true' }}
+
       NodeJS_12_changed: ${{ steps.changes_to_NodeJS_12.outputs.any_changed == 'true' || steps.changes_to_NodeJS_12.outputs.any_deleted == 'true' }}
       NodeJS_14_changed: ${{ steps.changes_to_NodeJS_14.outputs.any_changed == 'true' || steps.changes_to_NodeJS_14.outputs.any_deleted == 'true' }}
       NodeJS_16_changed: ${{ steps.changes_to_NodeJS_16.outputs.any_changed == 'true' || steps.changes_to_NodeJS_16.outputs.any_deleted == 'true' }}
+
       NodeJS_12_and_VSCode_changed: ${{ steps.changes_to_NodeJS_12_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_NodeJS_12_and_VSCode.outputs.any_deleted == 'true' }}
       NodeJS_14_and_VSCode_changed: ${{ steps.changes_to_NodeJS_14_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_NodeJS_14_and_VSCode.outputs.any_deleted == 'true' }}
       NodeJS_16_and_VSCode_changed: ${{ steps.changes_to_NodeJS_16_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_NodeJS_16_and_VSCode.outputs.any_deleted == 'true' }}
+
       NodeJS_12_and_WebStorm_changed: ${{ steps.changes_to_NodeJS_12_and_WebStorm.outputs.any_changed == 'true' || steps.changes_to_NodeJS_12_and_WebStorm.outputs.any_deleted == 'true' }}
       NodeJS_14_and_WebStorm_changed: ${{ steps.changes_to_NodeJS_14_and_WebStorm.outputs.any_changed == 'true' || steps.changes_to_NodeJS_14_and_WebStorm.outputs.any_deleted == 'true' }}
       NodeJS_16_and_WebStorm_changed: ${{ steps.changes_to_NodeJS_16_and_WebStorm.outputs.any_changed == 'true' || steps.changes_to_NodeJS_16_and_WebStorm.outputs.any_deleted == 'true' }}
+
       OpenJDK_8_changed: ${{ steps.changes_to_OpenJDK_8.outputs.any_changed == 'true' || steps.changes_to_OpenJDK_8.outputs.any_deleted == 'true' }}
       OpenJDK_11_changed: ${{ steps.changes_to_OpenJDK_11.outputs.any_changed == 'true' || steps.changes_to_OpenJDK_11.outputs.any_deleted == 'true' }}
+
       OpenJDK_8_and_Eclipse_changed: ${{ steps.changes_to_OpenJDK_8_and_Eclipse.outputs.any_changed == 'true' || steps.changes_to_OpenJDK_8_and_Eclipse.outputs.any_deleted == 'true' }}
       OpenJDK_11_and_Eclipse_changed: ${{ steps.changes_to_OpenJDK_11_and_Eclipse.outputs.any_changed == 'true' || steps.changes_to_OpenJDK_11_and_Eclipse.outputs.any_deleted == 'true' }}
+
       OpenJDK_8_and_VSCode_changed: ${{ steps.changes_to_OpenJDK_8_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_OpenJDK_8_and_VSCode.outputs.any_deleted == 'true' }}
       OpenJDK_11_and_VSCode_changed: ${{ steps.changes_to_OpenJDK_11_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_OpenJDK_11_and_VSCode.outputs.any_deleted == 'true' }}
+
       PyCharm_changed: ${{ steps.changes_to_PyCharm.outputs.any_changed == 'true' || steps.changes_to_PyCharm.outputs.any_deleted == 'true' }}
+
       Python_2-7_changed: ${{ steps.changes_to_Python_2-7.outputs.any_changed == 'true' || steps.changes_to_Python_2-7.outputs.any_deleted == 'true' }}
       Python_3-9_changed: ${{ steps.changes_to_Python_3-9.outputs.any_changed == 'true' || steps.changes_to_Python_3-9.outputs.any_deleted == 'true' }}
       Python_3-10_changed: ${{ steps.changes_to_Python_3-10.outputs.any_changed == 'true' || steps.changes_to_Python_3-10.outputs.any_deleted == 'true' }}
+
       Python_2-7_and_PyCharm_changed: ${{ steps.changes_to_Python_2-7_and_PyCharm.outputs.any_changed == 'true' || steps.changes_to_Python_2-7_and_PyCharm.outputs.any_deleted == 'true' }}
       Python_3-9_and_PyCharm_changed: ${{ steps.changes_to_Python_3-9_and_PyCharm.outputs.any_changed == 'true' || steps.changes_to_Python_3-9_and_PyCharm.outputs.any_deleted == 'true' }}
       Python_3-10_and_PyCharm_changed: ${{ steps.changes_to_Python_3-10_and_PyCharm.outputs.any_changed == 'true' || steps.changes_to_Python_3-10_and_PyCharm.outputs.any_deleted == 'true' }}
+
       Python_2-7_and_VSCode_changed: ${{ steps.changes_to_Python_2-7_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_Python_2-7_and_VSCode.outputs.any_deleted == 'true' }}
       Python_3-9_and_VSCode_changed: ${{ steps.changes_to_Python_3-9_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_Python_3-9_and_VSCode.outputs.any_deleted == 'true' }}
       Python_3-10_and_VSCode_changed: ${{ steps.changes_to_Python_3-10_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_Python_3-10_and_VSCode.outputs.any_deleted == 'true' }}
+
       VSCode_changed: ${{ steps.changes_to_VSCode.outputs.any_changed == 'true' || steps.changes_to_VSCode.outputs.any_deleted == 'true' }}
+
       WebStorm_changed: ${{ steps.changes_to_WebStorm.outputs.any_changed == 'true' || steps.changes_to_WebStorm.outputs.any_deleted == 'true' }}
+
     steps:
+
     - uses: actions/checkout@v2
       with:
         fetch-depth: 2 # This is for changed-files.
+
     - id: changes_to_Eclipse
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -59,6 +79,7 @@ jobs:
           IDEs/Eclipse/Dockerfile
           IDEs/Eclipse/Eclipse.desktop
           IDEs/Eclipse/install_Eclipse.sh
+
     - id: changes_to_Go_1-16
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -66,6 +87,7 @@ jobs:
           .github/workflows/build_and_publish_changed_images.yaml
           runtimes/Go/Go_1-16_on_Ubuntu_focal.Dockerfile
           runtimes/Go/install_Go_1-16_on_Linux.sh
+
     - id: changes_to_Go_1-17
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -73,6 +95,7 @@ jobs:
           .github/workflows/build_and_publish_changed_images.yaml
           runtimes/Go/Go_1-17_on_Ubuntu_focal.Dockerfile
           runtimes/Go/install_Go_1-17_on_Linux.sh
+
     - id: changes_to_Go_1-16_and_GoLand
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -85,6 +108,7 @@ jobs:
           IDEs/GoLand/GoLand.desktop
           IDEs/GoLand/install_GoLand.sh
           runtimes/Go/install_Go_1-16_on_Linux.sh
+
     - id: changes_to_Go_1-17_and_GoLand
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -97,6 +121,7 @@ jobs:
           IDEs/GoLand/GoLand.desktop
           IDEs/GoLand/install_GoLand.sh
           runtimes/Go/install_Go_1-17_on_Linux.sh
+
     - id: changes_to_Go_1-16_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -106,6 +131,7 @@ jobs:
           IDEs/VSCode/configure_VSCode_to_autostart.sh
           IDEs/VSCode/Dockerfile
           runtimes/Go/install_Go_1-16_on_Linux.sh
+
     - id: changes_to_Go_1-17_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -115,6 +141,7 @@ jobs:
           IDEs/VSCode/configure_VSCode_to_autostart.sh
           IDEs/VSCode/Dockerfile
           runtimes/Go/install_Go_1-17_on_Linux.sh
+
     - id: changes_to_GoLand
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -126,6 +153,7 @@ jobs:
           IDEs/GoLand/GoLand.desktop
           IDEs/GoLand/install_GoLand.sh
           runtimes/Go/Go_1-17_on_Ubuntu_focal.Dockerfile
+
     - id: changes_to_NodeJS_12
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -133,6 +161,7 @@ jobs:
           .github/workflows/build_and_publish_changed_images.yaml
           runtimes/NodeJS/install_NodeJS_12_on_Ubuntu_focal.sh
           runtimes/NodeJS/NodeJS_12_on_Ubuntu_focal.Dockerfile
+
     - id: changes_to_NodeJS_14
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -140,6 +169,7 @@ jobs:
           .github/workflows/build_and_publish_changed_images.yaml
           runtimes/NodeJS/install_NodeJS_14_on_Ubuntu_focal.sh
           runtimes/NodeJS/NodeJS_14_on_Ubuntu_focal.Dockerfile
+
     - id: changes_to_NodeJS_16
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -147,6 +177,7 @@ jobs:
           .github/workflows/build_and_publish_changed_images.yaml
           runtimes/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
           runtimes/NodeJS/NodeJS_16_on_Ubuntu_focal.Dockerfile
+
     - id: changes_to_NodeJS_12_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -155,6 +186,7 @@ jobs:
           complete-setups/NodeJS-and-VSCode/NodeJS_12_and_VSCode_on_Ubuntu_focal.Dockerfile
           IDEs/VSCode/configure_VSCode_to_autostart.sh
           runtimes/NodeJS/install_NodeJS_12_on_Ubuntu_focal.sh
+
     - id: changes_to_NodeJS_14_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -163,6 +195,7 @@ jobs:
           complete-setups/NodeJS-and-VSCode/NodeJS_14_and_VSCode_on_Ubuntu_focal.Dockerfile
           IDEs/VSCode/configure_VSCode_to_autostart.sh
           runtimes/NodeJS/install_NodeJS_14_on_Ubuntu_focal.sh
+
     - id: changes_to_NodeJS_16_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -171,6 +204,7 @@ jobs:
           complete-setups/NodeJS-and-VSCode/NodeJS_16_and_VSCode_on_Ubuntu_focal.Dockerfile
           IDEs/VSCode/configure_VSCode_to_autostart.sh
           runtimes/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
+
     - id: changes_to_NodeJS_12_and_WebStorm
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -179,6 +213,7 @@ jobs:
           complete-setups/NodeJS-and-WebStorm/NodeJS_12_and_WebStorm_on_Ubuntu_focal.Dockerfile
           IDEs/WebStorm/configure_WebStorm_to_autostart.sh
           runtimes/NodeJS/install_NodeJS_12_on_Ubuntu_focal.sh
+
     - id: changes_to_NodeJS_14_and_WebStorm
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -187,6 +222,7 @@ jobs:
           complete-setups/NodeJS-and-WebStorm/NodeJS_14_and_WebStorm_on_Ubuntu_focal.Dockerfile
           IDEs/WebStorm/configure_WebStorm_to_autostart.sh
           runtimes/NodeJS/install_NodeJS_14_on_Ubuntu_focal.sh
+
     - id: changes_to_NodeJS_16_and_WebStorm
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -195,6 +231,7 @@ jobs:
           complete-setups/NodeJS-and-WebStorm/NodeJS_16_and_WebStorm_on_Ubuntu_focal.Dockerfile
           IDEs/WebStorm/configure_WebStorm_to_autostart.sh
           runtimes/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
+
     - id: changes_to_OpenJDK_8
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -202,6 +239,7 @@ jobs:
           .github/workflows/build_and_publish_changed_images.yaml
           runtimes/OpenJDK/install_OpenJDK_8_on_Ubuntu_focal.sh
           runtimes/OpenJDK/OpenJDK_8_on_Ubuntu_focal.Dockerfile
+
     - id: changes_to_OpenJDK_11
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -209,6 +247,7 @@ jobs:
           .github/workflows/build_and_publish_changed_images.yaml
           runtimes/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
           runtimes/OpenJDK/OpenJDK_11_on_Ubuntu_focal.Dockerfile
+
     - id: changes_to_OpenJDK_8_and_Eclipse
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -220,6 +259,7 @@ jobs:
           IDEs/Eclipse/Eclipse.desktop
           IDEs/Eclipse/install_Eclipse.sh
           runtimes/OpenJDK/install_OpenJDK_8_on_Ubuntu_focal.sh
+
     - id: changes_to_OpenJDK_11_and_Eclipse
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -231,6 +271,7 @@ jobs:
           IDEs/Eclipse/Eclipse.desktop
           IDEs/Eclipse/install_Eclipse.sh
           runtimes/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
+
     - id: changes_to_OpenJDK_8_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -241,6 +282,7 @@ jobs:
           IDEs/VSCode/create_VSCode_desktop_shortcut.sh
           IDEs/VSCode/install_VSCode.sh
           runtimes/OpenJDK/install_OpenJDK_8_on_Ubuntu_focal.sh
+
     - id: changes_to_OpenJDK_11_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -251,6 +293,7 @@ jobs:
           IDEs/VSCode/create_VSCode_desktop_shortcut.sh
           IDEs/VSCode/install_VSCode.sh
           runtimes/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
+
     - id: changes_to_PyCharm
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -261,6 +304,7 @@ jobs:
           IDEs/PyCharm/Dockerfile
           IDEs/PyCharm/install_PyCharm.sh
           IDEs/PyCharm/jetbrains-pycharm-ce.desktop
+
     - id: changes_to_Python_2-7
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -268,6 +312,7 @@ jobs:
           .github/workflows/build_and_publish_changed_images.yaml
           runtimes/Python/install_Python_2-7_on_Ubuntu_focal.sh
           runtimes/Python/Python_2-7_on_Ubuntu_focal.Dockerfile
+
     - id: changes_to_Python_3-9
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -275,6 +320,7 @@ jobs:
           .github/workflows/build_and_publish_changed_images.yaml
           runtimes/Python/install_Python_3-9_on_Ubuntu_focal.sh
           runtimes/Python/Python_3-9_on_Ubuntu_focal.Dockerfile
+
     - id: changes_to_Python_3-10
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -282,6 +328,7 @@ jobs:
           .github/workflows/build_and_publish_changed_images.yaml
           runtimes/Python/install_Python_3-10_on_Ubuntu_focal.sh
           runtimes/Python/Python_3-10_on_Ubuntu_focal.Dockerfile
+
     - id: changes_to_Python_2-7_and_PyCharm
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -293,6 +340,7 @@ jobs:
           IDEs/PyCharm/install_PyCharm.sh
           IDEs/PyCharm/jetbrains-pycharm-ce.desktop
           runtimes/Python/install_Python_2-7_on_Ubuntu_focal.sh
+
     - id: changes_to_Python_3-9_and_PyCharm
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -304,6 +352,7 @@ jobs:
           IDEs/PyCharm/install_PyCharm.sh
           IDEs/PyCharm/jetbrains-pycharm-ce.desktop
           runtimes/Python/install_Python_3-9_on_Ubuntu_focal.sh
+
     - id: changes_to_Python_3-10_and_PyCharm
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -315,6 +364,7 @@ jobs:
           IDEs/PyCharm/install_PyCharm.sh
           IDEs/PyCharm/jetbrains-pycharm-ce.desktop
           runtimes/Python/install_Python_3-10_on_Ubuntu_focal.sh
+
     - id: changes_to_Python_2-7_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -323,6 +373,7 @@ jobs:
           complete-setups/Python-and-VSCode/Python_2-7_and_VSCode_on_Ubuntu_focal.Dockerfile
           IDEs/VSCode/configure_VSCode_to_autostart.sh
           runtimes/Python/install_Python_2-7_on_Ubuntu_focal.sh
+
     - id: changes_to_Python_3-9_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -331,6 +382,7 @@ jobs:
           complete-setups/Python-and-VSCode/Python_3-9_and_VSCode_on_Ubuntu_focal.Dockerfile
           IDEs/VSCode/configure_VSCode_to_autostart.sh
           runtimes/Python/install_Python_3-9_on_Ubuntu_focal.sh
+
     - id: changes_to_Python_3-10_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -339,6 +391,7 @@ jobs:
           complete-setups/Python-and-VSCode/Python_3-10_and_VSCode_on_Ubuntu_focal.Dockerfile
           IDEs/VSCode/configure_VSCode_to_autostart.sh
           runtimes/Python/install_Python_3-10_on_Ubuntu_focal.sh
+
     - id: changes_to_VSCode
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -346,6 +399,7 @@ jobs:
           .github/workflows/build_and_publish_changed_images.yaml
           IDEs/VSCode/configure_VSCode_to_autostart.sh
           IDEs/VSCode/Dockerfile
+
     - id: changes_to_WebStorm
       uses: tj-actions/changed-files@v1.1.2
       with:
