@@ -13,6 +13,8 @@ jobs:
       Eclipse_changed: ${{ steps.changes_to_Eclipse.outputs.any_changed == 'true' || steps.changes_to_Eclipse.outputs.any_deleted == 'true' }}
       Go_1-16_changed: ${{ steps.changes_to_Go_1-16.outputs.any_changed == 'true' || steps.changes_to_Go_1-16.outputs.any_deleted == 'true' }}
       Go_1-17_changed: ${{ steps.changes_to_Go_1-17.outputs.any_changed == 'true' || steps.changes_to_Go_1-17.outputs.any_deleted == 'true' }}
+      Go_1-16_and_GoLand_changed: ${{ steps.changes_to_Go_1-16_and_GoLand.outputs.any_changed == 'true' || steps.changes_to_Go_1-16_and_GoLand.outputs.any_deleted == 'true' }}
+      Go_1-17_and_GoLand_changed: ${{ steps.changes_to_Go_1-17_and_GoLand.outputs.any_changed == 'true' || steps.changes_to_Go_1-17_and_GoLand.outputs.any_deleted == 'true' }}
       GoLand_changed: ${{ steps.changes_to_GoLand.outputs.any_changed == 'true' || steps.changes_to_GoLand.outputs.any_deleted == 'true' }}
       NodeJS_12_changed: ${{ steps.changes_to_NodeJS_12.outputs.any_changed == 'true' || steps.changes_to_NodeJS_12.outputs.any_deleted == 'true' }}
       NodeJS_14_changed: ${{ steps.changes_to_NodeJS_14.outputs.any_changed == 'true' || steps.changes_to_NodeJS_14.outputs.any_deleted == 'true' }}
@@ -68,6 +70,30 @@ jobs:
         files: |
           .github/workflows/build_and_publish_changed_images.yaml
           runtimes/Go/Go_1-17_on_Ubuntu_focal.Dockerfile
+          runtimes/Go/install_Go_1-17_on_Linux.sh
+    - id: changes_to_Go_1-16_and_GoLand
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: |
+          .github/workflows/build_and_publish_changed_images.yaml
+          complete-setups/Go-and-GoLand/Go_1-16_and_GoLand_on_Ubuntu_focal.Dockerfile
+          ides/GoLand/configure_GoLand_to_autostart.sh
+          ides/GoLand/create_GoLand_desktop_shortcut.sh
+          ides/GoLand/Dockerfile
+          ides/GoLand/GoLand.desktop
+          ides/GoLand/install_GoLand.sh
+          runtimes/Go/install_Go_1-16_on_Linux.sh
+    - id: changes_to_Go_1-17_and_GoLand
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: |
+          .github/workflows/build_and_publish_changed_images.yaml
+          complete-setups/Go-and-GoLand/Go_1-17_and_GoLand_on_Ubuntu_focal.Dockerfile
+          ides/GoLand/configure_GoLand_to_autostart.sh
+          ides/GoLand/create_GoLand_desktop_shortcut.sh
+          ides/GoLand/Dockerfile
+          ides/GoLand/GoLand.desktop
+          ides/GoLand/install_GoLand.sh
           runtimes/Go/install_Go_1-17_on_Linux.sh
     - id: changes_to_GoLand
       uses: tj-actions/changed-files@v1.1.2
@@ -352,6 +378,34 @@ jobs:
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go:20.04-1.17
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go:focal-1.17
+
+  build_and_publish_Go_1-16_and_GoLand:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.Go_1-16_and_GoLand_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: runtimes/Go/Go_1-16_and_GoLand_on_Ubuntu_focal.Dockerfile
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-goland:20.04-1.16
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-goland:focal-1.16
+
+  build_and_publish_Go_1-17_and_GoLand:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.Go_1-17_and_GoLand_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: runtimes/Go/Go_1-17_and_GoLand_on_Ubuntu_focal.Dockerfile
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-goland:20.04-1.17
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-goland:focal-1.17
 
   build_and_publish_GoLand:
     needs: detect_image_source_changes
