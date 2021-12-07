@@ -7,5 +7,5 @@ LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-imag
 COPY runtimes/Go/install_Go_1-16_on_Linux.sh /usr/share/dev-scripts/
 RUN bash -c '/usr/share/dev-scripts/install_Go_1-16_on_Linux.sh'
 
-COPY ides/VSCode/configure_VSCode_to_autostart.sh /usr/share/dev-scripts/
+COPY IDEs/VSCode/configure_VSCode_to_autostart.sh /usr/share/dev-scripts/
 RUN bash -c '/usr/share/dev-scripts/configure_VSCode_to_autostart.sh'

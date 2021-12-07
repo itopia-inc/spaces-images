@@ -7,5 +7,5 @@ LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-imag
 COPY runtimes/Python/install_Python_3-9_on_Ubuntu_focal.sh /usr/share/dev-scripts/
 RUN bash -c '/usr/share/dev-scripts/install_Python_3-9_on_Ubuntu_focal.sh'
 
-COPY ides/VSCode/configure_VSCode_to_autostart.sh /usr/share/dev-scripts/
+COPY IDEs/VSCode/configure_VSCode_to_autostart.sh /usr/share/dev-scripts/
 RUN bash -c '/usr/share/dev-scripts/configure_VSCode_to_autostart.sh'
