@@ -40,6 +40,18 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go:20.04-1.17
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go:focal-1.17
 
+  build_and_publish_GoLand:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: ides/GoLand/GoLand_on_Ubuntu_focal.Dockerfile
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-goland:20.04-1.16
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-goland:focal-1.16
+
   build_and_publish_NodeJS_12:
     runs-on: ubuntu-latest
     steps:
