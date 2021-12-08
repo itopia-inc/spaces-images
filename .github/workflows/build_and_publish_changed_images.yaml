@@ -458,7 +458,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: complete-setups/Go-and-GoLand/Go_1-16_and_VSCode_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/Go-and-VSCode/Go_1-16_and_VSCode_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-vscode:20.04-1.16
@@ -472,7 +472,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: complete-setups/Go-and-GoLand/Go_1-17_and_VSCode_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/Go-and-VSCode/Go_1-17_and_VSCode_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-vscode:20.04-1.17
@@ -486,7 +486,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: IDEs/GoLand/Dockerfile
+        dockerfile_path: IDEs/GoLand/GoLand_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-goland:20.04
@@ -654,7 +654,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/OpenJDK/OpenJDK_8_and_Eclipse_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/OpenJDK-and-Eclipse/OpenJDK_8_and_Eclipse_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-eclipse:20.04-8
@@ -668,7 +668,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/OpenJDK/OpenJDK_11_and_Eclipse_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/OpenJDK-and-Eclipse/OpenJDK_11_and_Eclipse_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-eclipse:20.04-11
@@ -682,7 +682,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/OpenJDK/OpenJDK_8_and_VSCode_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/OpenJDK-and-VSCode/OpenJDK_8_and_VSCode_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-vscode:20.04-8
@@ -696,7 +696,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/OpenJDK/OpenJDK_11_and_VSCode_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/OpenJDK-and-VSCode/OpenJDK_11_and_VSCode_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-vscode:20.04-11
