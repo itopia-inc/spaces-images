@@ -1,0 +1,7 @@
+name: Build & publish all images (on external trigger)
+
+on: workflow_dispatch
+
+jobs:
+  build_and_publish_all_images:
+    uses: itopia-inc/spaces-images/.github/workflows/build_and_publish_all_images.yaml@main
