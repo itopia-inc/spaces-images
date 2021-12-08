@@ -3,8 +3,8 @@
 mkdir /tmp/install-webstorm
 cd /tmp/install-webstorm
 
-curl -LOs https://download.jetbrains.com/WebStorm/WebStorm-2021.3.tar.gz
-curl -LOs https://download.jetbrains.com/WebStorm/WebStorm-2021.3.tar.gz.sha256
+curl -LOs https://download.jetbrains.com/webstorm/WebStorm-2021.3.tar.gz
+curl -LOs https://download.jetbrains.com/webstorm/WebStorm-2021.3.tar.gz.sha256
 sha256sum -c WebStorm-2021.3.tar.gz.sha256
 
 sudo mkdir /opt/WebStorm
