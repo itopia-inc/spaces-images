@@ -5,7 +5,7 @@ LABEL org.opencontainers.image.description="itopia Spaces image for Python + VS 
 LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-images"
 
 COPY runtimes/Python/install_Python_2-7_on_Ubuntu_focal.sh /usr/share/dev-scripts/
-RUN bash -c '/usr/share/dev-scripts/install_Python_2-7_on_Ubuntu_focal.sh'
+RUN bash -ce '/usr/share/dev-scripts/install_Python_2-7_on_Ubuntu_focal.sh'
 
 COPY IDEs/VSCode/configure_VSCode_to_autostart.sh /usr/share/dev-scripts/
-RUN bash -c '/usr/share/dev-scripts/configure_VSCode_to_autostart.sh'
+RUN bash -ce '/usr/share/dev-scripts/configure_VSCode_to_autostart.sh'

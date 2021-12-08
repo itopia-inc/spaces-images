@@ -5,11 +5,11 @@ LABEL org.opencontainers.image.description="itopia Spaces image with PyCharm on 
 LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-images"
 
 COPY IDEs/PyCharm/install_PyCharm.sh /usr/share/dev-scripts/
-RUN bash -c '/usr/share/dev-scripts/install_PyCharm.sh'
+RUN bash -ce '/usr/share/dev-scripts/install_PyCharm.sh'
 
 COPY IDEs/PyCharm/create_PyCharm_desktop_shortcut.sh /usr/share/dev-scripts/
 COPY IDEs/PyCharm/PyCharm_CE.desktop /usr/share/dev-scripts/
-RUN bash -c '/usr/share/dev-scripts/create_PyCharm_desktop_shortcut.sh'
+RUN bash -ce '/usr/share/dev-scripts/create_PyCharm_desktop_shortcut.sh'
 
 COPY IDEs/PyCharm/configure_PyCharm_to_autostart.sh /usr/share/dev-scripts/
-RUN bash -c '/usr/share/dev-scripts/configure_PyCharm_to_autostart.sh'
+RUN bash -ce '/usr/share/dev-scripts/configure_PyCharm_to_autostart.sh'

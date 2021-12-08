@@ -5,14 +5,14 @@ LABEL org.opencontainers.image.description="itopia Spaces image for Go + GoLand 
 LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-images"
 
 COPY runtimes/Go/install_Go_1-16_on_Linux.sh /usr/share/dev-scripts/
-RUN bash -c '/usr/share/dev-scripts/install_Go_1-16_on_Linux.sh'
+RUN bash -ce '/usr/share/dev-scripts/install_Go_1-16_on_Linux.sh'
 
 COPY IDEs/GoLand/install_GoLand.sh /usr/share/dev-scripts/
-RUN bash -c '/usr/share/dev-scripts/install_GoLand.sh'
+RUN bash -ce '/usr/share/dev-scripts/install_GoLand.sh'
 
 COPY IDEs/GoLand/create_GoLand_desktop_shortcut.sh /usr/share/dev-scripts/
 COPY IDEs/GoLand/GoLand.desktop /usr/share/dev-scripts/
-RUN bash -c '/usr/share/dev-scripts/create_GoLand_desktop_shortcut.sh'
+RUN bash -ce '/usr/share/dev-scripts/create_GoLand_desktop_shortcut.sh'
 
 COPY IDEs/GoLand/configure_GoLand_to_autostart.sh /usr/share/dev-scripts/
-RUN bash -c '/usr/share/dev-scripts/configure_GoLand_to_autostart.sh'
+RUN bash -ce '/usr/share/dev-scripts/configure_GoLand_to_autostart.sh'

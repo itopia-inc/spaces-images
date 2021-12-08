@@ -5,4 +5,4 @@ LABEL org.opencontainers.image.description="itopia Spaces image with Python on U
 LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-images"
 
 COPY runtimes/Python/install_Python_3-10_on_Ubuntu_focal.sh /usr/share/dev-scripts/
-RUN bash -c '/usr/share/dev-scripts/install_Python_3-10_on_Ubuntu_focal.sh'
+RUN bash -ce '/usr/share/dev-scripts/install_Python_3-10_on_Ubuntu_focal.sh'

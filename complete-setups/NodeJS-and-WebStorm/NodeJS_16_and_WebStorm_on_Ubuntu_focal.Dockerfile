@@ -5,14 +5,14 @@ LABEL org.opencontainers.image.description="itopia Spaces image for Node.js + We
 LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-images"
 
 COPY runtimes/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh /usr/share/dev-scripts/
-RUN bash -c '/usr/share/dev-scripts/install_NodeJS_16_on_Ubuntu_focal.sh'
+RUN bash -ce '/usr/share/dev-scripts/install_NodeJS_16_on_Ubuntu_focal.sh'
 
 COPY IDEs/WebStorm/install_WebStorm.sh /usr/share/dev-scripts/
-RUN bash -c '/usr/share/dev-scripts/install_WebStorm.sh'
+RUN bash -ce '/usr/share/dev-scripts/install_WebStorm.sh'
 
 COPY IDEs/WebStorm/create_WebStorm_desktop_shortcut.sh /usr/share/dev-scripts/
 COPY IDEs/WebStorm/WebStorm.desktop /usr/share/dev-scripts/
-RUN bash -c '/usr/share/dev-scripts/create_WebStorm_desktop_shortcut.sh'
+RUN bash -ce '/usr/share/dev-scripts/create_WebStorm_desktop_shortcut.sh'
 
 COPY IDEs/WebStorm/configure_WebStorm_to_autostart.sh /usr/share/dev-scripts/
-RUN bash -c '/usr/share/dev-scripts/configure_WebStorm_to_autostart.sh'
+RUN bash -ce '/usr/share/dev-scripts/configure_WebStorm_to_autostart.sh'
