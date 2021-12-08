@@ -6,6 +6,8 @@ on:
     - main
     paths:
     - '.github/workflows/build_and_publish_all_images.yaml'
+    - '.github/workflows/build_and_publish_all_images_on_workflow_change.yaml'
+    - '.github/workflows/build_and_publish_changed_images.yaml'
 
 jobs:
   build_and_publish_all_images:
