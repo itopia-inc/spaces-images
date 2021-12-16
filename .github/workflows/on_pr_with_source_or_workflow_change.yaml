@@ -1,10 +1,13 @@
-name: 'Trigger: Source change PR'
+name: 'Trigger: PR with source or workflow change'
 
 on:
   pull_request:
     branches:
     - main
     paths:
+    - '.github/workflows/build_and_publish_all_images.yaml'
+    - '.github/workflows/build_and_publish_changed_images.yaml'
+    - '.github/workflows/on_pr_with_source_or_workflow_change.yaml'
     - 'complete-setups/**'
     - 'IDEs/**'
     - 'runtimes/**'
