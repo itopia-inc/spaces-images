@@ -1,0 +1,22 @@
+name: 'Trigger: Source change'
+
+on:
+  push:
+    branches:
+    - main
+    paths:
+    - 'complete-setups/**'
+    - 'IDEs/**'
+    - 'runtimes/**'
+
+jobs:
+
+  build_and_publish_all_dev_images:
+    uses: itopia-inc/spaces-images/.github/workflows/build_and_publish_changed_images.yaml@main
+    with:
+      environment: "dev"
+
+  build_and_publish_all_prod_images:
+    uses: itopia-inc/spaces-images/.github/workflows/build_and_publish_changed_images.yaml@main
+    with:
+      environment: "prod"

@@ -1,0 +1,25 @@
+name: 'Trigger: PR with source or workflow change'
+
+on:
+  pull_request:
+    branches:
+    - main
+    paths:
+    - '.github/workflows/build_and_publish_all_images.yaml'
+    - '.github/workflows/build_and_publish_changed_images.yaml'
+    - '.github/workflows/on_pr_with_source_or_workflow_change.yaml'
+    - 'complete-setups/**'
+    - 'IDEs/**'
+    - 'runtimes/**'
+
+jobs:
+
+  build_and_publish_all_dev_images:
+    uses: itopia-inc/spaces-images/.github/workflows/build_and_publish_all_images.yaml@main
+    with:
+      environment: "dev"
+
+  build_and_publish_all_prod_images:
+    uses: itopia-inc/spaces-images/.github/workflows/build_and_publish_all_images.yaml@main
+    with:
+      environment: "prod"
