@@ -1,10 +1,11 @@
-name: 'Trigger: Workflow change'
+name: 'Trigger: Automation change'
 
 on:
   push:
     branches:
     - main
     paths:
+    - '.github/actions/build-and-publish-image/action.yaml'
     - '.github/workflows/build_and_publish_all_images.yaml'
     - '.github/workflows/build_and_publish_changed_images.yaml'
     - '.github/workflows/on_workflow_change.yaml'
