@@ -3,6 +3,8 @@ inputs:
     required: true
   dockerfile_path:
     required: true
+  environment:
+    required: true
   github_personal_access_token:
     required: true
   github_username:
@@ -18,9 +20,16 @@ runs:
   - shell: bash
     run: |
       echo ${{ inputs.github_personal_access_token }} | docker login ghcr.io -u ${{ inputs.github_username }} --password-stdin
-      docker build -f ${{ inputs.dockerfile_path }} -t ${{ inputs.image_tag_1 }} .
-      docker push ${{ inputs.image_tag_1 }}
-      if [ '${{ inputs.image_tag_2 }}' != '' ]; then
-        docker tag ${{ inputs.image_tag_1 }} ${{ inputs.image_tag_2 }}
-        docker push ${{ inputs.image_tag_2 }}
+      image_tag_1='${{ inputs.image_tag_1 }}'
+      image_tag_2='${{ inputs.image_tag_2 }}'
+      if [ '${{ inputs.environment' == 'dev']; then
+        sed -i 's/\(FROM ghcr\.io\/itopia-inc\/spaces-base-images\/.*\)$/\1-dev/g' ${{ inputs.dockerfile_path }}
+        image_tag_1="$image_tag_1-dev"
+        image_tag_2="$image_tag_2-dev"
+      fi
+      docker build -f ${{ inputs.dockerfile_path }} -t $image_tag_1 .
+      docker push $image_tag_1
+      if [ $image_tag_2 != '' ]; then
+        docker tag $image_tag_1 $image_tag_2
+        docker push $image_tag_2
       fi
