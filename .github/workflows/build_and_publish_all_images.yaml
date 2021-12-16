@@ -1,4 +1,4 @@
-name: Build & publish all images
+name: ~Called~ Build & publish all images
 
 on:
   workflow_call:

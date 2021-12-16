@@ -1,4 +1,4 @@
-name: Build & publish changed images
+name: ~Called~ Build & publish changed images
 
 on:
   workflow_call:
