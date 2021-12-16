@@ -1,4 +1,4 @@
-name: Build & publish all dev images (on source change PR)
+name: 'Trigger: Source change PR'
 
 on:
   pull_request:

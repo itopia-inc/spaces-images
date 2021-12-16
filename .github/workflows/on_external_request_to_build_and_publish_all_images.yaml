@@ -1,13 +1,6 @@
-name: Build & publish all images (on workflow change)
+name: 'Trigger: External request to build and publish all images'
 
-on:
-  push:
-    branches:
-    - main
-    paths:
-    - '.github/workflows/build_and_publish_all_images.yaml'
-    - '.github/workflows/build_and_publish_all_images_on_workflow_change.yaml'
-    - '.github/workflows/build_and_publish_changed_images.yaml'
+on: workflow_dispatch
 
 jobs:
 

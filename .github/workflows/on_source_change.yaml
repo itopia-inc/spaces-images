@@ -1,4 +1,4 @@
-name: Build & publish changed images (on source change)
+name: 'Trigger: Source change'
 
 on:
   push:
