@@ -1,7 +1,7 @@
-name: 'Trigger: Source change'
+name: 'Trigger: PR with source change'
 
 on:
-  push:
+  pull_request:
     branches:
     - main
     paths:
@@ -15,9 +15,3 @@ jobs:
     uses: itopia-inc/spaces-images/.github/workflows/build_and_publish_changed_images.yaml@main
     with:
       environment: "dev"
-
-  build_and_publish_changed_prod_images:
-    needs: build_and_publish_all_dev_images
-    uses: itopia-inc/spaces-images/.github/workflows/build_and_publish_changed_images.yaml@main
-    with:
-      environment: "prod"
