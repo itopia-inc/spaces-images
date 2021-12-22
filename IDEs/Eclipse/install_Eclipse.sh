@@ -8,9 +8,9 @@ echo '6a1ca4ba3607f512efc5530f1651482c66093b42d71efba19c82e27de028e6fe53a7992d19
     > eclipse-java-2021-12-R-linux-gtk-x86_64.tar.gz.sha512
 sha512sum -c eclipse-java-2021-12-R-linux-gtk-x86_64.tar.gz.sha512
 
-sudo mkdir /opt/eclipse
+sudo mkdir /opt/Eclipse
 sudo tar xzf eclipse-java-2021-12-R-linux-gtk-x86_64.tar.gz \
-    -C /opt/eclipse \
+    -C /opt/Eclipse \
     --strip-components 1
 
 sudo ln -sf /opt/Eclipse/eclipse /usr/local/bin/eclipse
