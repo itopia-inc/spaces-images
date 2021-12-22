@@ -3,8 +3,8 @@
 mkdir /tmp/install-eclipse
 cd /tmp/install-eclipse
 
-curl -LOs https://mirror.umd.edu/Eclipse/technology/epp/downloads/release/2021-09/R/eclipse-java-2021-09-R-linux-gtk-x86_64.tar.gz
-echo '1baeed0f32ea23eed2c1166ab6b92b086f181a030c9a4e59bf424515c558bf1c57c5f6ce077c2f94c12644eb8224f6034b5d724d726636454428c12459f2028f  eclipse-java-2021-09-R-linux-gtk-x86_64.tar.gz' \
+curl -LOs https://mirror.umd.edu/eclipse/technology/epp/downloads/release/2021-12/R/eclipse-java-2021-12-R-linux-gtk-x86_64.tar.gz
+echo '6a1ca4ba3607f512efc5530f1651482c66093b42d71efba19c82e27de028e6fe53a7992d195959586e3ad6264711396df19afbea588602a9b5cad41cbb30b240  eclipse-java-2021-12-R-linux-gtk-x86_64.tar.gz' \
     > eclipse-java-2021-09-R-linux-gtk-x86_64.tar.gz.sha512
 sha512sum -c eclipse-java-2021-09-R-linux-gtk-x86_64.tar.gz.sha512
 
