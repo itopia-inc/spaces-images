@@ -1,4 +1,4 @@
-name: 'Trigger: PR with source or workflow change'
+name: 'Trigger: PR with workflow change'
 
 on:
   pull_request:
@@ -8,9 +8,6 @@ on:
     - '.github/workflows/build_and_publish_all_images.yaml'
     - '.github/workflows/build_and_publish_changed_images.yaml'
     - '.github/workflows/on_pr_with_source_or_workflow_change.yaml'
-    - 'complete-setups/**'
-    - 'IDEs/**'
-    - 'runtimes/**'
 
 jobs:
 

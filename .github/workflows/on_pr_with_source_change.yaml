@@ -1,0 +1,17 @@
+name: 'Trigger: PR with source change'
+
+on:
+  pull_request:
+    branches:
+    - main
+    paths:
+    - 'complete-setups/**'
+    - 'IDEs/**'
+    - 'runtimes/**'
+
+jobs:
+
+  build_and_publish_changed_dev_images:
+    uses: itopia-inc/spaces-images/.github/workflows/build_and_publish_changed_images.yaml@main
+    with:
+      environment: "dev"
