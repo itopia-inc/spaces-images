@@ -16,6 +16,8 @@ jobs:
 
       Eclipse_changed: ${{ steps.changes_to_Eclipse.outputs.any_changed == 'true' || steps.changes_to_Eclipse.outputs.any_deleted == 'true' }}
 
+      eveything_image_changed: ${{ steps.changes_to_everything_image.outputs.any_changed == 'true' || steps.changes_to_everything_image.outputs.any_deleted == 'true' }}
+
       Go_1-16_changed: ${{ steps.changes_to_Go_1-16.outputs.any_changed == 'true' || steps.changes_to_Go_1-16.outputs.any_deleted == 'true' }}
       Go_1-17_changed: ${{ steps.changes_to_Go_1-17.outputs.any_changed == 'true' || steps.changes_to_Go_1-17.outputs.any_deleted == 'true' }}
 
@@ -81,6 +83,29 @@ jobs:
           IDEs/Eclipse/Dockerfile
           IDEs/Eclipse/Eclipse.desktop
           IDEs/Eclipse/install_Eclipse.sh
+
+    - id: changes_to_everything_image
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: |
+          complete-setups/everything/everything_on_Ubuntu_focal.Dockerfile
+          IDEs/Eclipse/create_Eclipse_desktop_shortcut.sh
+          IDEs/Eclipse/Eclipse.desktop
+          IDEs/Eclipse/install_Eclipse.sh
+          IDEs/GoLand/create_GoLand_desktop_shortcut.sh
+          IDEs/GoLand/GoLand.desktop
+          IDEs/GoLand/install_GoLand.sh
+          IDEs/PyCharm/create_PyCharm_desktop_shortcut.sh
+          IDEs/PyCharm/PyCharm.desktop
+          IDEs/PyCharm/install_PyCharm.sh
+          IDEs/VSCode/install_VSCode.sh
+          IDEs/WebStorm/create_WebStorm_desktop_shortcut.sh
+          IDEs/WebStorm/WebStorm.desktop
+          IDEs/WebStorm/install_WebStorm.sh
+          runtimes/Go/install_Go_1-17_on_Linux.sh
+          runtimes/NodeJS/install_NodeJS_16_on_Linux.sh
+          runtimes/OpenJDK/install_OpenJDK_11_on_Linux.sh
+          runtimes/Python/install_Python_3-10_on_Linux.sh
 
     - id: changes_to_Go_1-16
       uses: tj-actions/changed-files@v1.1.2
@@ -392,6 +417,21 @@ jobs:
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-eclipse:20.04
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-eclipse:focal
+        environment: ${{ inputs.environment }}
+
+  build_and_publish_everything_image:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.everything_image_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: complete-setups/everything/everything_on_Ubuntu_focal.Dockerfile
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-everything:20.04
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-everything:focal
         environment: ${{ inputs.environment }}
 
   build_and_publish_Go_1-16:
