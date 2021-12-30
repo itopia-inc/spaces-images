@@ -16,7 +16,7 @@ jobs:
 
       Eclipse_changed: ${{ steps.changes_to_Eclipse.outputs.any_changed == 'true' || steps.changes_to_Eclipse.outputs.any_deleted == 'true' }}
 
-      eveything_image_changed: ${{ steps.changes_to_everything_image.outputs.any_changed == 'true' || steps.changes_to_everything_image.outputs.any_deleted == 'true' }}
+      all_runtimes_and_all_IDEs_image_changed: ${{ steps.changes_to_all_runtimes_and_all_IDEs_image.outputs.any_changed == 'true' || steps.changes_to_all_runtimes_and_all_IDEs_image.outputs.any_deleted == 'true' }}
 
       Go_1-16_changed: ${{ steps.changes_to_Go_1-16.outputs.any_changed == 'true' || steps.changes_to_Go_1-16.outputs.any_deleted == 'true' }}
       Go_1-17_changed: ${{ steps.changes_to_Go_1-17.outputs.any_changed == 'true' || steps.changes_to_Go_1-17.outputs.any_deleted == 'true' }}
@@ -84,11 +84,11 @@ jobs:
           IDEs/Eclipse/Eclipse.desktop
           IDEs/Eclipse/install_Eclipse.sh
 
-    - id: changes_to_everything_image
+    - id: changes_to_all_runtimes_and_all_IDEs_image
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          complete-setups/everything/everything_on_Ubuntu_focal.Dockerfile
+          complete-setups/all-runtimes-and-all-IDEs/all_runtimes_and_all_IDEs_on_Ubuntu_focal.Dockerfile
           IDEs/Eclipse/create_Eclipse_desktop_shortcut.sh
           IDEs/Eclipse/Eclipse.desktop
           IDEs/Eclipse/install_Eclipse.sh
@@ -419,19 +419,19 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-eclipse:focal
         environment: ${{ inputs.environment }}
 
-  build_and_publish_everything_image:
+  build_and_publish_all_runtimes_and_all_IDEs_image:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.everything_image_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.all_runtimes_and_all_IDEs_image_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: complete-setups/everything/everything_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/all-runtimes-and-all-IDEs/all_runtimes_and_all_IDEs_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-everything:20.04
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-everything:focal
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-runtimes-ides:20.04
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-runtimes-ides:focal
         environment: ${{ inputs.environment }}
 
   build_and_publish_Go_1-16:
