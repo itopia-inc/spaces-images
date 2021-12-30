@@ -1,4 +1,4 @@
-# Complete setup with all runtimes and all IDEs
+# Complete setup for all runtimes and all IDEs
 
 [This all-in-one image](https://github.com/orgs/itopia-inc/packages?tab=packages&repo_name=spaces-images&q=all+runtimes+IDEs)
 provides a hyper-complete development environment that contains

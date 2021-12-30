@@ -1,4 +1,4 @@
-# Complete setup with all runtimes and VS Code
+# Complete setup for all runtimes and VS Code
 
 [This all-in-one image](https://github.com/orgs/itopia-inc/packages?tab=packages&repo_name=spaces-images&q=all+runtimes+VS+Code)
 provides a complete development environment that contains
