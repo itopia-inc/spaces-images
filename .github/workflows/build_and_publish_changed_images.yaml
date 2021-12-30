@@ -14,10 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
 
-      Eclipse_changed: ${{ steps.changes_to_Eclipse.outputs.any_changed == 'true' || steps.changes_to_Eclipse.outputs.any_deleted == 'true' }}
-
       all_runtimes_and_all_IDEs_image_changed: ${{ steps.changes_to_all_runtimes_and_all_IDEs_image.outputs.any_changed == 'true' || steps.changes_to_all_runtimes_and_all_IDEs_image.outputs.any_deleted == 'true' }}
       all_runtimes_and_VSCode_image_changed: ${{ steps.changes_to_all_runtimes_and_VSCode_image.outputs.any_changed == 'true' || steps.changes_to_all_runtimes_and_VSCode_image.outputs.any_deleted == 'true' }}
+
+      Eclipse_changed: ${{ steps.changes_to_Eclipse.outputs.any_changed == 'true' || steps.changes_to_Eclipse.outputs.any_deleted == 'true' }}
 
       Go_1-16_changed: ${{ steps.changes_to_Go_1-16.outputs.any_changed == 'true' || steps.changes_to_Go_1-16.outputs.any_deleted == 'true' }}
       Go_1-17_changed: ${{ steps.changes_to_Go_1-17.outputs.any_changed == 'true' || steps.changes_to_Go_1-17.outputs.any_deleted == 'true' }}
@@ -75,16 +75,6 @@ jobs:
       with:
         fetch-depth: 2 # This is for changed-files.
 
-    - id: changes_to_Eclipse
-      uses: tj-actions/changed-files@v1.1.2
-      with:
-        files: |
-          IDEs/Eclipse/configure_Eclipse_to_autostart.sh
-          IDEs/Eclipse/create_Eclipse_desktop_shortcut.sh
-          IDEs/Eclipse/Dockerfile
-          IDEs/Eclipse/Eclipse.desktop
-          IDEs/Eclipse/install_Eclipse.sh
-
     - id: changes_to_all_runtimes_and_all_IDEs_image
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -117,6 +107,16 @@ jobs:
           runtimes/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
           runtimes/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
           runtimes/Python/install_Python_3-10_on_Ubuntu_focal.sh
+
+    - id: changes_to_Eclipse
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: |
+          IDEs/Eclipse/configure_Eclipse_to_autostart.sh
+          IDEs/Eclipse/create_Eclipse_desktop_shortcut.sh
+          IDEs/Eclipse/Dockerfile
+          IDEs/Eclipse/Eclipse.desktop
+          IDEs/Eclipse/install_Eclipse.sh
 
     - id: changes_to_Go_1-16
       uses: tj-actions/changed-files@v1.1.2
