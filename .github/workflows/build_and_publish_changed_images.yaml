@@ -98,7 +98,6 @@ jobs:
           IDEs/PyCharm/create_PyCharm_desktop_shortcut.sh
           IDEs/PyCharm/PyCharm.desktop
           IDEs/PyCharm/install_PyCharm.sh
-          IDEs/VSCode/install_VSCode.sh
           IDEs/WebStorm/create_WebStorm_desktop_shortcut.sh
           IDEs/WebStorm/WebStorm.desktop
           IDEs/WebStorm/install_WebStorm.sh
