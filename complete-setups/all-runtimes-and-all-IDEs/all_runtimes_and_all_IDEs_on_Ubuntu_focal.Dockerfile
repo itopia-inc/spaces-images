@@ -29,7 +29,7 @@ COPY IDEs/GoLand/create_GoLand_desktop_shortcut.sh /usr/share/dev-scripts/
 COPY IDEs/GoLand/GoLand.desktop /usr/share/dev-scripts/
 RUN bash -ce '/usr/share/dev-scripts/create_GoLand_desktop_shortcut.sh'
 COPY IDEs/PyCharm/create_PyCharm_desktop_shortcut.sh /usr/share/dev-scripts/
-COPY IDEs/PyCharm/PyCharm.desktop /usr/share/dev-scripts/
+COPY IDEs/PyCharm/PyCharm_CE.desktop /usr/share/dev-scripts/
 RUN bash -ce '/usr/share/dev-scripts/create_PyCharm_desktop_shortcut.sh'
 COPY IDEs/WebStorm/create_WebStorm_desktop_shortcut.sh /usr/share/dev-scripts/
 COPY IDEs/WebStorm/WebStorm.desktop /usr/share/dev-scripts/
