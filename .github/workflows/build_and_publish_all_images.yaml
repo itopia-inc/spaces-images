@@ -10,20 +10,7 @@ on:
 
 jobs:
 
-  build_and_publish_Eclipse:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
-      with:
-        dockerfile_path: IDEs/Eclipse/Dockerfile
-        environment: ${{ inputs.environment }}
-        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
-        github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-eclipse:20.04
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-eclipse:focal
-
-  build_and_publish_all_runtimes_and_all_IDEs_image:
+  all_runtimes_and_IDEs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -36,7 +23,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-eclipse:20.04
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-eclipse:focal
 
-  build_and_publish_all_runtimes_and_VSCode_image:
+  all_runtimes_and_VSCode:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -49,7 +36,20 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-eclipse:20.04
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-eclipse:focal
 
-  build_and_publish_Go_1-16:
+  Eclipse:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: IDEs/Eclipse/Dockerfile
+        environment: ${{ inputs.environment }}
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-eclipse:20.04
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-eclipse:focal
+
+  Go_1-16:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -62,7 +62,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go:20.04-1.16
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go:focal-1.16
 
-  build_and_publish_Go_1-17:
+  Go_1-17:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -75,7 +75,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go:20.04-1.17
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go:focal-1.17
 
-  build_and_publish_Go_1-16_and_GoLand:
+  Go_1-16_and_GoLand:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -88,7 +88,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-goland:20.04-1.16
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-goland:focal-1.16
 
-  build_and_publish_Go_1-17_and_GoLand:
+  Go_1-17_and_GoLand:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -101,7 +101,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-goland:20.04-1.17
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-goland:focal-1.17
 
-  build_and_publish_Go_1-16_and_VSCode:
+  Go_1-16_and_VSCode:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -114,7 +114,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-vscode:20.04-1.16
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-vscode:focal-1.16
 
-  build_and_publish_Go_1-17_and_VSCode:
+  Go_1-17_and_VSCode:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -127,7 +127,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-vscode:20.04-1.17
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-vscode:focal-1.17
 
-  build_and_publish_GoLand:
+  GoLand:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -140,7 +140,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-goland:20.04-1.16
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-goland:focal-1.16
 
-  build_and_publish_NodeJS_12:
+  NodeJS_12:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -153,7 +153,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:20.04-12
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-12
 
-  build_and_publish_NodeJS_14:
+  NodeJS_14:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -166,7 +166,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:20.04-14
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-14
 
-  build_and_publish_NodeJS_16:
+  NodeJS_16:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -179,7 +179,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:20.04-16
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-16
 
-  build_and_publish_NodeJS_12_and_VSCode:
+  NodeJS_12_and_VSCode:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -192,7 +192,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:20.04-12
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:focal-12
 
-  build_and_publish_NodeJS_14_and_VSCode:
+  NodeJS_14_and_VSCode:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -205,7 +205,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:20.04-14
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:focal-14
 
-  build_and_publish_NodeJS_16_and_VSCode:
+  NodeJS_16_and_VSCode:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -218,7 +218,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:20.04-16
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:focal-16
 
-  build_and_publish_NodeJS_12_and_WebStorm:
+  NodeJS_12_and_WebStorm:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -231,7 +231,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:20.04-12
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-12
 
-  build_and_publish_NodeJS_14_and_WebStorm:
+  NodeJS_14_and_WebStorm:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -244,7 +244,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:20.04-14
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-14
 
-  build_and_publish_NodeJS_16_and_WebStorm:
+  NodeJS_16_and_WebStorm:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -257,7 +257,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:20.04-16
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-16
 
-  build_and_publish_OpenJDK_8:
+  OpenJDK_8:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -270,7 +270,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:20.04-8
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:focal-8
 
-  build_and_publish_OpenJDK_11:
+  OpenJDK_11:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -283,7 +283,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:20.04-11
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:focal-11
 
-  build_and_publish_OpenJDK_8_and_Eclipse:
+  OpenJDK_8_and_Eclipse:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -296,7 +296,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-eclipse:20.04-8
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-eclipse:focal-8
 
-  build_and_publish_OpenJDK_11_and_Eclipse:
+  OpenJDK_11_and_Eclipse:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -309,7 +309,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-eclipse:20.04-11
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-eclipse:focal-11
 
-  build_and_publish_OpenJDK_8_and_VSCode:
+  OpenJDK_8_and_VSCode:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -322,7 +322,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-vscode:20.04-8
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-vscode:focal-8
 
-  build_and_publish_OpenJDK_11_and_VSCode:
+  OpenJDK_11_and_VSCode:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -335,7 +335,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-vscode:20.04-11
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-vscode:focal-11
 
-  build_and_publish_PyCharm:
+  PyCharm:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -348,7 +348,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-pycharm:20.04
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-pycharm:focal
 
-  build_and_publish_Python_2-7:
+  Python_2-7:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -361,7 +361,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-2.7
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-2.7
 
-  build_and_publish_Python_3-9:
+  Python_3-9:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -374,7 +374,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.9
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.9
 
-  build_and_publish_Python_3-10:
+  Python_3-10:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -387,7 +387,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.10
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.10
 
-  build_and_publish_Python_2-7_and_PyCharm:
+  Python_2-7_and_PyCharm:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -400,7 +400,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-2.7
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-2.7
 
-  build_and_publish_Python_3-9_and_PyCharm:
+  Python_3-9_and_PyCharm:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -413,7 +413,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-3.9
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-3.9
 
-  build_and_publish_Python_3-10_and_PyCharm:
+  Python_3-10_and_PyCharm:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -426,7 +426,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-3.10
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-3.10
 
-  build_and_publish_Python_2-7_and_VSCode:
+  Python_2-7_and_VSCode:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -439,7 +439,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:20.04-2.7
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:focal-2.7
 
-  build_and_publish_Python_3-9_and_VSCode:
+  Python_3-9_and_VSCode:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -452,7 +452,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:20.04-3.9
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:focal-3.9
 
-  build_and_publish_Python_3-10_and_VSCode:
+  Python_3-10_and_VSCode:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -465,7 +465,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:20.04-3.10
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:focal-3.10
 
-  build_and_publish_VSCode:
+  VSCode:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -478,7 +478,7 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-vscode:20.04
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-vscode:focal
 
-  build_and_publish_WebStorm:
+  WebStorm:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2

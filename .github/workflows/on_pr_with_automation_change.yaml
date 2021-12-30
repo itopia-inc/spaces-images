@@ -12,7 +12,7 @@ on:
 
 jobs:
 
-  build_and_publish_all_dev_images:
+  build_all_dev:
     uses: itopia-inc/spaces-images/.github/workflows/build_and_publish_all_images.yaml@main
     with:
       environment: "dev"
