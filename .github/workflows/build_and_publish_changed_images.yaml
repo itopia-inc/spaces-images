@@ -14,6 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
 
+      all_runtimes_and_all_IDEs_image_changed: ${{ steps.changes_to_all_runtimes_and_all_IDEs_image.outputs.any_changed == 'true' || steps.changes_to_all_runtimes_and_all_IDEs_image.outputs.any_deleted == 'true' }}
+      all_runtimes_and_VSCode_image_changed: ${{ steps.changes_to_all_runtimes_and_VSCode_image.outputs.any_changed == 'true' || steps.changes_to_all_runtimes_and_VSCode_image.outputs.any_deleted == 'true' }}
+
       Eclipse_changed: ${{ steps.changes_to_Eclipse.outputs.any_changed == 'true' || steps.changes_to_Eclipse.outputs.any_deleted == 'true' }}
 
       Go_1-16_changed: ${{ steps.changes_to_Go_1-16.outputs.any_changed == 'true' || steps.changes_to_Go_1-16.outputs.any_deleted == 'true' }}
@@ -71,6 +74,39 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 2 # This is for changed-files.
+
+    - id: changes_to_all_runtimes_and_all_IDEs_image
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: |
+          complete-setups/all-runtimes-and-all-IDEs/all_runtimes_and_all_IDEs_on_Ubuntu_focal.Dockerfile
+          IDEs/Eclipse/create_Eclipse_desktop_shortcut.sh
+          IDEs/Eclipse/Eclipse.desktop
+          IDEs/Eclipse/install_Eclipse.sh
+          IDEs/GoLand/create_GoLand_desktop_shortcut.sh
+          IDEs/GoLand/GoLand.desktop
+          IDEs/GoLand/install_GoLand.sh
+          IDEs/PyCharm/create_PyCharm_desktop_shortcut.sh
+          IDEs/PyCharm/PyCharm.desktop
+          IDEs/PyCharm/install_PyCharm.sh
+          IDEs/WebStorm/create_WebStorm_desktop_shortcut.sh
+          IDEs/WebStorm/WebStorm.desktop
+          IDEs/WebStorm/install_WebStorm.sh
+          runtimes/Go/install_Go_1-17_on_Linux.sh
+          runtimes/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
+          runtimes/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
+          runtimes/Python/install_Python_3-10_on_Ubuntu_focal.sh
+
+    - id: changes_to_all_runtimes_and_VSCode_image
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: |
+          complete-setups/all-runtimes-and-VSCode/all_runtimes_and_VSCode_on_Ubuntu_focal.Dockerfile
+          IDEs/VSCode/configure_VSCode_to_autostart.sh
+          runtimes/Go/install_Go_1-17_on_Linux.sh
+          runtimes/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
+          runtimes/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
+          runtimes/Python/install_Python_3-10_on_Ubuntu_focal.sh
 
     - id: changes_to_Eclipse
       uses: tj-actions/changed-files@v1.1.2
@@ -379,7 +415,37 @@ jobs:
           IDEs/WebStorm/install.sh
           IDEs/WebStorm/WebStorm.desktop
 
-  build_and_publish_Eclipse:
+  all_runtimes_and_IDEs:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.all_runtimes_and_all_IDEs_image_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: complete-setups/all-runtimes-and-all-IDEs/all_runtimes_and_all_IDEs_on_Ubuntu_focal.Dockerfile
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-runtimes-ides:20.04
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-runtimes-ides:focal
+        environment: ${{ inputs.environment }}
+
+  all_runtimes_and_VSCode:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.all_runtimes_and_VSCode_image_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: complete-setups/all-runtimes-and-VSCode/all_runtimes_and_VSCode_on_Ubuntu_focal.Dockerfile
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-runtimes-ides:20.04
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-runtimes-ides:focal
+        environment: ${{ inputs.environment }}
+
+  Eclipse:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.Eclipse_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -394,7 +460,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-eclipse:focal
         environment: ${{ inputs.environment }}
 
-  build_and_publish_Go_1-16:
+  Go_1-16:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.Go_1-16_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -409,7 +475,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go:focal-1.16
         environment: ${{ inputs.environment }}
 
-  build_and_publish_Go_1-17:
+  Go_1-17:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.Go_1-17_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -424,7 +490,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go:focal-1.17
         environment: ${{ inputs.environment }}
 
-  build_and_publish_Go_1-16_and_GoLand:
+  Go_1-16_and_GoLand:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.Go_1-16_and_GoLand_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -439,7 +505,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-goland:focal-1.16
         environment: ${{ inputs.environment }}
 
-  build_and_publish_Go_1-17_and_GoLand:
+  Go_1-17_and_GoLand:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.Go_1-17_and_GoLand_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -454,7 +520,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-goland:focal-1.17
         environment: ${{ inputs.environment }}
 
-  build_and_publish_Go_1-16_and_VSCode:
+  Go_1-16_and_VSCode:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.Go_1-16_and_VSCode_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -469,7 +535,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-vscode:focal-1.16
         environment: ${{ inputs.environment }}
 
-  build_and_publish_Go_1-17_and_VSCode:
+  Go_1-17_and_VSCode:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.Go_1-17_and_VSCode_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -484,7 +550,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-vscode:focal-1.17
         environment: ${{ inputs.environment }}
 
-  build_and_publish_GoLand:
+  GoLand:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.GoLand_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -499,7 +565,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-goland:focal
         environment: ${{ inputs.environment }}
 
-  build_and_publish_NodeJS_12:
+  NodeJS_12:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.NodeJS_12_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -514,7 +580,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-12
         environment: ${{ inputs.environment }}
 
-  build_and_publish_NodeJS_14:
+  NodeJS_14:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.NodeJS_14_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -529,7 +595,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-14
         environment: ${{ inputs.environment }}
 
-  build_and_publish_NodeJS_16:
+  NodeJS_16:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.NodeJS_16_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -544,7 +610,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-16
         environment: ${{ inputs.environment }}
 
-  build_and_publish_NodeJS_12_and_VSCode:
+  NodeJS_12_and_VSCode:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.NodeJS_12_and_VSCode_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -559,7 +625,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:focal-12
         environment: ${{ inputs.environment }}
 
-  build_and_publish_NodeJS_14_and_VSCode:
+  NodeJS_14_and_VSCode:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.NodeJS_14_and_VSCode_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -574,7 +640,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:focal-14
         environment: ${{ inputs.environment }}
 
-  build_and_publish_NodeJS_16_and_VSCode:
+  NodeJS_16_and_VSCode:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.NodeJS_16_and_VSCode_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -589,7 +655,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:focal-16
         environment: ${{ inputs.environment }}
 
-  build_and_publish_NodeJS_12_and_WebStorm:
+  NodeJS_12_and_WebStorm:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.NodeJS_12_and_WebStorm_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -604,7 +670,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-12
         environment: ${{ inputs.environment }}
 
-  build_and_publish_NodeJS_14_and_WebStorm:
+  NodeJS_14_and_WebStorm:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.NodeJS_14_and_WebStorm_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -619,7 +685,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-14
         environment: ${{ inputs.environment }}
 
-  build_and_publish_NodeJS_16_and_WebStorm:
+  NodeJS_16_and_WebStorm:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.NodeJS_16_and_WebStorm_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -634,7 +700,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-16
         environment: ${{ inputs.environment }}
 
-  build_and_publish_OpenJDK_8:
+  OpenJDK_8:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.OpenJDK_8_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -649,7 +715,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:focal-8
         environment: ${{ inputs.environment }}
 
-  build_and_publish_OpenJDK_11:
+  OpenJDK_11:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.OpenJDK_11_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -664,7 +730,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:focal-11
         environment: ${{ inputs.environment }}
 
-  build_and_publish_OpenJDK_8_and_Eclipse:
+  OpenJDK_8_and_Eclipse:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.OpenJDK_8_and_Eclipse_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -679,7 +745,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-eclipse:focal-8
         environment: ${{ inputs.environment }}
 
-  build_and_publish_OpenJDK_11_and_Eclipse:
+  OpenJDK_11_and_Eclipse:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.OpenJDK_11_and_Eclipse_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -694,7 +760,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-eclipse:focal-11
         environment: ${{ inputs.environment }}
 
-  build_and_publish_OpenJDK_8_and_VSCode:
+  OpenJDK_8_and_VSCode:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.OpenJDK_8_and_VSCode_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -709,7 +775,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-vscode:focal-8
         environment: ${{ inputs.environment }}
 
-  build_and_publish_OpenJDK_11_and_VSCode:
+  OpenJDK_11_and_VSCode:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.OpenJDK_11_and_VSCode_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -724,7 +790,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-vscode:focal-11
         environment: ${{ inputs.environment }}
 
-  build_and_publish_PyCharm:
+  PyCharm:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.PyCharm_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -739,7 +805,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-pycharm:focal
         environment: ${{ inputs.environment }}
 
-  build_and_publish_Python_2-7:
+  Python_2-7:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.Python_2-7_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -754,7 +820,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-2.7
         environment: ${{ inputs.environment }}
 
-  build_and_publish_Python_3-9:
+  Python_3-9:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.Python_3-9_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -769,7 +835,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.9
         environment: ${{ inputs.environment }}
 
-  build_and_publish_Python_3-10:
+  Python_3-10:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.Python_3-10_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -784,7 +850,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.10
         environment: ${{ inputs.environment }}
 
-  build_and_publish_Python_2-7_and_PyCharm:
+  Python_2-7_and_PyCharm:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.Python_2-7_and_PyCharm_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -799,7 +865,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-2.7
         environment: ${{ inputs.environment }}
 
-  build_and_publish_Python_3-9_and_PyCharm:
+  Python_3-9_and_PyCharm:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.Python_3-9_and_PyCharm_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -814,7 +880,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-3.9
         environment: ${{ inputs.environment }}
 
-  build_and_publish_Python_3-10_and_PyCharm:
+  Python_3-10_and_PyCharm:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.Python_3-10_and_PyCharm_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -829,7 +895,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-3.10
         environment: ${{ inputs.environment }}
 
-  build_and_publish_Python_2-7_and_VSCode:
+  Python_2-7_and_VSCode:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.Python_2-7_and_VSCode_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -844,7 +910,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:focal-2.7
         environment: ${{ inputs.environment }}
 
-  build_and_publish_Python_3-9_and_VSCode:
+  Python_3-9_and_VSCode:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.Python_3-9_and_VSCode_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -859,7 +925,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:focal-3.9
         environment: ${{ inputs.environment }}
 
-  build_and_publish_Python_3-10_and_VSCode:
+  Python_3-10_and_VSCode:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.Python_3-10_and_VSCode_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -874,7 +940,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-3.10
         environment: ${{ inputs.environment }}
 
-  build_and_publish_VSCode:
+  VSCode:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.VSCode_changed == 'true' }}
     runs-on: ubuntu-latest
@@ -889,7 +955,7 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-vscode:focal
         environment: ${{ inputs.environment }}
 
-  build_and_publish_WebStorm:
+  WebStorm:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.WebStorm_changed == 'true' }}
     runs-on: ubuntu-latest
