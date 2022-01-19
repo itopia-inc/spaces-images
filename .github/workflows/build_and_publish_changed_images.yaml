@@ -441,8 +441,8 @@ jobs:
         dockerfile_path: complete-setups/all-runtimes-and-VSCode/all_runtimes_and_VSCode_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-runtimes-ides:20.04
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-runtimes-ides:focal
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-runtimes-vscode:20.04
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-runtimes-vscode:focal
         environment: ${{ inputs.environment }}
 
   Eclipse:

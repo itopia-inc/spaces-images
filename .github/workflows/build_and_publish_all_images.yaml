@@ -20,8 +20,8 @@ jobs:
         environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-eclipse:20.04
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-eclipse:focal
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-runtimes-ides:20.04
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-runtimes-ides:focal
 
   all_runtimes_and_VSCode:
     runs-on: ubuntu-latest
@@ -33,8 +33,8 @@ jobs:
         environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-eclipse:20.04
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-eclipse:focal
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-runtimes-vscode:20.04
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-runtimes-vscode:focal
 
   Eclipse:
     runs-on: ubuntu-latest
