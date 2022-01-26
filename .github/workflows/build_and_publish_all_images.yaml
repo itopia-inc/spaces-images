@@ -133,7 +133,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: IDEs/GoLand/GoLand_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: IDEs/GoLand/Dockerfile
         environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
