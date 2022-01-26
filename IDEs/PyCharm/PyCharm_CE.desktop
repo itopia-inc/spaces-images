@@ -2,8 +2,8 @@
 Version=1.0
 Type=Application
 Name=PyCharm Community Edition
-Icon=/opt/pycharm-community/bin/pycharm.svg
-Exec="/opt/pycharm-community/bin/pycharm.sh" %f
+Icon=/opt/PyCharm-CE/bin/pycharm.svg
+Exec=/usr/share/dev-scripts/start_pycharm_with_repo.sh %f
 Comment=Python IDE for Professional Developers
 Categories=Development;IDE;
 Terminal=false
