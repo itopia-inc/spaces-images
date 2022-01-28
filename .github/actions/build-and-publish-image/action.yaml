@@ -27,8 +27,8 @@ runs:
         image_tag_1="$image_tag_1-dev"
         image_tag_2="$image_tag_2-dev"
       fi
-
-      if [ $(docker build -f ${{ inputs.dockerfile_path }} -t $image_tag_1 .) ]; then
+      dockerfile_path='${{ inputs.dockerfile_path }}'
+      if [ $(docker build -f $dockerfile_path -t $image_tag_1 .) ]; then
           docker push $image_tag_1
           if [ $image_tag_2 != '' ]; then
             docker tag $image_tag_1 $image_tag_2
