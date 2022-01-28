@@ -11,7 +11,8 @@ on:
 jobs:
 
   all_runtimes_and_IDEs:
-    runs-on: ubuntu-latestif: always()
+    runs-on: ubuntu-latest
+    if: always()
 
     steps:
     - uses: actions/checkout@v2
