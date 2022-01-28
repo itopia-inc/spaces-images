@@ -35,6 +35,6 @@ runs:
             docker push $image_tag_2
           fi
       else 
-          printf "Docker build failed for tag: $image_tag_1"
+          echo "Docker build failed for tag: $image_tag_1"
           exit 1
       fi
