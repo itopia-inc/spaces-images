@@ -19,8 +19,6 @@ runs:
   steps:
   - shell: bash
     run: |
-      export red=$'\e[1;31m'
-      export end=$'\e[0m'
       echo ${{ inputs.github_personal_access_token }} | docker login ghcr.io -u ${{ inputs.github_username }} --password-stdin
       image_tag_1='${{ inputs.image_tag_1 }}'
       image_tag_2='${{ inputs.image_tag_2 }}'
@@ -37,6 +35,6 @@ runs:
             docker push $image_tag_2
           fi
       else 
-          printf "%s\n" "${red} Docker build failed for tag: $image_tag_1 ${end}"
+          printf "Docker build failed for tag: $image_tag_1"
           exit 1
       fi
