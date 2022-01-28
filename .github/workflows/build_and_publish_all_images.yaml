@@ -11,7 +11,8 @@ on:
 jobs:
 
   all_runtimes_and_IDEs:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latestif: always()
+
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -25,6 +26,7 @@ jobs:
 
   all_runtimes_and_VSCode:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -38,6 +40,7 @@ jobs:
 
   Eclipse:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -51,6 +54,7 @@ jobs:
 
   Go_1-16:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -64,6 +68,7 @@ jobs:
 
   Go_1-17:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -77,6 +82,7 @@ jobs:
 
   Go_1-16_and_GoLand:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -90,6 +96,7 @@ jobs:
 
   Go_1-17_and_GoLand:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -103,6 +110,7 @@ jobs:
 
   Go_1-16_and_VSCode:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -116,6 +124,7 @@ jobs:
 
   Go_1-17_and_VSCode:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -129,6 +138,7 @@ jobs:
 
   GoLand:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -142,6 +152,7 @@ jobs:
 
   NodeJS_12:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -155,6 +166,7 @@ jobs:
 
   NodeJS_14:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -168,6 +180,7 @@ jobs:
 
   NodeJS_16:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -181,6 +194,7 @@ jobs:
 
   NodeJS_12_and_VSCode:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -194,6 +208,7 @@ jobs:
 
   NodeJS_14_and_VSCode:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -207,6 +222,7 @@ jobs:
 
   NodeJS_16_and_VSCode:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -220,6 +236,7 @@ jobs:
 
   NodeJS_12_and_WebStorm:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -233,6 +250,7 @@ jobs:
 
   NodeJS_14_and_WebStorm:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -246,6 +264,7 @@ jobs:
 
   NodeJS_16_and_WebStorm:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -259,6 +278,7 @@ jobs:
 
   OpenJDK_8:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -272,6 +292,7 @@ jobs:
 
   OpenJDK_11:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -285,6 +306,7 @@ jobs:
 
   OpenJDK_8_and_Eclipse:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -298,6 +320,7 @@ jobs:
 
   OpenJDK_11_and_Eclipse:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -311,6 +334,7 @@ jobs:
 
   OpenJDK_8_and_VSCode:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -324,6 +348,7 @@ jobs:
 
   OpenJDK_11_and_VSCode:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -337,6 +362,7 @@ jobs:
 
   PyCharm:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -350,6 +376,7 @@ jobs:
 
   Python_2-7:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -363,6 +390,7 @@ jobs:
 
   Python_3-9:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -376,6 +404,7 @@ jobs:
 
   Python_3-10:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -389,6 +418,7 @@ jobs:
 
   Python_2-7_and_PyCharm:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -402,6 +432,7 @@ jobs:
 
   Python_3-9_and_PyCharm:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -415,6 +446,7 @@ jobs:
 
   Python_3-10_and_PyCharm:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -428,6 +460,7 @@ jobs:
 
   Python_2-7_and_VSCode:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -441,6 +474,7 @@ jobs:
 
   Python_3-9_and_VSCode:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -454,6 +488,7 @@ jobs:
 
   Python_3-10_and_VSCode:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -467,6 +502,7 @@ jobs:
 
   VSCode:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
@@ -480,6 +516,7 @@ jobs:
 
   WebStorm:
     runs-on: ubuntu-latest
+    if: always()
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image

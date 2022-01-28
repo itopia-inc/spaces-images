@@ -38,4 +38,5 @@ runs:
           fi
       else 
           printf "%s\n" "${red} Docker build failed for tag: $image_tag_1 ${end}"
+          exit 1
       fi
