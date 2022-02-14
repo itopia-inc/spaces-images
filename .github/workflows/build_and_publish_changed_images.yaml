@@ -51,6 +51,9 @@ jobs:
       OpenJDK_8_and_VSCode_changed: ${{ steps.changes_to_OpenJDK_8_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_OpenJDK_8_and_VSCode.outputs.any_deleted == 'true' }}
       OpenJDK_11_and_VSCode_changed: ${{ steps.changes_to_OpenJDK_11_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_OpenJDK_11_and_VSCode.outputs.any_deleted == 'true' }}
 
+      OpenJDK_8_and_IDEA_changed: ${{ steps.changes_to_OpenJDK_8_and_IDEA.outputs.any_changed == 'true' || steps.changes_to_OpenJDK_8_and_IDEA.outputs.any_deleted == 'true' }}
+      OpenJDK_11_and_IDEA_changed: ${{ steps.changes_to_OpenJDK_11_and_IDEA.outputs.any_changed == 'true' || steps.changes_to_OpenJDK_11_and_IDEA.outputs.any_deleted == 'true' }}
+
       PyCharm_changed: ${{ steps.changes_to_PyCharm.outputs.any_changed == 'true' || steps.changes_to_PyCharm.outputs.any_deleted == 'true' }}
 
       Python_2-7_changed: ${{ steps.changes_to_Python_2-7.outputs.any_changed == 'true' || steps.changes_to_Python_2-7.outputs.any_deleted == 'true' }}
@@ -86,6 +89,7 @@ jobs:
           IDEs/GoLand/create_GoLand_desktop_shortcut.sh
           IDEs/GoLand/GoLand.desktop
           IDEs/GoLand/install_GoLand.sh
+          IDEs/IDEA/*
           IDEs/PyCharm/create_PyCharm_desktop_shortcut.sh
           IDEs/PyCharm/PyCharm.desktop
           IDEs/PyCharm/install_PyCharm.sh
@@ -288,6 +292,22 @@ jobs:
           IDEs/Eclipse/create_Eclipse_desktop_shortcut.sh
           IDEs/Eclipse/Eclipse.desktop
           IDEs/Eclipse/install_Eclipse.sh
+          runtimes/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
+
+    - id: changes_to_OpenJDK_8_and_IDEA
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: |
+          complete-setups/OpenJDK-and-IDEA/OpenJDK_8_and_IDEA_on_Ubuntu_focal.Dockerfile
+          IDEs/IDEA/*
+          runtimes/OpenJDK/install_OpenJDK_8_on_Ubuntu_focal.sh
+
+    - id: changes_to_OpenJDK_11_and_IDEA
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: |
+          complete-setups/OpenJDK-and-IDEA/OpenJDK_11_and_IDEA_on_Ubuntu_focal.Dockerfile
+          IDEs/IDEA/*
           runtimes/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
 
     - id: changes_to_OpenJDK_8_and_VSCode
@@ -788,6 +808,36 @@ jobs:
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-vscode:20.04-11
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-vscode:focal-11
+        environment: ${{ inputs.environment }}
+
+  OpenJDK_8_and_IDEA:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.OpenJDK_8_and_IDEA_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: complete-setups/OpenJDK-and-IDEA/OpenJDK_8_and_IDEA_on_Ubuntu_focal.Dockerfile
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-idea:20.04-8
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-idea:focal-8
+        environment: ${{ inputs.environment }}
+
+  OpenJDK_11_and_IDEA:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.OpenJDK_11_and_IDEA_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: complete-setups/OpenJDK-and-IDEA/OpenJDK_11_and_IDEA_on_Ubuntu_focal.Dockerfile
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-idea:20.04-11
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-idea:focal-11
         environment: ${{ inputs.environment }}
 
   PyCharm:
