@@ -1,0 +1,20 @@
+name: "Trigger: A scheduled date/time has been reached"
+
+on:
+  schedule:
+    - cron: '0 16 * * MON,WED,FRI'
+    - cron: '0 16 * * TUE,THU'
+
+jobs:
+
+  build_all_dev:
+    if: github.event.schedule == '0 16 * * MON,WED,FRI'
+    uses: itopia-inc/spaces-images/.github/workflows/build_and_publish_all_images.yaml@main
+    with:
+      environment: "dev"
+
+  build_all_prod:
+    if: github.event.schedule == '0 16 * * TUE,THU'
+    uses: itopia-inc/spaces-images/.github/workflows/build_and_publish_all_images.yaml@main
+    with:
+      environment: "prod"
