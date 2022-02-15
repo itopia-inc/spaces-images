@@ -10,6 +10,7 @@ jobs:
       environment: "dev"
 
   build_all_prod:
+    if: always()
     needs: build_all_dev
     uses: itopia-inc/spaces-images/.github/workflows/build_and_publish_all_images.yaml@main
     with:
