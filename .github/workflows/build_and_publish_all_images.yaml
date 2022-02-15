@@ -360,6 +360,32 @@ jobs:
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-vscode:20.04-11
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-vscode:focal-11
+  
+  OpenJDK_8_and_IDEA:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: complete-setups/OpenJDK-and-IDEA/OpenJDK_8_and_IDEA_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-idea:20.04-8
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-idea:focal-8
+
+  OpenJDK_11_and_IDEA:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: complete-setups/OpenJDK-and-IDEA/OpenJDK_11_and_IDEA_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-idea:20.04-11
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-idea:focal-11
 
   PyCharm:
     runs-on: ubuntu-latest
