@@ -13,7 +13,7 @@ RUN bash -ce '/usr/share/dev-scripts/install_OpenJDK_11_on_Ubuntu_focal.sh'
 COPY runtimes/Python/install_Python_3-10_on_Ubuntu_focal.sh /usr/share/dev-scripts/
 RUN bash -ce '/usr/share/dev-scripts/install_Python_3-10_on_Ubuntu_focal.sh'
 
-COPY IDEs/VSCode/start_vscode_with_repo.sh /usr/share/dev-scripts/
+COPY IDEs/VSCode/start_VSCode_with_repo.sh /usr/share/dev-scripts/
 
 COPY IDEs/VSCode/configure_VSCode_to_autostart.sh /usr/share/dev-scripts/
 RUN bash -ce '/usr/share/dev-scripts/configure_VSCode_to_autostart.sh'

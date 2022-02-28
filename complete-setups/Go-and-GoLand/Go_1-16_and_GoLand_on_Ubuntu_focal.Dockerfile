@@ -14,7 +14,7 @@ COPY IDEs/GoLand/create_GoLand_desktop_shortcut.sh /usr/share/dev-scripts/
 COPY IDEs/GoLand/GoLand.desktop /usr/share/dev-scripts/
 RUN bash -ce '/usr/share/dev-scripts/create_GoLand_desktop_shortcut.sh'
 
-COPY IDEs/GoLand/start_goland_with_repo.sh /usr/share/dev-scripts/
+COPY IDEs/GoLand/start_GoLand_with_repo.sh /usr/share/dev-scripts/
 
 COPY IDEs/GoLand/configure_GoLand_to_autostart.sh /usr/share/dev-scripts/
 RUN bash -ce '/usr/share/dev-scripts/configure_GoLand_to_autostart.sh'

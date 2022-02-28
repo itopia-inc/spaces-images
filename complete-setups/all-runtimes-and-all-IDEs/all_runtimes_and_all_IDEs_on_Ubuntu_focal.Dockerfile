@@ -57,12 +57,12 @@ RUN bash -ce '/usr/share/dev-scripts/install_IDEA.sh'
 ###
 
 # VSCode
-COPY IDEs/VSCode/start_vscode_with_repo.sh /usr/share/dev-scripts/
+COPY IDEs/VSCode/start_VSCode_with_repo.sh /usr/share/dev-scripts/
 COPY IDEs/VSCode/configure_VSCode_to_autostart.sh /usr/share/dev-scripts/
 RUN bash -ce '/usr/share/dev-scripts/configure_VSCode_to_autostart.sh'
 
 # Eclipse
-COPY IDEs/Eclipse/start_eclipse_with_repo.sh /usr/share/dev-scripts/
+COPY IDEs/Eclipse/start_Eclipse_with_repo.sh /usr/share/dev-scripts/
 COPY IDEs/Eclipse/create_Eclipse_desktop_shortcut.sh /usr/share/dev-scripts/
 COPY IDEs/Eclipse/configure_Eclipse_to_autostart.sh /usr/share/dev-scripts/
 COPY IDEs/Eclipse/Eclipse.desktop /usr/share/dev-scripts/
@@ -70,7 +70,7 @@ RUN bash -ce '/usr/share/dev-scripts/create_Eclipse_desktop_shortcut.sh'
 RUN bash -ce '/usr/share/dev-scripts/configure_Eclipse_to_autostart.sh'
 
 # GoLand
-COPY IDEs/GoLand/start_goland_with_repo.sh /usr/share/dev-scripts/
+COPY IDEs/GoLand/start_GoLand_with_repo.sh /usr/share/dev-scripts/
 COPY IDEs/GoLand/create_GoLand_desktop_shortcut.sh /usr/share/dev-scripts/
 COPY IDEs/GoLand/configure_GoLand_to_autostart.sh /usr/share/dev-scripts/
 COPY IDEs/GoLand/GoLand.desktop /usr/share/dev-scripts/
@@ -78,7 +78,7 @@ RUN bash -ce '/usr/share/dev-scripts/create_GoLand_desktop_shortcut.sh'
 RUN bash -ce '/usr/share/dev-scripts/configure_GoLand_to_autostart.sh'
 
 # PyCharm
-COPY IDEs/PyCharm/start_pycharm_with_repo.sh /usr/share/dev-scripts/
+COPY IDEs/PyCharm/start_PyCharm_with_repo.sh /usr/share/dev-scripts/
 COPY IDEs/PyCharm/create_PyCharm_desktop_shortcut.sh /usr/share/dev-scripts/
 COPY IDEs/PyCharm/configure_PyCharm_to_autostart.sh /usr/share/dev-scripts/
 COPY IDEs/PyCharm/PyCharm_CE.desktop /usr/share/dev-scripts/
@@ -86,7 +86,7 @@ RUN bash -ce '/usr/share/dev-scripts/create_PyCharm_desktop_shortcut.sh'
 RUN bash -ce '/usr/share/dev-scripts/configure_PyCharm_to_autostart.sh'
 
 # WebStorm
-COPY IDEs/WebStorm/start_webstorm_with_repo.sh /usr/share/dev-scripts/
+COPY IDEs/WebStorm/start_WebStorm_with_repo.sh /usr/share/dev-scripts/
 COPY IDEs/WebStorm/create_WebStorm_desktop_shortcut.sh /usr/share/dev-scripts/
 COPY IDEs/WebStorm/configure_WebStorm_to_autostart.sh /usr/share/dev-scripts/
 COPY IDEs/WebStorm/WebStorm.desktop /usr/share/dev-scripts/
@@ -94,7 +94,7 @@ RUN bash -ce '/usr/share/dev-scripts/create_WebStorm_desktop_shortcut.sh'
 RUN bash -ce '/usr/share/dev-scripts/configure_WebStorm_to_autostart.sh'
 
 # IDEA
-COPY IDEs/IDEA/start_idea_with_repo.sh /usr/share/dev-scripts/
+COPY IDEs/IDEA/start_IDEA_with_repo.sh /usr/share/dev-scripts/
 COPY IDEs/IDEA/create_IDEA_desktop_shortcut.sh /usr/share/dev-scripts/
 COPY IDEs/IDEA/configure_IDEA_to_autostart.sh /usr/share/dev-scripts/
 COPY IDEs/IDEA/IDEA_CE.desktop /usr/share/dev-scripts/
