@@ -14,5 +14,7 @@ COPY IDEs/Eclipse/create_Eclipse_desktop_shortcut.sh /usr/share/dev-scripts/
 COPY IDEs/Eclipse/Eclipse.desktop /usr/share/dev-scripts/
 RUN bash -ce '/usr/share/dev-scripts/create_Eclipse_desktop_shortcut.sh'
 
+COPY IDEs/Eclipse/start_eclipse_with_repo.sh /usr/share/dev-scripts/
+
 COPY IDEs/Eclipse/configure_Eclipse_to_autostart.sh /usr/share/dev-scripts/
 RUN bash -ce '/usr/share/dev-scripts/configure_Eclipse_to_autostart.sh'
