@@ -98,11 +98,7 @@ jobs:
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          IDEs/Eclipse/configure_Eclipse_to_autostart.sh
-          IDEs/Eclipse/create_Eclipse_desktop_shortcut.sh
-          IDEs/Eclipse/Dockerfile
-          IDEs/Eclipse/Eclipse.desktop
-          IDEs/Eclipse/install_Eclipse.sh
+          IDEs/Eclipse/*
 
     - id: changes_to_Go_1-16
       uses: tj-actions/changed-files@v1.1.2
@@ -123,11 +119,7 @@ jobs:
       with:
         files: |
           complete-setups/Go-and-GoLand/Go_1-16_and_GoLand_on_Ubuntu_focal.Dockerfile
-          IDEs/GoLand/configure_GoLand_to_autostart.sh
-          IDEs/GoLand/create_GoLand_desktop_shortcut.sh
-          IDEs/GoLand/Dockerfile
-          IDEs/GoLand/GoLand.desktop
-          IDEs/GoLand/install_GoLand.sh
+          IDEs/GoLand/*
           languages/Go/install_Go_1-16_on_Linux.sh
 
     - id: changes_to_Go_1-17_and_GoLand
@@ -135,11 +127,7 @@ jobs:
       with:
         files: |
           complete-setups/Go-and-GoLand/Go_1-17_and_GoLand_on_Ubuntu_focal.Dockerfile
-          IDEs/GoLand/configure_GoLand_to_autostart.sh
-          IDEs/GoLand/create_GoLand_desktop_shortcut.sh
-          IDEs/GoLand/Dockerfile
-          IDEs/GoLand/GoLand.desktop
-          IDEs/GoLand/install_GoLand.sh
+          IDEs/GoLand/*
           languages/Go/install_Go_1-17_on_Linux.sh
 
     - id: changes_to_Go_1-16_and_VSCode
@@ -147,8 +135,7 @@ jobs:
       with:
         files: |
           complete-setups/Go-and-VSCode/Go_1-16_and_VSCode_on_Ubuntu_focal.Dockerfile
-          IDEs/VSCode/configure_VSCode_to_autostart.sh
-          IDEs/VSCode/Dockerfile
+          IDEs/VSCode/*
           languages/Go/install_Go_1-16_on_Linux.sh
 
     - id: changes_to_Go_1-17_and_VSCode
@@ -156,20 +143,14 @@ jobs:
       with:
         files: |
           complete-setups/Go-and-VSCode/Go_1-17_and_VSCode_on_Ubuntu_focal.Dockerfile
-          IDEs/VSCode/configure_VSCode_to_autostart.sh
-          IDEs/VSCode/Dockerfile
+          IDEs/VSCode/*
           languages/Go/install_Go_1-17_on_Linux.sh
 
     - id: changes_to_GoLand
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          IDEs/GoLand/configure_GoLand_to_autostart.sh
-          IDEs/GoLand/create_GoLand_desktop_shortcut.sh
-          IDEs/GoLand/Dockerfile
-          IDEs/GoLand/GoLand.desktop
-          IDEs/GoLand/install_GoLand.sh
-          languages/Go/Go_1-17_on_Ubuntu_focal.Dockerfile
+          IDEs/GoLand/*
 
     - id: changes_to_NodeJS_12
       uses: tj-actions/changed-files@v1.1.2
@@ -197,7 +178,7 @@ jobs:
       with:
         files: |
           complete-setups/NodeJS-and-VSCode/NodeJS_12_and_VSCode_on_Ubuntu_focal.Dockerfile
-          IDEs/VSCode/configure_VSCode_to_autostart.sh
+          IDEs/VSCode/*
           languages/NodeJS/install_NodeJS_12_on_Ubuntu_focal.sh
 
     - id: changes_to_NodeJS_14_and_VSCode
@@ -205,7 +186,7 @@ jobs:
       with:
         files: |
           complete-setups/NodeJS-and-VSCode/NodeJS_14_and_VSCode_on_Ubuntu_focal.Dockerfile
-          IDEs/VSCode/configure_VSCode_to_autostart.sh
+          IDEs/VSCode/*
           languages/NodeJS/install_NodeJS_14_on_Ubuntu_focal.sh
 
     - id: changes_to_NodeJS_16_and_VSCode
@@ -213,7 +194,7 @@ jobs:
       with:
         files: |
           complete-setups/NodeJS-and-VSCode/NodeJS_16_and_VSCode_on_Ubuntu_focal.Dockerfile
-          IDEs/VSCode/configure_VSCode_to_autostart.sh
+          IDEs/VSCode/*
           languages/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
 
     - id: changes_to_NodeJS_12_and_WebStorm
@@ -221,7 +202,7 @@ jobs:
       with:
         files: |
           complete-setups/NodeJS-and-WebStorm/NodeJS_12_and_WebStorm_on_Ubuntu_focal.Dockerfile
-          IDEs/WebStorm/configure_WebStorm_to_autostart.sh
+          IDEs/WebStorm/*
           languages/NodeJS/install_NodeJS_12_on_Ubuntu_focal.sh
 
     - id: changes_to_NodeJS_14_and_WebStorm
@@ -229,7 +210,7 @@ jobs:
       with:
         files: |
           complete-setups/NodeJS-and-WebStorm/NodeJS_14_and_WebStorm_on_Ubuntu_focal.Dockerfile
-          IDEs/WebStorm/configure_WebStorm_to_autostart.sh
+          IDEs/WebStorm/*
           languages/NodeJS/install_NodeJS_14_on_Ubuntu_focal.sh
 
     - id: changes_to_NodeJS_16_and_WebStorm
@@ -237,7 +218,7 @@ jobs:
       with:
         files: |
           complete-setups/NodeJS-and-WebStorm/NodeJS_16_and_WebStorm_on_Ubuntu_focal.Dockerfile
-          IDEs/WebStorm/configure_WebStorm_to_autostart.sh
+          IDEs/WebStorm/*
           languages/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
 
     - id: changes_to_OpenJDK_8
@@ -259,10 +240,7 @@ jobs:
       with:
         files: |
           complete-setups/OpenJDK-and-Eclipse/OpenJDK_8_and_Eclipse_on_Ubuntu_focal.Dockerfile
-          IDEs/Eclipse/configure_Eclipse_to_autostart.sh
-          IDEs/Eclipse/create_Eclipse_desktop_shortcut.sh
-          IDEs/Eclipse/Eclipse.desktop
-          IDEs/Eclipse/install_Eclipse.sh
+          IDEs/Eclipse/*
           languages/OpenJDK/install_OpenJDK_8_on_Ubuntu_focal.sh
 
     - id: changes_to_OpenJDK_11_and_Eclipse
@@ -270,10 +248,7 @@ jobs:
       with:
         files: |
           complete-setups/OpenJDK-and-Eclipse/OpenJDK_11_and_Eclipse_on_Ubuntu_focal.Dockerfile
-          IDEs/Eclipse/configure_Eclipse_to_autostart.sh
-          IDEs/Eclipse/create_Eclipse_desktop_shortcut.sh
-          IDEs/Eclipse/Eclipse.desktop
-          IDEs/Eclipse/install_Eclipse.sh
+          IDEs/Eclipse/*
           languages/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
 
     - id: changes_to_OpenJDK_8_and_IDEA
@@ -297,9 +272,7 @@ jobs:
       with:
         files: |
           complete-setups/OpenJDK-and-VSCode/OpenJDK_8_and_VSCode_on_Ubuntu_focal.Dockerfile
-          IDEs/VSCode/configure_VSCode_to_autostart.sh
-          IDEs/VSCode/create_VSCode_desktop_shortcut.sh
-          IDEs/VSCode/install_VSCode.sh
+          IDEs/VSCode/*
           languages/OpenJDK/install_OpenJDK_8_on_Ubuntu_focal.sh
 
     - id: changes_to_OpenJDK_11_and_VSCode
@@ -307,20 +280,14 @@ jobs:
       with:
         files: |
           complete-setups/OpenJDK-and-VSCode/OpenJDK_11_and_VSCode_on_Ubuntu_focal.Dockerfile
-          IDEs/VSCode/configure_VSCode_to_autostart.sh
-          IDEs/VSCode/create_VSCode_desktop_shortcut.sh
-          IDEs/VSCode/install_VSCode.sh
+          IDEs/VSCode/*
           languages/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
 
     - id: changes_to_PyCharm
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          IDEs/PyCharm/configure_PyCharm_to_autostart.sh
-          IDEs/PyCharm/create_PyCharm_desktop_shortcut.sh
-          IDEs/PyCharm/Dockerfile
-          IDEs/PyCharm/install_PyCharm.sh
-          IDEs/PyCharm/jetbrains-pycharm-ce.desktop
+          IDEs/PyCharm/*
 
     - id: changes_to_Python_2-7
       uses: tj-actions/changed-files@v1.1.2
@@ -348,10 +315,7 @@ jobs:
       with:
         files: |
           complete-setups/Python-and-PyCharm/Python_2-7_and_PyCharm_on_Ubuntu_focal.Dockerfile
-          IDEs/PyCharm/configure_PyCharm_to_autostart.sh
-          IDEs/PyCharm/create_PyCharm_desktop_shortcut.sh
-          IDEs/PyCharm/install_PyCharm.sh
-          IDEs/PyCharm/jetbrains-pycharm-ce.desktop
+          IDEs/PyCharm/*
           languages/Python/install_Python_2-7_on_Ubuntu_focal.sh
 
     - id: changes_to_Python_3-9_and_PyCharm
@@ -359,10 +323,7 @@ jobs:
       with:
         files: |
           complete-setups/Python-and-PyCharm/Python_3-9_and_PyCharm_on_Ubuntu_focal.Dockerfile
-          IDEs/PyCharm/configure_PyCharm_to_autostart.sh
-          IDEs/PyCharm/create_PyCharm_desktop_shortcut.sh
-          IDEs/PyCharm/install_PyCharm.sh
-          IDEs/PyCharm/jetbrains-pycharm-ce.desktop
+          IDEs/PyCharm/*
           languages/Python/install_Python_3-9_on_Ubuntu_focal.sh
 
     - id: changes_to_Python_3-10_and_PyCharm
@@ -370,10 +331,7 @@ jobs:
       with:
         files: |
           complete-setups/Python-and-PyCharm/Python_3-10_and_PyCharm_on_Ubuntu_focal.Dockerfile
-          IDEs/PyCharm/configure_PyCharm_to_autostart.sh
-          IDEs/PyCharm/create_PyCharm_desktop_shortcut.sh
-          IDEs/PyCharm/install_PyCharm.sh
-          IDEs/PyCharm/jetbrains-pycharm-ce.desktop
+          IDEs/PyCharm/*
           languages/Python/install_Python_3-10_on_Ubuntu_focal.sh
 
     - id: changes_to_Python_2-7_and_VSCode
@@ -381,7 +339,7 @@ jobs:
       with:
         files: |
           complete-setups/Python-and-VSCode/Python_2-7_and_VSCode_on_Ubuntu_focal.Dockerfile
-          IDEs/VSCode/configure_VSCode_to_autostart.sh
+          IDEs/VSCode/*
           languages/Python/install_Python_2-7_on_Ubuntu_focal.sh
 
     - id: changes_to_Python_3-9_and_VSCode
@@ -389,7 +347,7 @@ jobs:
       with:
         files: |
           complete-setups/Python-and-VSCode/Python_3-9_and_VSCode_on_Ubuntu_focal.Dockerfile
-          IDEs/VSCode/configure_VSCode_to_autostart.sh
+          IDEs/VSCode/*
           languages/Python/install_Python_3-9_on_Ubuntu_focal.sh
 
     - id: changes_to_Python_3-10_and_VSCode
@@ -397,25 +355,20 @@ jobs:
       with:
         files: |
           complete-setups/Python-and-VSCode/Python_3-10_and_VSCode_on_Ubuntu_focal.Dockerfile
-          IDEs/VSCode/configure_VSCode_to_autostart.sh
+          IDEs/VSCode/*
           languages/Python/install_Python_3-10_on_Ubuntu_focal.sh
 
     - id: changes_to_VSCode
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          IDEs/VSCode/configure_VSCode_to_autostart.sh
-          IDEs/VSCode/Dockerfile
+          IDEs/VSCode/*
 
     - id: changes_to_WebStorm
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          IDEs/WebStorm/configure_WebStorm_to_autostart.sh
-          IDEs/WebStorm/create_WebStorm_desktop_shortcut.sh
-          IDEs/WebStorm/Dockerfile
-          IDEs/WebStorm/install.sh
-          IDEs/WebStorm/WebStorm.desktop
+          IDEs/WebStorm/*
 
   all_languages_and_IDEs:
     needs: detect_image_source_changes
