@@ -83,34 +83,16 @@ jobs:
       with:
         files: |
           complete-setups/all-languages-and-all-IDEs/all_languages_and_all_IDEs_on_Ubuntu_focal.Dockerfile
-          IDEs/Eclipse/create_Eclipse_desktop_shortcut.sh
-          IDEs/Eclipse/Eclipse.desktop
-          IDEs/Eclipse/install_Eclipse.sh
-          IDEs/GoLand/create_GoLand_desktop_shortcut.sh
-          IDEs/GoLand/GoLand.desktop
-          IDEs/GoLand/install_GoLand.sh
-          IDEs/IDEA/*
-          IDEs/PyCharm/create_PyCharm_desktop_shortcut.sh
-          IDEs/PyCharm/PyCharm.desktop
-          IDEs/PyCharm/install_PyCharm.sh
-          IDEs/WebStorm/create_WebStorm_desktop_shortcut.sh
-          IDEs/WebStorm/WebStorm.desktop
-          IDEs/WebStorm/install_WebStorm.sh
-          languages/Go/install_Go_1-17_on_Linux.sh
-          languages/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
-          languages/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
-          languages/Python/install_Python_3-10_on_Ubuntu_focal.sh
+          IDEs/*
+          languages/*
 
     - id: changes_to_all_languages_and_VSCode_image
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
           complete-setups/all-languages-and-VSCode/all_languages_and_VSCode_on_Ubuntu_focal.Dockerfile
-          IDEs/VSCode/configure_VSCode_to_autostart.sh
-          languages/Go/install_Go_1-17_on_Linux.sh
-          languages/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
-          languages/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
-          languages/Python/install_Python_3-10_on_Ubuntu_focal.sh
+          IDEs/VSCode/*
+          languages/*
 
     - id: changes_to_Eclipse
       uses: tj-actions/changed-files@v1.1.2
