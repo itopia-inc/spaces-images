@@ -4,7 +4,7 @@ FROM ghcr.io/itopia-inc/spaces-base-images/spaces-ubuntu-base:focal
 LABEL org.opencontainers.image.description="itopia Spaces image for Node.js + WebStorm on Ubuntu"
 LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-images"
 
-COPY runtimes/NodeJS/install_NodeJS_14_on_Ubuntu_focal.sh /usr/share/dev-scripts/
+COPY languages/NodeJS/install_NodeJS_14_on_Ubuntu_focal.sh /usr/share/dev-scripts/
 RUN bash -ce '/usr/share/dev-scripts/install_NodeJS_14_on_Ubuntu_focal.sh'
 
 COPY IDEs/WebStorm/install_WebStorm.sh /usr/share/dev-scripts/

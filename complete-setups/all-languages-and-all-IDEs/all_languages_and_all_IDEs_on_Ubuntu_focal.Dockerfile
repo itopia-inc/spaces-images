@@ -2,30 +2,30 @@
 ARG BASE_IMAGE=ghcr.io/itopia-inc/spaces-base-images/spaces-ubuntu-base:focal
 FROM ${BASE_IMAGE}
 
-LABEL org.opencontainers.image.description="itopia Spaces image for all runtimes and all IDEs on Ubuntu"
+LABEL org.opencontainers.image.description="itopia Spaces image for all languages and all IDEs on Ubuntu"
 LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-images"
 
 ARG BASE_IMAGE
 RUN echo "Using BASE_IMAGE: ${BASE_IMAGE}"
 
 ###
-# Install runtimes
+# Install languages
 ###
 
 # Golang
-COPY runtimes/Go/install_Go_1-17_on_Linux.sh /usr/share/dev-scripts/
+COPY languages/Go/install_Go_1-17_on_Linux.sh /usr/share/dev-scripts/
 RUN bash -ce '/usr/share/dev-scripts/install_Go_1-17_on_Linux.sh'
 
 # NodeJS
-COPY runtimes/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh /usr/share/dev-scripts/
+COPY languages/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh /usr/share/dev-scripts/
 RUN bash -ce '/usr/share/dev-scripts/install_NodeJS_16_on_Ubuntu_focal.sh'
 
 # OpenJDK
-COPY runtimes/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh /usr/share/dev-scripts/
+COPY languages/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh /usr/share/dev-scripts/
 RUN bash -ce '/usr/share/dev-scripts/install_OpenJDK_11_on_Ubuntu_focal.sh'
 
 # Python
-COPY runtimes/Python/install_Python_3-10_on_Ubuntu_focal.sh /usr/share/dev-scripts/
+COPY languages/Python/install_Python_3-10_on_Ubuntu_focal.sh /usr/share/dev-scripts/
 RUN bash -ce '/usr/share/dev-scripts/install_Python_3-10_on_Ubuntu_focal.sh'
 
 ###

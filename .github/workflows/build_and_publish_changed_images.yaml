@@ -14,8 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
 
-      all_runtimes_and_all_IDEs_image_changed: ${{ steps.changes_to_all_runtimes_and_all_IDEs_image.outputs.any_changed == 'true' || steps.changes_to_all_runtimes_and_all_IDEs_image.outputs.any_deleted == 'true' }}
-      all_runtimes_and_VSCode_image_changed: ${{ steps.changes_to_all_runtimes_and_VSCode_image.outputs.any_changed == 'true' || steps.changes_to_all_runtimes_and_VSCode_image.outputs.any_deleted == 'true' }}
+      all_languages_and_all_IDEs_image_changed: ${{ steps.changes_to_all_languages_and_all_IDEs_image.outputs.any_changed == 'true' || steps.changes_to_all_languages_and_all_IDEs_image.outputs.any_deleted == 'true' }}
+      all_languages_and_VSCode_image_changed: ${{ steps.changes_to_all_languages_and_VSCode_image.outputs.any_changed == 'true' || steps.changes_to_all_languages_and_VSCode_image.outputs.any_deleted == 'true' }}
 
       Eclipse_changed: ${{ steps.changes_to_Eclipse.outputs.any_changed == 'true' || steps.changes_to_Eclipse.outputs.any_deleted == 'true' }}
 
@@ -78,11 +78,11 @@ jobs:
       with:
         fetch-depth: 2 # This is for changed-files.
 
-    - id: changes_to_all_runtimes_and_all_IDEs_image
+    - id: changes_to_all_languages_and_all_IDEs_image
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          complete-setups/all-runtimes-and-all-IDEs/all_runtimes_and_all_IDEs_on_Ubuntu_focal.Dockerfile
+          complete-setups/all-languages-and-all-IDEs/all_languages_and_all_IDEs_on_Ubuntu_focal.Dockerfile
           IDEs/Eclipse/create_Eclipse_desktop_shortcut.sh
           IDEs/Eclipse/Eclipse.desktop
           IDEs/Eclipse/install_Eclipse.sh
@@ -96,21 +96,21 @@ jobs:
           IDEs/WebStorm/create_WebStorm_desktop_shortcut.sh
           IDEs/WebStorm/WebStorm.desktop
           IDEs/WebStorm/install_WebStorm.sh
-          runtimes/Go/install_Go_1-17_on_Linux.sh
-          runtimes/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
-          runtimes/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
-          runtimes/Python/install_Python_3-10_on_Ubuntu_focal.sh
+          languages/Go/install_Go_1-17_on_Linux.sh
+          languages/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
+          languages/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
+          languages/Python/install_Python_3-10_on_Ubuntu_focal.sh
 
-    - id: changes_to_all_runtimes_and_VSCode_image
+    - id: changes_to_all_languages_and_VSCode_image
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          complete-setups/all-runtimes-and-VSCode/all_runtimes_and_VSCode_on_Ubuntu_focal.Dockerfile
+          complete-setups/all-languages-and-VSCode/all_languages_and_VSCode_on_Ubuntu_focal.Dockerfile
           IDEs/VSCode/configure_VSCode_to_autostart.sh
-          runtimes/Go/install_Go_1-17_on_Linux.sh
-          runtimes/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
-          runtimes/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
-          runtimes/Python/install_Python_3-10_on_Ubuntu_focal.sh
+          languages/Go/install_Go_1-17_on_Linux.sh
+          languages/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
+          languages/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
+          languages/Python/install_Python_3-10_on_Ubuntu_focal.sh
 
     - id: changes_to_Eclipse
       uses: tj-actions/changed-files@v1.1.2
@@ -126,15 +126,15 @@ jobs:
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          runtimes/Go/Go_1-16_on_Ubuntu_focal.Dockerfile
-          runtimes/Go/install_Go_1-16_on_Linux.sh
+          languages/Go/Go_1-16_on_Ubuntu_focal.Dockerfile
+          languages/Go/install_Go_1-16_on_Linux.sh
 
     - id: changes_to_Go_1-17
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          runtimes/Go/Go_1-17_on_Ubuntu_focal.Dockerfile
-          runtimes/Go/install_Go_1-17_on_Linux.sh
+          languages/Go/Go_1-17_on_Ubuntu_focal.Dockerfile
+          languages/Go/install_Go_1-17_on_Linux.sh
 
     - id: changes_to_Go_1-16_and_GoLand
       uses: tj-actions/changed-files@v1.1.2
@@ -146,7 +146,7 @@ jobs:
           IDEs/GoLand/Dockerfile
           IDEs/GoLand/GoLand.desktop
           IDEs/GoLand/install_GoLand.sh
-          runtimes/Go/install_Go_1-16_on_Linux.sh
+          languages/Go/install_Go_1-16_on_Linux.sh
 
     - id: changes_to_Go_1-17_and_GoLand
       uses: tj-actions/changed-files@v1.1.2
@@ -158,7 +158,7 @@ jobs:
           IDEs/GoLand/Dockerfile
           IDEs/GoLand/GoLand.desktop
           IDEs/GoLand/install_GoLand.sh
-          runtimes/Go/install_Go_1-17_on_Linux.sh
+          languages/Go/install_Go_1-17_on_Linux.sh
 
     - id: changes_to_Go_1-16_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
@@ -167,7 +167,7 @@ jobs:
           complete-setups/Go-and-VSCode/Go_1-16_and_VSCode_on_Ubuntu_focal.Dockerfile
           IDEs/VSCode/configure_VSCode_to_autostart.sh
           IDEs/VSCode/Dockerfile
-          runtimes/Go/install_Go_1-16_on_Linux.sh
+          languages/Go/install_Go_1-16_on_Linux.sh
 
     - id: changes_to_Go_1-17_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
@@ -176,7 +176,7 @@ jobs:
           complete-setups/Go-and-VSCode/Go_1-17_and_VSCode_on_Ubuntu_focal.Dockerfile
           IDEs/VSCode/configure_VSCode_to_autostart.sh
           IDEs/VSCode/Dockerfile
-          runtimes/Go/install_Go_1-17_on_Linux.sh
+          languages/Go/install_Go_1-17_on_Linux.sh
 
     - id: changes_to_GoLand
       uses: tj-actions/changed-files@v1.1.2
@@ -187,28 +187,28 @@ jobs:
           IDEs/GoLand/Dockerfile
           IDEs/GoLand/GoLand.desktop
           IDEs/GoLand/install_GoLand.sh
-          runtimes/Go/Go_1-17_on_Ubuntu_focal.Dockerfile
+          languages/Go/Go_1-17_on_Ubuntu_focal.Dockerfile
 
     - id: changes_to_NodeJS_12
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          runtimes/NodeJS/install_NodeJS_12_on_Ubuntu_focal.sh
-          runtimes/NodeJS/NodeJS_12_on_Ubuntu_focal.Dockerfile
+          languages/NodeJS/install_NodeJS_12_on_Ubuntu_focal.sh
+          languages/NodeJS/NodeJS_12_on_Ubuntu_focal.Dockerfile
 
     - id: changes_to_NodeJS_14
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          runtimes/NodeJS/install_NodeJS_14_on_Ubuntu_focal.sh
-          runtimes/NodeJS/NodeJS_14_on_Ubuntu_focal.Dockerfile
+          languages/NodeJS/install_NodeJS_14_on_Ubuntu_focal.sh
+          languages/NodeJS/NodeJS_14_on_Ubuntu_focal.Dockerfile
 
     - id: changes_to_NodeJS_16
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          runtimes/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
-          runtimes/NodeJS/NodeJS_16_on_Ubuntu_focal.Dockerfile
+          languages/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
+          languages/NodeJS/NodeJS_16_on_Ubuntu_focal.Dockerfile
 
     - id: changes_to_NodeJS_12_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
@@ -216,7 +216,7 @@ jobs:
         files: |
           complete-setups/NodeJS-and-VSCode/NodeJS_12_and_VSCode_on_Ubuntu_focal.Dockerfile
           IDEs/VSCode/configure_VSCode_to_autostart.sh
-          runtimes/NodeJS/install_NodeJS_12_on_Ubuntu_focal.sh
+          languages/NodeJS/install_NodeJS_12_on_Ubuntu_focal.sh
 
     - id: changes_to_NodeJS_14_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
@@ -224,7 +224,7 @@ jobs:
         files: |
           complete-setups/NodeJS-and-VSCode/NodeJS_14_and_VSCode_on_Ubuntu_focal.Dockerfile
           IDEs/VSCode/configure_VSCode_to_autostart.sh
-          runtimes/NodeJS/install_NodeJS_14_on_Ubuntu_focal.sh
+          languages/NodeJS/install_NodeJS_14_on_Ubuntu_focal.sh
 
     - id: changes_to_NodeJS_16_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
@@ -232,7 +232,7 @@ jobs:
         files: |
           complete-setups/NodeJS-and-VSCode/NodeJS_16_and_VSCode_on_Ubuntu_focal.Dockerfile
           IDEs/VSCode/configure_VSCode_to_autostart.sh
-          runtimes/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
+          languages/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
 
     - id: changes_to_NodeJS_12_and_WebStorm
       uses: tj-actions/changed-files@v1.1.2
@@ -240,7 +240,7 @@ jobs:
         files: |
           complete-setups/NodeJS-and-WebStorm/NodeJS_12_and_WebStorm_on_Ubuntu_focal.Dockerfile
           IDEs/WebStorm/configure_WebStorm_to_autostart.sh
-          runtimes/NodeJS/install_NodeJS_12_on_Ubuntu_focal.sh
+          languages/NodeJS/install_NodeJS_12_on_Ubuntu_focal.sh
 
     - id: changes_to_NodeJS_14_and_WebStorm
       uses: tj-actions/changed-files@v1.1.2
@@ -248,7 +248,7 @@ jobs:
         files: |
           complete-setups/NodeJS-and-WebStorm/NodeJS_14_and_WebStorm_on_Ubuntu_focal.Dockerfile
           IDEs/WebStorm/configure_WebStorm_to_autostart.sh
-          runtimes/NodeJS/install_NodeJS_14_on_Ubuntu_focal.sh
+          languages/NodeJS/install_NodeJS_14_on_Ubuntu_focal.sh
 
     - id: changes_to_NodeJS_16_and_WebStorm
       uses: tj-actions/changed-files@v1.1.2
@@ -256,21 +256,21 @@ jobs:
         files: |
           complete-setups/NodeJS-and-WebStorm/NodeJS_16_and_WebStorm_on_Ubuntu_focal.Dockerfile
           IDEs/WebStorm/configure_WebStorm_to_autostart.sh
-          runtimes/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
+          languages/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
 
     - id: changes_to_OpenJDK_8
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          runtimes/OpenJDK/install_OpenJDK_8_on_Ubuntu_focal.sh
-          runtimes/OpenJDK/OpenJDK_8_on_Ubuntu_focal.Dockerfile
+          languages/OpenJDK/install_OpenJDK_8_on_Ubuntu_focal.sh
+          languages/OpenJDK/OpenJDK_8_on_Ubuntu_focal.Dockerfile
 
     - id: changes_to_OpenJDK_11
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          runtimes/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
-          runtimes/OpenJDK/OpenJDK_11_on_Ubuntu_focal.Dockerfile
+          languages/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
+          languages/OpenJDK/OpenJDK_11_on_Ubuntu_focal.Dockerfile
 
     - id: changes_to_OpenJDK_8_and_Eclipse
       uses: tj-actions/changed-files@v1.1.2
@@ -281,7 +281,7 @@ jobs:
           IDEs/Eclipse/create_Eclipse_desktop_shortcut.sh
           IDEs/Eclipse/Eclipse.desktop
           IDEs/Eclipse/install_Eclipse.sh
-          runtimes/OpenJDK/install_OpenJDK_8_on_Ubuntu_focal.sh
+          languages/OpenJDK/install_OpenJDK_8_on_Ubuntu_focal.sh
 
     - id: changes_to_OpenJDK_11_and_Eclipse
       uses: tj-actions/changed-files@v1.1.2
@@ -292,7 +292,7 @@ jobs:
           IDEs/Eclipse/create_Eclipse_desktop_shortcut.sh
           IDEs/Eclipse/Eclipse.desktop
           IDEs/Eclipse/install_Eclipse.sh
-          runtimes/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
+          languages/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
 
     - id: changes_to_OpenJDK_8_and_IDEA
       uses: tj-actions/changed-files@v1.1.2
@@ -300,7 +300,7 @@ jobs:
         files: |
           complete-setups/OpenJDK-and-IDEA/OpenJDK_8_and_IDEA_on_Ubuntu_focal.Dockerfile
           IDEs/IDEA/*
-          runtimes/OpenJDK/install_OpenJDK_8_on_Ubuntu_focal.sh
+          languages/OpenJDK/install_OpenJDK_8_on_Ubuntu_focal.sh
 
     - id: changes_to_OpenJDK_11_and_IDEA
       uses: tj-actions/changed-files@v1.1.2
@@ -308,7 +308,7 @@ jobs:
         files: |
           complete-setups/OpenJDK-and-IDEA/OpenJDK_11_and_IDEA_on_Ubuntu_focal.Dockerfile
           IDEs/IDEA/*
-          runtimes/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
+          languages/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
 
     - id: changes_to_OpenJDK_8_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
@@ -318,7 +318,7 @@ jobs:
           IDEs/VSCode/configure_VSCode_to_autostart.sh
           IDEs/VSCode/create_VSCode_desktop_shortcut.sh
           IDEs/VSCode/install_VSCode.sh
-          runtimes/OpenJDK/install_OpenJDK_8_on_Ubuntu_focal.sh
+          languages/OpenJDK/install_OpenJDK_8_on_Ubuntu_focal.sh
 
     - id: changes_to_OpenJDK_11_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
@@ -328,7 +328,7 @@ jobs:
           IDEs/VSCode/configure_VSCode_to_autostart.sh
           IDEs/VSCode/create_VSCode_desktop_shortcut.sh
           IDEs/VSCode/install_VSCode.sh
-          runtimes/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
+          languages/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh
 
     - id: changes_to_PyCharm
       uses: tj-actions/changed-files@v1.1.2
@@ -344,22 +344,22 @@ jobs:
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          runtimes/Python/install_Python_2-7_on_Ubuntu_focal.sh
-          runtimes/Python/Python_2-7_on_Ubuntu_focal.Dockerfile
+          languages/Python/install_Python_2-7_on_Ubuntu_focal.sh
+          languages/Python/Python_2-7_on_Ubuntu_focal.Dockerfile
 
     - id: changes_to_Python_3-9
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          runtimes/Python/install_Python_3-9_on_Ubuntu_focal.sh
-          runtimes/Python/Python_3-9_on_Ubuntu_focal.Dockerfile
+          languages/Python/install_Python_3-9_on_Ubuntu_focal.sh
+          languages/Python/Python_3-9_on_Ubuntu_focal.Dockerfile
 
     - id: changes_to_Python_3-10
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          runtimes/Python/install_Python_3-10_on_Ubuntu_focal.sh
-          runtimes/Python/Python_3-10_on_Ubuntu_focal.Dockerfile
+          languages/Python/install_Python_3-10_on_Ubuntu_focal.sh
+          languages/Python/Python_3-10_on_Ubuntu_focal.Dockerfile
 
     - id: changes_to_Python_2-7_and_PyCharm
       uses: tj-actions/changed-files@v1.1.2
@@ -370,7 +370,7 @@ jobs:
           IDEs/PyCharm/create_PyCharm_desktop_shortcut.sh
           IDEs/PyCharm/install_PyCharm.sh
           IDEs/PyCharm/jetbrains-pycharm-ce.desktop
-          runtimes/Python/install_Python_2-7_on_Ubuntu_focal.sh
+          languages/Python/install_Python_2-7_on_Ubuntu_focal.sh
 
     - id: changes_to_Python_3-9_and_PyCharm
       uses: tj-actions/changed-files@v1.1.2
@@ -381,7 +381,7 @@ jobs:
           IDEs/PyCharm/create_PyCharm_desktop_shortcut.sh
           IDEs/PyCharm/install_PyCharm.sh
           IDEs/PyCharm/jetbrains-pycharm-ce.desktop
-          runtimes/Python/install_Python_3-9_on_Ubuntu_focal.sh
+          languages/Python/install_Python_3-9_on_Ubuntu_focal.sh
 
     - id: changes_to_Python_3-10_and_PyCharm
       uses: tj-actions/changed-files@v1.1.2
@@ -392,7 +392,7 @@ jobs:
           IDEs/PyCharm/create_PyCharm_desktop_shortcut.sh
           IDEs/PyCharm/install_PyCharm.sh
           IDEs/PyCharm/jetbrains-pycharm-ce.desktop
-          runtimes/Python/install_Python_3-10_on_Ubuntu_focal.sh
+          languages/Python/install_Python_3-10_on_Ubuntu_focal.sh
 
     - id: changes_to_Python_2-7_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
@@ -400,7 +400,7 @@ jobs:
         files: |
           complete-setups/Python-and-VSCode/Python_2-7_and_VSCode_on_Ubuntu_focal.Dockerfile
           IDEs/VSCode/configure_VSCode_to_autostart.sh
-          runtimes/Python/install_Python_2-7_on_Ubuntu_focal.sh
+          languages/Python/install_Python_2-7_on_Ubuntu_focal.sh
 
     - id: changes_to_Python_3-9_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
@@ -408,7 +408,7 @@ jobs:
         files: |
           complete-setups/Python-and-VSCode/Python_3-9_and_VSCode_on_Ubuntu_focal.Dockerfile
           IDEs/VSCode/configure_VSCode_to_autostart.sh
-          runtimes/Python/install_Python_3-9_on_Ubuntu_focal.sh
+          languages/Python/install_Python_3-9_on_Ubuntu_focal.sh
 
     - id: changes_to_Python_3-10_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
@@ -416,7 +416,7 @@ jobs:
         files: |
           complete-setups/Python-and-VSCode/Python_3-10_and_VSCode_on_Ubuntu_focal.Dockerfile
           IDEs/VSCode/configure_VSCode_to_autostart.sh
-          runtimes/Python/install_Python_3-10_on_Ubuntu_focal.sh
+          languages/Python/install_Python_3-10_on_Ubuntu_focal.sh
 
     - id: changes_to_VSCode
       uses: tj-actions/changed-files@v1.1.2
@@ -435,34 +435,34 @@ jobs:
           IDEs/WebStorm/install.sh
           IDEs/WebStorm/WebStorm.desktop
 
-  all_runtimes_and_IDEs:
+  all_languages_and_IDEs:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.all_runtimes_and_all_IDEs_image_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.all_languages_and_all_IDEs_image_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: complete-setups/all-runtimes-and-all-IDEs/all_runtimes_and_all_IDEs_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/all-languages-and-all-IDEs/all_languages_and_all_IDEs_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-runtimes-ides:20.04
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-runtimes-ides:focal
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-languages-ides:20.04
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-languages-ides:focal
         environment: ${{ inputs.environment }}
 
-  all_runtimes_and_VSCode:
+  all_languages_and_VSCode:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.all_runtimes_and_VSCode_image_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.all_languages_and_VSCode_image_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: complete-setups/all-runtimes-and-VSCode/all_runtimes_and_VSCode_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/all-languages-and-VSCode/all_languages_and_VSCode_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-runtimes-vscode:20.04
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-runtimes-vscode:focal
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-languages-vscode:20.04
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-languages-vscode:focal
         environment: ${{ inputs.environment }}
 
   Eclipse:
@@ -488,7 +488,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/Go/Go_1-16_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: languages/Go/Go_1-16_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go:20.04-1.16
@@ -503,7 +503,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/Go/Go_1-17_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: languages/Go/Go_1-17_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go:20.04-1.17
@@ -593,7 +593,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/NodeJS/NodeJS_12_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: languages/NodeJS/NodeJS_12_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:20.04-12
@@ -608,7 +608,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/NodeJS/NodeJS_14_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: languages/NodeJS/NodeJS_14_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:20.04-14
@@ -623,7 +623,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/NodeJS/NodeJS_16_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: languages/NodeJS/NodeJS_16_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:20.04-16
@@ -728,7 +728,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/OpenJDK/OpenJDK_8_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: languages/OpenJDK/OpenJDK_8_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:20.04-8
@@ -743,7 +743,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/OpenJDK/OpenJDK_11_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: languages/OpenJDK/OpenJDK_11_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:20.04-11
@@ -863,7 +863,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/Python/Python_2-7_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: languages/Python/Python_2-7_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-2.7
@@ -878,7 +878,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/Python/Python_3-9_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: languages/Python/Python_3-9_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.9
@@ -893,7 +893,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/Python/Python_3-10_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: languages/Python/Python_3-10_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.10
