@@ -36,6 +36,45 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-languages-vscode:20.04
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-languages-vscode:focal
 
+  dotNET_3-1:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: languages/dotNET/dotNET_3-1_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-dotnet:20.04-3.1
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-dotnet:focal-3.1
+
+  dotNET_5:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: languages/dotNET/dotNET_5_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-dotnet:20.04-5
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-dotnet:focal-5
+
+  dotNET_6:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: languages/dotNET/dotNET_6_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-dotnet:20.04-6
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-dotnet:focal-6
+
   Eclipse:
     runs-on: ubuntu-latest
     steps:

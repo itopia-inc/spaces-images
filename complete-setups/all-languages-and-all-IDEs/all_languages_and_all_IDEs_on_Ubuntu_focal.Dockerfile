@@ -12,7 +12,11 @@ RUN echo "Using BASE_IMAGE: ${BASE_IMAGE}"
 # Install languages
 ###
 
-# Golang
+# dotNET
+COPY languages/dotNET/install_dotNET_6_on_Ubuntu_focal.sh /usr/share/dev-scripts/
+RUN bash -ce '/usr/share/dev-scripts/install_dotNET_6_on_Ubuntu_focal.sh'
+
+# Go
 COPY languages/Go/install_Go_1-17_on_Linux.sh /usr/share/dev-scripts/
 RUN bash -ce '/usr/share/dev-scripts/install_Go_1-17_on_Linux.sh'
 

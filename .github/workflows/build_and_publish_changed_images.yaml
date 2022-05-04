@@ -17,6 +17,10 @@ jobs:
       all_languages_and_all_IDEs_image_changed: ${{ steps.changes_to_all_languages_and_all_IDEs_image.outputs.any_changed == 'true' || steps.changes_to_all_languages_and_all_IDEs_image.outputs.any_deleted == 'true' }}
       all_languages_and_VSCode_image_changed: ${{ steps.changes_to_all_languages_and_VSCode_image.outputs.any_changed == 'true' || steps.changes_to_all_languages_and_VSCode_image.outputs.any_deleted == 'true' }}
 
+      dotNET_3-1_changed: ${{ steps.changes_to_dotNET_3-1.outputs.any_changed == 'true' || steps.changes_to_dotNET_3-1.outputs.any_deleted == 'true' }}
+      dotNET_5_changed: ${{ steps.changes_to_dotNET_5.outputs.any_changed == 'true' || steps.changes_to_dotNET_5.outputs.any_deleted == 'true' }}
+      dotNET_6_changed: ${{ steps.changes_to_dotNET_6.outputs.any_changed == 'true' || steps.changes_to_dotNET_6.outputs.any_deleted == 'true' }}
+
       Eclipse_changed: ${{ steps.changes_to_Eclipse.outputs.any_changed == 'true' || steps.changes_to_Eclipse.outputs.any_deleted == 'true' }}
 
       Go_1-16_changed: ${{ steps.changes_to_Go_1-16.outputs.any_changed == 'true' || steps.changes_to_Go_1-16.outputs.any_deleted == 'true' }}
@@ -93,6 +97,27 @@ jobs:
           complete-setups/all-languages-and-VSCode/all_languages_and_VSCode_on_Ubuntu_focal.Dockerfile
           IDEs/VSCode/*
           languages/*
+
+    - id: changes_to_dotNET_3-1
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: |
+          languages/dotNET/dotNET_3-1_on_Ubuntu_focal.Dockerfile
+          languages/dotNET/install_dotNET_3-1_on_Ubuntu_focal.sh
+
+    - id: changes_to_dotNET_5
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: |
+          languages/dotNET/dotNET_5_on_Ubuntu_focal.Dockerfile
+          languages/dotNET/install_dotNET_5_on_Ubuntu_focal.sh
+
+    - id: changes_to_dotNET_6
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: |
+          languages/dotNET/dotNET_6_on_Ubuntu_focal.Dockerfile
+          languages/dotNET/install_dotNET_6_on_Ubuntu_focal.sh
 
     - id: changes_to_Eclipse
       uses: tj-actions/changed-files@v1.1.2
