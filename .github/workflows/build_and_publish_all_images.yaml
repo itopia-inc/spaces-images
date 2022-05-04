@@ -137,8 +137,8 @@ jobs:
         environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-goland:20.04-1.16
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-goland:focal-1.16
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-goland:20.04
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-goland:focal
 
   NodeJS_12:
     runs-on: ubuntu-latest
