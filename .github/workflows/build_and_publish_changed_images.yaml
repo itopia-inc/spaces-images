@@ -72,6 +72,8 @@ jobs:
       Python_3-9_and_VSCode_changed: ${{ steps.changes_to_Python_3-9_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_Python_3-9_and_VSCode.outputs.any_deleted == 'true' }}
       Python_3-10_and_VSCode_changed: ${{ steps.changes_to_Python_3-10_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_Python_3-10_and_VSCode.outputs.any_deleted == 'true' }}
 
+      Rider_changed: ${{ steps.changes_to_Rider.outputs.any_changed == 'true' || steps.changes_to_Rider.outputs.any_deleted == 'true' }}
+
       VSCode_changed: ${{ steps.changes_to_VSCode.outputs.any_changed == 'true' || steps.changes_to_VSCode.outputs.any_deleted == 'true' }}
 
       WebStorm_changed: ${{ steps.changes_to_WebStorm.outputs.any_changed == 'true' || steps.changes_to_WebStorm.outputs.any_deleted == 'true' }}
@@ -382,6 +384,12 @@ jobs:
           complete-setups/Python-and-VSCode/Python_3-10_and_VSCode_on_Ubuntu_focal.Dockerfile
           IDEs/VSCode/*
           languages/Python/install_Python_3-10_on_Ubuntu_focal.sh
+
+    - id: changes_to_Rider
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: |
+          IDEs/Rider/*
 
     - id: changes_to_VSCode
       uses: tj-actions/changed-files@v1.1.2
@@ -948,6 +956,21 @@ jobs:
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-3.10
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-3.10
+        environment: ${{ inputs.environment }}
+
+  Rider:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.Rider_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: IDEs/Rider/Dockerfile
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-rider:20.04
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-rider:focal
         environment: ${{ inputs.environment }}
 
   VSCode:

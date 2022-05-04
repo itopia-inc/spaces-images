@@ -530,6 +530,19 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:20.04-3.10
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:focal-3.10
 
+  Rider:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: IDEs/Rider/Dockerfile
+        environment: ${{ inputs.environment }}
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-rider:20.04
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-rider:focal
+
   VSCode:
     runs-on: ubuntu-latest
     steps:

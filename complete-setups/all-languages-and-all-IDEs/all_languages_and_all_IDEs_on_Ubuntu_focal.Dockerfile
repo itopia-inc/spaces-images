@@ -44,17 +44,21 @@ RUN bash -ce '/usr/share/dev-scripts/install_Eclipse.sh'
 COPY IDEs/GoLand/install_GoLand.sh /usr/share/dev-scripts/
 RUN bash -ce '/usr/share/dev-scripts/install_GoLand.sh'
 
+# IDEA
+COPY IDEs/IDEA/install_IDEA.sh /usr/share/dev-scripts/
+RUN bash -ce '/usr/share/dev-scripts/install_IDEA.sh'
+
 # PyCharm
 COPY IDEs/PyCharm/install_PyCharm.sh /usr/share/dev-scripts/
 RUN bash -ce '/usr/share/dev-scripts/install_PyCharm.sh'
 
+# Rider
+COPY IDEs/Rider/install_Rider.sh /usr/share/dev-scripts/
+RUN bash -ce '/usr/share/dev-scripts/install_Rider.sh'
+
 # WebStorm
 COPY IDEs/WebStorm/install_WebStorm.sh /usr/share/dev-scripts/
 RUN bash -ce '/usr/share/dev-scripts/install_WebStorm.sh'
-
-# IDEA
-COPY IDEs/IDEA/install_IDEA.sh /usr/share/dev-scripts/
-RUN bash -ce '/usr/share/dev-scripts/install_IDEA.sh'
 
 ###
 # Configure IDEs
