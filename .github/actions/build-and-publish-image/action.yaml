@@ -23,7 +23,8 @@ runs:
       image_tag_1='${{ inputs.image_tag_1 }}'
       image_tag_2='${{ inputs.image_tag_2 }}'
       if [ '${{ inputs.environment }}' == 'dev' ]; then
-        sed -i 's/\(FROM ghcr\.io\/itopia-inc\/spaces-base-images\/.*\)$/\1-dev/g' ${{ inputs.dockerfile_path }}
+        # TODO: Use this when a `:focal-dev` base image exists.
+        # sed -i 's/\(FROM ghcr\.io\/itopia-inc\/spaces-base-images\/.*\)$/\1-dev/g' ${{ inputs.dockerfile_path }}
         image_tag_1="$image_tag_1-dev"
         image_tag_2="$image_tag_2-dev"
       fi
