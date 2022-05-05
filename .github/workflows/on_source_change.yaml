@@ -11,7 +11,7 @@ on:
 
 jobs:
 
-  build_changed_dev:
-    uses: itopia-inc/spaces-images/.github/workflows/build_and_publish_changed_images.yaml@main
+  publish_changed_dev:
+    uses: itopia-inc/spaces-images/.github/workflows/build_changed_images.yaml@main
     with:
       environment: "dev"

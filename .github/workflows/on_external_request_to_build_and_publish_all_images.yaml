@@ -5,11 +5,11 @@ on: workflow_dispatch
 jobs:
 
   build_all_dev:
-    uses: itopia-inc/spaces-images/.github/workflows/build_and_publish_all_images.yaml@main
+    uses: itopia-inc/spaces-images/.github/workflows/build_all_images.yaml@main
     with:
       environment: "dev"
 
   build_all_prod:
-    uses: itopia-inc/spaces-images/.github/workflows/build_and_publish_all_images.yaml@main
+    uses: itopia-inc/spaces-images/.github/workflows/build_all_images.yaml@main
     with:
       environment: "prod"
