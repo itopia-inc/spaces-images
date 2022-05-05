@@ -46,17 +46,17 @@ jobs:
 
       GoLand_changed: ${{ steps.changes_to_GoLand.outputs.any_changed == 'true' || steps.changes_to_GoLand.outputs.any_deleted == 'true' }}
 
-      NodeJS_12_changed: ${{ steps.changes_to_NodeJS_12.outputs.any_changed == 'true' || steps.changes_to_NodeJS_12.outputs.any_deleted == 'true' }}
       NodeJS_14_changed: ${{ steps.changes_to_NodeJS_14.outputs.any_changed == 'true' || steps.changes_to_NodeJS_14.outputs.any_deleted == 'true' }}
       NodeJS_16_changed: ${{ steps.changes_to_NodeJS_16.outputs.any_changed == 'true' || steps.changes_to_NodeJS_16.outputs.any_deleted == 'true' }}
+      NodeJS_18_changed: ${{ steps.changes_to_NodeJS_18.outputs.any_changed == 'true' || steps.changes_to_NodeJS_18.outputs.any_deleted == 'true' }}
 
-      NodeJS_12_and_VSCode_changed: ${{ steps.changes_to_NodeJS_12_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_NodeJS_12_and_VSCode.outputs.any_deleted == 'true' }}
       NodeJS_14_and_VSCode_changed: ${{ steps.changes_to_NodeJS_14_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_NodeJS_14_and_VSCode.outputs.any_deleted == 'true' }}
       NodeJS_16_and_VSCode_changed: ${{ steps.changes_to_NodeJS_16_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_NodeJS_16_and_VSCode.outputs.any_deleted == 'true' }}
+      NodeJS_18_and_VSCode_changed: ${{ steps.changes_to_NodeJS_18_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_NodeJS_18_and_VSCode.outputs.any_deleted == 'true' }}
 
-      NodeJS_12_and_WebStorm_changed: ${{ steps.changes_to_NodeJS_12_and_WebStorm.outputs.any_changed == 'true' || steps.changes_to_NodeJS_12_and_WebStorm.outputs.any_deleted == 'true' }}
       NodeJS_14_and_WebStorm_changed: ${{ steps.changes_to_NodeJS_14_and_WebStorm.outputs.any_changed == 'true' || steps.changes_to_NodeJS_14_and_WebStorm.outputs.any_deleted == 'true' }}
       NodeJS_16_and_WebStorm_changed: ${{ steps.changes_to_NodeJS_16_and_WebStorm.outputs.any_changed == 'true' || steps.changes_to_NodeJS_16_and_WebStorm.outputs.any_deleted == 'true' }}
+      NodeJS_18_and_WebStorm_changed: ${{ steps.changes_to_NodeJS_18_and_WebStorm.outputs.any_changed == 'true' || steps.changes_to_NodeJS_18_and_WebStorm.outputs.any_deleted == 'true' }}
 
       OpenJDK_8_changed: ${{ steps.changes_to_OpenJDK_8.outputs.any_changed == 'true' || steps.changes_to_OpenJDK_8.outputs.any_deleted == 'true' }}
       OpenJDK_11_changed: ${{ steps.changes_to_OpenJDK_11.outputs.any_changed == 'true' || steps.changes_to_OpenJDK_11.outputs.any_deleted == 'true' }}
@@ -239,13 +239,6 @@ jobs:
         files: |
           IDEs/GoLand/*
 
-    - id: changes_to_NodeJS_12
-      uses: tj-actions/changed-files@v1.1.2
-      with:
-        files: |
-          languages/NodeJS/install_NodeJS_12_on_Ubuntu_focal.sh
-          languages/NodeJS/NodeJS_12_on_Ubuntu_focal.Dockerfile
-
     - id: changes_to_NodeJS_14
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -260,13 +253,12 @@ jobs:
           languages/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
           languages/NodeJS/NodeJS_16_on_Ubuntu_focal.Dockerfile
 
-    - id: changes_to_NodeJS_12_and_VSCode
+    - id: changes_to_NodeJS_18
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          complete-setups/NodeJS-and-VSCode/NodeJS_12_and_VSCode_on_Ubuntu_focal.Dockerfile
-          IDEs/VSCode/*
-          languages/NodeJS/install_NodeJS_12_on_Ubuntu_focal.sh
+          languages/NodeJS/install_NodeJS_18_on_Ubuntu_focal.sh
+          languages/NodeJS/NodeJS_18_on_Ubuntu_focal.Dockerfile
 
     - id: changes_to_NodeJS_14_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
@@ -284,13 +276,13 @@ jobs:
           IDEs/VSCode/*
           languages/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
 
-    - id: changes_to_NodeJS_12_and_WebStorm
+    - id: changes_to_NodeJS_18_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          complete-setups/NodeJS-and-WebStorm/NodeJS_12_and_WebStorm_on_Ubuntu_focal.Dockerfile
-          IDEs/WebStorm/*
-          languages/NodeJS/install_NodeJS_12_on_Ubuntu_focal.sh
+          complete-setups/NodeJS-and-VSCode/NodeJS_18_and_VSCode_on_Ubuntu_focal.Dockerfile
+          IDEs/VSCode/*
+          languages/NodeJS/install_NodeJS_18_on_Ubuntu_focal.sh
 
     - id: changes_to_NodeJS_14_and_WebStorm
       uses: tj-actions/changed-files@v1.1.2
@@ -307,6 +299,14 @@ jobs:
           complete-setups/NodeJS-and-WebStorm/NodeJS_16_and_WebStorm_on_Ubuntu_focal.Dockerfile
           IDEs/WebStorm/*
           languages/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh
+
+    - id: changes_to_NodeJS_18_and_WebStorm
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: |
+          complete-setups/NodeJS-and-WebStorm/NodeJS_18_and_WebStorm_on_Ubuntu_focal.Dockerfile
+          IDEs/WebStorm/*
+          languages/NodeJS/install_NodeJS_18_on_Ubuntu_focal.sh
 
     - id: changes_to_OpenJDK_8
       uses: tj-actions/changed-files@v1.1.2
@@ -623,22 +623,6 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-goland:focal
         publish: ${{ inputs.publish }}
 
-  NodeJS_12:
-    needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.NodeJS_12_changed == 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-image
-      with:
-        dockerfile_path: languages/NodeJS/NodeJS_12_on_Ubuntu_focal.Dockerfile
-        environment: ${{ inputs.environment }}
-        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
-        github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:20.04-12
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-12
-        publish: ${{ inputs.publish }}
-
   NodeJS_14:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.NodeJS_14_changed == 'true' }}
@@ -671,20 +655,20 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-16
         publish: ${{ inputs.publish }}
 
-  NodeJS_12_and_VSCode:
+  NodeJS_18:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.NodeJS_12_and_VSCode_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.NodeJS_18_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-image
       with:
-        dockerfile_path: complete-setups/NodeJS-and-VSCode/NodeJS_12_and_VSCode_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: languages/NodeJS/NodeJS_18_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:20.04-12
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:focal-12
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:20.04-18
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-18
         publish: ${{ inputs.publish }}
 
   NodeJS_14_and_VSCode:
@@ -719,20 +703,20 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:focal-16
         publish: ${{ inputs.publish }}
 
-  NodeJS_12_and_WebStorm:
+  NodeJS_18_and_VSCode:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.NodeJS_12_and_WebStorm_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.NodeJS_18_and_VSCode_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-image
       with:
-        dockerfile_path: complete-setups/NodeJS-and-WebStorm/NodeJS_12_and_WebStorm_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/NodeJS-and-VSCode/NodeJS_18_and_VSCode_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:20.04-12
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-12
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:20.04-18
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:focal-18
         publish: ${{ inputs.publish }}
 
   NodeJS_14_and_WebStorm:
@@ -766,6 +750,21 @@ jobs:
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:20.04-16
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-16
         publish: ${{ inputs.publish }}
+
+  NodeJS_18_and_WebStorm:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.NodeJS_18_and_WebStorm_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-and-publish-image
+      with:
+        dockerfile_path: complete-setups/NodeJS-and-WebStorm/NodeJS_18_and_WebStorm_on_Ubuntu_focal.Dockerfile
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:20.04-18
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-18
+        environment: ${{ inputs.environment }}
 
   OpenJDK_8:
     needs: detect_image_source_changes
