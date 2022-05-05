@@ -13,6 +13,9 @@ inputs:
     required: true
   image_tag_2:
     required: true
+  publish:
+    required: true
+    type: boolean
 
 runs:
   using: composite
@@ -29,8 +32,10 @@ runs:
         image_tag_2="$image_tag_2-dev"
       fi
       docker build -f ${{ inputs.dockerfile_path }} -t $image_tag_1 .
-      docker push $image_tag_1
-      if [ $image_tag_2 != '' ]; then
-        docker tag $image_tag_1 $image_tag_2
-        docker push $image_tag_2
+      if [ '${{ inputs.publish }}' == 'true' ]; then
+        docker push $image_tag_1
+        if [ $image_tag_2 != '' ]; then
+          docker tag $image_tag_1 $image_tag_2
+          docker push $image_tag_2
+        fi
       fi

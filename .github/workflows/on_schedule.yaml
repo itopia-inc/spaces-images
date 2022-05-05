@@ -7,14 +7,16 @@ on:
 
 jobs:
 
-  build_all_dev:
+  publish_all_dev:
     if: github.event.schedule == '0 16 * * MON,WED,FRI'
-    uses: itopia-inc/spaces-images/.github/workflows/build_and_publish_all_images.yaml@main
+    uses: itopia-inc/spaces-images/.github/workflows/build_all_images.yaml@main
     with:
       environment: "dev"
+      publish: true
 
-  build_all_prod:
+  publish_all_prod:
     if: github.event.schedule == '0 16 * * TUE,THU'
-    uses: itopia-inc/spaces-images/.github/workflows/build_and_publish_all_images.yaml@main
+    uses: itopia-inc/spaces-images/.github/workflows/build_all_images.yaml@main
     with:
       environment: "prod"
+      publish: true

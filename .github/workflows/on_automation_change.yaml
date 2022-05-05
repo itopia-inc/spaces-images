@@ -5,20 +5,11 @@ on:
     branches:
     - main
     paths:
-    - '.github/actions/build-and-publish-image/action.yaml'
-    - '.github/workflows/build_and_publish_all_images.yaml'
-    - '.github/workflows/build_and_publish_changed_images.yaml'
-    - '.github/workflows/on_automation_change.yaml'
-    - '.github/workflows/on_source_change.yaml'
+    - '.github/**'
 
 jobs:
 
-  build_all_dev:
-    uses: itopia-inc/spaces-images/.github/workflows/build_and_publish_all_images.yaml@main
+  publish_all_dev:
+    uses: itopia-inc/spaces-images/.github/workflows/build_all_images.yaml@main
     with:
       environment: "dev"
-
-  build_all_prod:
-    uses: itopia-inc/spaces-images/.github/workflows/build_and_publish_all_images.yaml@main
-    with:
-      environment: "prod"

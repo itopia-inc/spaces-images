@@ -7,6 +7,10 @@ on:
         description: 'The target Spaces environment, either "dev" or "prod"'
         required: true
         type: string
+      publish:
+        default: false
+        description: 'Whether to publish all successfully-built images'
+        type: boolean
 
 jobs:
 
@@ -465,14 +469,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/all-languages-and-all-IDEs/all_languages_and_all_IDEs_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-languages-ides:20.04
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-languages-ides:focal
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   all_languages_and_VSCode:
     needs: detect_image_source_changes
@@ -480,14 +485,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/all-languages-and-VSCode/all_languages_and_VSCode_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-languages-vscode:20.04
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-languages-vscode:focal
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   Eclipse:
     needs: detect_image_source_changes
@@ -495,14 +501,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: IDEs/Eclipse/Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-eclipse:20.04
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-eclipse:focal
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   Go_1-16:
     needs: detect_image_source_changes
@@ -510,14 +517,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: languages/Go/Go_1-16_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go:20.04-1.16
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go:focal-1.16
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   Go_1-17:
     needs: detect_image_source_changes
@@ -525,14 +533,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: languages/Go/Go_1-17_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go:20.04-1.17
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go:focal-1.17
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   Go_1-16_and_GoLand:
     needs: detect_image_source_changes
@@ -540,14 +549,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/Go-and-GoLand/Go_1-16_and_GoLand_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-goland:20.04-1.16
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-goland:focal-1.16
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   Go_1-17_and_GoLand:
     needs: detect_image_source_changes
@@ -555,14 +565,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/Go-and-GoLand/Go_1-17_and_GoLand_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-goland:20.04-1.17
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-goland:focal-1.17
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   Go_1-16_and_VSCode:
     needs: detect_image_source_changes
@@ -570,14 +581,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/Go-and-VSCode/Go_1-16_and_VSCode_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-vscode:20.04-1.16
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-vscode:focal-1.16
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   Go_1-17_and_VSCode:
     needs: detect_image_source_changes
@@ -585,14 +597,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/Go-and-VSCode/Go_1-17_and_VSCode_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-vscode:20.04-1.17
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-vscode:focal-1.17
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   GoLand:
     needs: detect_image_source_changes
@@ -600,14 +613,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: IDEs/GoLand/Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-goland:20.04
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-goland:focal
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   NodeJS_12:
     needs: detect_image_source_changes
@@ -615,14 +629,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: languages/NodeJS/NodeJS_12_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:20.04-12
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-12
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   NodeJS_14:
     needs: detect_image_source_changes
@@ -630,14 +645,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: languages/NodeJS/NodeJS_14_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:20.04-14
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-14
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   NodeJS_16:
     needs: detect_image_source_changes
@@ -645,14 +661,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: languages/NodeJS/NodeJS_16_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:20.04-16
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-16
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   NodeJS_12_and_VSCode:
     needs: detect_image_source_changes
@@ -660,14 +677,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/NodeJS-and-VSCode/NodeJS_12_and_VSCode_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:20.04-12
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:focal-12
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   NodeJS_14_and_VSCode:
     needs: detect_image_source_changes
@@ -675,14 +693,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/NodeJS-and-VSCode/NodeJS_14_and_VSCode_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:20.04-14
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:focal-14
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   NodeJS_16_and_VSCode:
     needs: detect_image_source_changes
@@ -690,14 +709,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/NodeJS-and-VSCode/NodeJS_16_and_VSCode_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:20.04-16
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:focal-16
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   NodeJS_12_and_WebStorm:
     needs: detect_image_source_changes
@@ -705,14 +725,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/NodeJS-and-WebStorm/NodeJS_12_and_WebStorm_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:20.04-12
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-12
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   NodeJS_14_and_WebStorm:
     needs: detect_image_source_changes
@@ -720,14 +741,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/NodeJS-and-WebStorm/NodeJS_14_and_WebStorm_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:20.04-14
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-14
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   NodeJS_16_and_WebStorm:
     needs: detect_image_source_changes
@@ -735,14 +757,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/NodeJS-and-WebStorm/NodeJS_16_and_WebStorm_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:20.04-16
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-16
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   OpenJDK_8:
     needs: detect_image_source_changes
@@ -750,14 +773,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: languages/OpenJDK/OpenJDK_8_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:20.04-8
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:focal-8
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   OpenJDK_11:
     needs: detect_image_source_changes
@@ -765,14 +789,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: languages/OpenJDK/OpenJDK_11_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:20.04-11
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk:focal-11
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   OpenJDK_8_and_Eclipse:
     needs: detect_image_source_changes
@@ -780,14 +805,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/OpenJDK-and-Eclipse/OpenJDK_8_and_Eclipse_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-eclipse:20.04-8
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-eclipse:focal-8
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   OpenJDK_11_and_Eclipse:
     needs: detect_image_source_changes
@@ -795,14 +821,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/OpenJDK-and-Eclipse/OpenJDK_11_and_Eclipse_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-eclipse:20.04-11
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-eclipse:focal-11
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   OpenJDK_8_and_VSCode:
     needs: detect_image_source_changes
@@ -810,14 +837,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/OpenJDK-and-VSCode/OpenJDK_8_and_VSCode_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-vscode:20.04-8
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-vscode:focal-8
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   OpenJDK_11_and_VSCode:
     needs: detect_image_source_changes
@@ -825,14 +853,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/OpenJDK-and-VSCode/OpenJDK_11_and_VSCode_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-vscode:20.04-11
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-vscode:focal-11
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   OpenJDK_8_and_IDEA:
     needs: detect_image_source_changes
@@ -840,14 +869,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/OpenJDK-and-IDEA/OpenJDK_8_and_IDEA_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-idea:20.04-8
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-idea:focal-8
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   OpenJDK_11_and_IDEA:
     needs: detect_image_source_changes
@@ -855,14 +885,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/OpenJDK-and-IDEA/OpenJDK_11_and_IDEA_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-idea:20.04-11
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-openjdk-idea:focal-11
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   PyCharm:
     needs: detect_image_source_changes
@@ -870,14 +901,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: IDEs/PyCharm/Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-pycharm:20.04
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-pycharm:focal
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   Python_2-7:
     needs: detect_image_source_changes
@@ -885,14 +917,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: languages/Python/Python_2-7_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-2.7
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-2.7
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   Python_3-9:
     needs: detect_image_source_changes
@@ -900,14 +933,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: languages/Python/Python_3-9_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.9
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.9
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   Python_3-10:
     needs: detect_image_source_changes
@@ -915,14 +949,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: languages/Python/Python_3-10_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:20.04-3.10
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python:focal-3.10
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   Python_2-7_and_PyCharm:
     needs: detect_image_source_changes
@@ -930,14 +965,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/Python-and-PyCharm/Python_2-7_and_PyCharm_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-2.7
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-2.7
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   Python_3-9_and_PyCharm:
     needs: detect_image_source_changes
@@ -945,14 +981,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/Python-and-PyCharm/Python_3-9_and_PyCharm_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-3.9
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-3.9
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   Python_3-10_and_PyCharm:
     needs: detect_image_source_changes
@@ -960,14 +997,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/Python-and-PyCharm/Python_3-10_and_PyCharm_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-3.10
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-3.10
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   Python_2-7_and_VSCode:
     needs: detect_image_source_changes
@@ -975,14 +1013,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/Python-and-VSCode/Python_2-7_and_VSCode_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:20.04-2.7
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:focal-2.7
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   Python_3-9_and_VSCode:
     needs: detect_image_source_changes
@@ -990,14 +1029,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/Python-and-VSCode/Python_3-9_and_VSCode_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:20.04-3.9
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-vscode:focal-3.9
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   Python_3-10_and_VSCode:
     needs: detect_image_source_changes
@@ -1005,14 +1045,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/Python-and-VSCode/Python_3-10_and_VSCode_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:20.04-3.10
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-python-pycharm:focal-3.10
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   Rider:
     needs: detect_image_source_changes
@@ -1035,14 +1076,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: IDEs/VSCode/Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-vscode:20.04
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-vscode:focal
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
 
   WebStorm:
     needs: detect_image_source_changes
@@ -1050,11 +1092,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: IDEs/WebStorm/Dockerfile
+        environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-webstorm:20.04
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-webstorm:focal
-        environment: ${{ inputs.environment }}
+        publish: ${{ inputs.publish }}
