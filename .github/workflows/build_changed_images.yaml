@@ -757,7 +757,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/NodeJS-and-WebStorm/NodeJS_18_and_WebStorm_on_Ubuntu_focal.Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
@@ -1060,7 +1060,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: IDEs/Rider/Dockerfile
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}

@@ -46,7 +46,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: languages/dotNET/dotNET_3-1_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
@@ -59,7 +59,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: languages/dotNET/dotNET_5_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
@@ -72,7 +72,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: languages/dotNET/dotNET_6_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
@@ -85,7 +85,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/dotNET-and-Rider/dotNET_3-1_and_Rider_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
@@ -98,7 +98,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/dotNET-and-Rider/dotNET_5_and_Rider_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
@@ -111,7 +111,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/dotNET-and-Rider/dotNET_6_and_Rider_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
@@ -124,7 +124,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/dotNET-and-VSCode/dotNET_3-1_and_VSCode_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
@@ -137,7 +137,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/dotNET-and-VSCode/dotNET_5_and_VSCode_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
@@ -150,7 +150,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/dotNET-and-VSCode/dotNET_6_and_VSCode_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
@@ -271,23 +271,6 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-goland:focal
         publish: ${{ inputs.publish }}
 
-<<<<<<< HEAD:.github/workflows/build_all_images.yaml
-  NodeJS_12:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-image
-      with:
-        dockerfile_path: languages/NodeJS/NodeJS_12_on_Ubuntu_focal.Dockerfile
-        environment: ${{ inputs.environment }}
-        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
-        github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:20.04-12
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-12
-        publish: ${{ inputs.publish }}
-
-=======
->>>>>>> dcd054e... Replace Node.js v12 with v18:.github/workflows/build_and_publish_all_images.yaml
   NodeJS_14:
     runs-on: ubuntu-latest
     steps:
@@ -326,14 +309,9 @@ jobs:
         environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
-<<<<<<< HEAD:.github/workflows/build_all_images.yaml
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:20.04-12
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:focal-12
-        publish: ${{ inputs.publish }}
-=======
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:20.04-18
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs:focal-18
->>>>>>> dcd054e... Replace Node.js v12 with v18:.github/workflows/build_and_publish_all_images.yaml
+        publish: ${{ inputs.publish }}
 
   NodeJS_14_and_VSCode:
     runs-on: ubuntu-latest
@@ -373,14 +351,9 @@ jobs:
         environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
-<<<<<<< HEAD:.github/workflows/build_all_images.yaml
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:20.04-12
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-12
-        publish: ${{ inputs.publish }}
-=======
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:20.04-18
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-vscode:focal-18
->>>>>>> dcd054e... Replace Node.js v12 with v18:.github/workflows/build_and_publish_all_images.yaml
+        publish: ${{ inputs.publish }}
 
   NodeJS_14_and_WebStorm:
     runs-on: ubuntu-latest
@@ -414,7 +387,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: complete-setups/NodeJS-and-WebStorm/NodeJS_18_and_WebStorm_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
@@ -679,7 +652,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-and-publish-image
+    - uses: ./.github/actions/build-image
       with:
         dockerfile_path: IDEs/Rider/Dockerfile
         environment: ${{ inputs.environment }}
