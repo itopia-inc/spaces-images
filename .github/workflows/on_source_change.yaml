@@ -15,8 +15,3 @@ jobs:
     uses: itopia-inc/spaces-images/.github/workflows/build_and_publish_changed_images.yaml@main
     with:
       environment: "dev"
-
-  build_changed_prod:
-    uses: itopia-inc/spaces-images/.github/workflows/build_and_publish_changed_images.yaml@main
-    with:
-      environment: "prod"
