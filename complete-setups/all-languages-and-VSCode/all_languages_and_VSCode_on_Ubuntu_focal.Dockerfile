@@ -4,6 +4,8 @@ FROM ghcr.io/itopia-inc/spaces-base-images/spaces-ubuntu-base:focal
 LABEL org.opencontainers.image.description="itopia Spaces image for all languages and VS Code on Ubuntu"
 LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-images"
 
+COPY languages/dotNET/install_dotNET_6_on_Ubuntu_focal.sh /usr/share/dev-scripts/
+RUN bash -ce '/usr/share/dev-scripts/install_dotNET_6_on_Ubuntu_focal.sh'
 COPY languages/Go/install_Go_1-17_on_Linux.sh /usr/share/dev-scripts/
 RUN bash -ce '/usr/share/dev-scripts/install_Go_1-17_on_Linux.sh'
 COPY languages/NodeJS/install_NodeJS_16_on_Ubuntu_focal.sh /usr/share/dev-scripts/

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Rider
+Icon=/opt/Rider/bin/rider.svg
+Exec=/usr/share/dev-scripts/start_rider_with_repo.sh %f
+Comment=Fast & powerful cross-platform .NET IDE
+Categories=Development;IDE;
+Terminal=false
+StartupWMClass=Rider
+StartupNotify=true
