@@ -10,31 +10,31 @@ on:
 
 jobs:
 
-  all_runtimes_and_IDEs:
+  all_languages_and_IDEs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: complete-setups/all-runtimes-and-all-IDEs/all_runtimes_and_all_IDEs_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/all-languages-and-all-IDEs/all_languages_and_all_IDEs_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-runtimes-ides:20.04
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-runtimes-ides:focal
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-languages-ides:20.04
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-languages-ides:focal
 
-  all_runtimes_and_VSCode:
+  all_languages_and_VSCode:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: complete-setups/all-runtimes-and-VSCode/all_runtimes_and_VSCode_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/all-languages-and-VSCode/all_languages_and_VSCode_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-runtimes-vscode:20.04
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-runtimes-vscode:focal
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-languages-vscode:20.04
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-languages-vscode:focal
 
   Eclipse:
     runs-on: ubuntu-latest
@@ -55,7 +55,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/Go/Go_1-16_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: languages/Go/Go_1-16_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
@@ -68,7 +68,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/Go/Go_1-17_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: languages/Go/Go_1-17_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
@@ -137,8 +137,8 @@ jobs:
         environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-goland:20.04-1.16
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-goland:focal-1.16
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-goland:20.04
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-goland:focal
 
   NodeJS_12:
     runs-on: ubuntu-latest
@@ -146,7 +146,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/NodeJS/NodeJS_12_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: languages/NodeJS/NodeJS_12_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
@@ -159,7 +159,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/NodeJS/NodeJS_14_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: languages/NodeJS/NodeJS_14_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
@@ -172,7 +172,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/NodeJS/NodeJS_16_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: languages/NodeJS/NodeJS_16_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
@@ -263,7 +263,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/OpenJDK/OpenJDK_8_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: languages/OpenJDK/OpenJDK_8_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
@@ -276,7 +276,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/OpenJDK/OpenJDK_11_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: languages/OpenJDK/OpenJDK_11_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
@@ -380,7 +380,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/Python/Python_2-7_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: languages/Python/Python_2-7_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
@@ -393,7 +393,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/Python/Python_3-9_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: languages/Python/Python_3-9_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
@@ -406,7 +406,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-and-publish-image
       with:
-        dockerfile_path: runtimes/Python/Python_3-10_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: languages/Python/Python_3-10_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}

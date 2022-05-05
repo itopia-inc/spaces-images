@@ -1,0 +1,10 @@
+name: 'Trigger: External request to build and publish all dev images'
+
+on: workflow_dispatch
+
+jobs:
+
+  build_all_dev:
+    uses: itopia-inc/spaces-images/.github/workflows/build_and_publish_all_images.yaml@main
+    with:
+      environment: "dev"

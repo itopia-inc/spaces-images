@@ -7,7 +7,7 @@ on:
     paths:
     - 'complete-setups/**'
     - 'IDEs/**'
-    - 'runtimes/**'
+    - 'languages/**'
 
 jobs:
 
