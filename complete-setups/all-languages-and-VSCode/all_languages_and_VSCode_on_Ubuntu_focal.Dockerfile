@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 FROM ghcr.io/itopia-inc/spaces-base-images/spaces-ubuntu-base:focal
 
-LABEL org.opencontainers.image.description="itopia Spaces image for all languages and VS Code on Ubuntu"
+LABEL org.opencontainers.image.description="itopia Spaces image for development in VS Code on Ubuntu (with all supported language dev tools installed)"
 LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-images"
 
 COPY languages/dotNET/install_dotNET_6_on_Ubuntu_focal.sh /usr/share/dev-scripts/
