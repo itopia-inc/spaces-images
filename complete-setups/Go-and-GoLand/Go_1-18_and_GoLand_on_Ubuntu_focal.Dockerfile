@@ -4,8 +4,8 @@ FROM ghcr.io/itopia-inc/spaces-base-images/spaces-ubuntu-base:focal
 LABEL org.opencontainers.image.description="itopia Spaces image for Go + GoLand on Ubuntu"
 LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-images"
 
-COPY languages/Go/install_Go_1-16_on_Linux.sh /usr/share/dev-scripts/
-RUN bash -ce '/usr/share/dev-scripts/install_Go_1-16_on_Linux.sh'
+COPY languages/Go/install_Go_1-18_on_Linux.sh /usr/share/dev-scripts/
+RUN bash -ce '/usr/share/dev-scripts/install_Go_1-18_on_Linux.sh'
 
 COPY IDEs/GoLand/install_GoLand.sh /usr/share/dev-scripts/
 RUN bash -ce '/usr/share/dev-scripts/install_GoLand.sh'
