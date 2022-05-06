@@ -35,14 +35,14 @@ jobs:
 
       Eclipse_changed: ${{ steps.changes_to_Eclipse.outputs.any_changed == 'true' || steps.changes_to_Eclipse.outputs.any_deleted == 'true' }}
 
-      Go_1-16_changed: ${{ steps.changes_to_Go_1-16.outputs.any_changed == 'true' || steps.changes_to_Go_1-16.outputs.any_deleted == 'true' }}
       Go_1-17_changed: ${{ steps.changes_to_Go_1-17.outputs.any_changed == 'true' || steps.changes_to_Go_1-17.outputs.any_deleted == 'true' }}
+      Go_1-18_changed: ${{ steps.changes_to_Go_1-18.outputs.any_changed == 'true' || steps.changes_to_Go_1-18.outputs.any_deleted == 'true' }}
 
-      Go_1-16_and_GoLand_changed: ${{ steps.changes_to_Go_1-16_and_GoLand.outputs.any_changed == 'true' || steps.changes_to_Go_1-16_and_GoLand.outputs.any_deleted == 'true' }}
       Go_1-17_and_GoLand_changed: ${{ steps.changes_to_Go_1-17_and_GoLand.outputs.any_changed == 'true' || steps.changes_to_Go_1-17_and_GoLand.outputs.any_deleted == 'true' }}
+      Go_1-18_and_GoLand_changed: ${{ steps.changes_to_Go_1-18_and_GoLand.outputs.any_changed == 'true' || steps.changes_to_Go_1-18_and_GoLand.outputs.any_deleted == 'true' }}
 
-      Go_1-16_and_VSCode_changed: ${{ steps.changes_to_Go_1-16_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_Go_1-16_and_VSCode.outputs.any_deleted == 'true' }}
       Go_1-17_and_VSCode_changed: ${{ steps.changes_to_Go_1-17_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_Go_1-17_and_VSCode.outputs.any_deleted == 'true' }}
+      Go_1-18_and_VSCode_changed: ${{ steps.changes_to_Go_1-18_and_VSCode.outputs.any_changed == 'true' || steps.changes_to_Go_1-18_and_VSCode.outputs.any_deleted == 'true' }}
 
       GoLand_changed: ${{ steps.changes_to_GoLand.outputs.any_changed == 'true' || steps.changes_to_GoLand.outputs.any_deleted == 'true' }}
 
@@ -187,13 +187,6 @@ jobs:
         files: |
           IDEs/Eclipse/*
 
-    - id: changes_to_Go_1-16
-      uses: tj-actions/changed-files@v1.1.2
-      with:
-        files: |
-          languages/Go/Go_1-16_on_Ubuntu_focal.Dockerfile
-          languages/Go/install_Go_1-16_on_Linux.sh
-
     - id: changes_to_Go_1-17
       uses: tj-actions/changed-files@v1.1.2
       with:
@@ -201,13 +194,12 @@ jobs:
           languages/Go/Go_1-17_on_Ubuntu_focal.Dockerfile
           languages/Go/install_Go_1-17_on_Linux.sh
 
-    - id: changes_to_Go_1-16_and_GoLand
+    - id: changes_to_Go_1-18
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          complete-setups/Go-and-GoLand/Go_1-16_and_GoLand_on_Ubuntu_focal.Dockerfile
-          IDEs/GoLand/*
-          languages/Go/install_Go_1-16_on_Linux.sh
+          languages/Go/Go_1-18_on_Ubuntu_focal.Dockerfile
+          languages/Go/install_Go_1-18_on_Linux.sh
 
     - id: changes_to_Go_1-17_and_GoLand
       uses: tj-actions/changed-files@v1.1.2
@@ -217,13 +209,13 @@ jobs:
           IDEs/GoLand/*
           languages/Go/install_Go_1-17_on_Linux.sh
 
-    - id: changes_to_Go_1-16_and_VSCode
+    - id: changes_to_Go_1-18_and_GoLand
       uses: tj-actions/changed-files@v1.1.2
       with:
         files: |
-          complete-setups/Go-and-VSCode/Go_1-16_and_VSCode_on_Ubuntu_focal.Dockerfile
-          IDEs/VSCode/*
-          languages/Go/install_Go_1-16_on_Linux.sh
+          complete-setups/Go-and-GoLand/Go_1-18_and_GoLand_on_Ubuntu_focal.Dockerfile
+          IDEs/GoLand/*
+          languages/Go/install_Go_1-18_on_Linux.sh
 
     - id: changes_to_Go_1-17_and_VSCode
       uses: tj-actions/changed-files@v1.1.2
@@ -232,6 +224,14 @@ jobs:
           complete-setups/Go-and-VSCode/Go_1-17_and_VSCode_on_Ubuntu_focal.Dockerfile
           IDEs/VSCode/*
           languages/Go/install_Go_1-17_on_Linux.sh
+
+    - id: changes_to_Go_1-18_and_VSCode
+      uses: tj-actions/changed-files@v1.1.2
+      with:
+        files: |
+          complete-setups/Go-and-VSCode/Go_1-18_and_VSCode_on_Ubuntu_focal.Dockerfile
+          IDEs/VSCode/*
+          languages/Go/install_Go_1-18_on_Linux.sh
 
     - id: changes_to_GoLand
       uses: tj-actions/changed-files@v1.1.2
@@ -511,22 +511,6 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-eclipse:focal
         publish: ${{ inputs.publish }}
 
-  Go_1-16:
-    needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.Go_1-16_changed == 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/actions/build-image
-      with:
-        dockerfile_path: languages/Go/Go_1-16_on_Ubuntu_focal.Dockerfile
-        environment: ${{ inputs.environment }}
-        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
-        github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go:20.04-1.16
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go:focal-1.16
-        publish: ${{ inputs.publish }}
-
   Go_1-17:
     needs: detect_image_source_changes
     if: ${{ needs.detect_image_source_changes.outputs.Go_1-17_changed == 'true' }}
@@ -543,20 +527,20 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go:focal-1.17
         publish: ${{ inputs.publish }}
 
-  Go_1-16_and_GoLand:
+  Go_1-18:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.Go_1-16_and_GoLand_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.Go_1-18_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-image
       with:
-        dockerfile_path: complete-setups/Go-and-GoLand/Go_1-16_and_GoLand_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: languages/Go/Go_1-18_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-goland:20.04-1.16
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-goland:focal-1.16
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go:20.04-1.16
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go:focal-1.16
         publish: ${{ inputs.publish }}
 
   Go_1-17_and_GoLand:
@@ -575,20 +559,20 @@ jobs:
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-goland:focal-1.17
         publish: ${{ inputs.publish }}
 
-  Go_1-16_and_VSCode:
+  Go_1-18_and_GoLand:
     needs: detect_image_source_changes
-    if: ${{ needs.detect_image_source_changes.outputs.Go_1-16_and_VSCode_changed == 'true' }}
+    if: ${{ needs.detect_image_source_changes.outputs.Go_1-18_and_GoLand_changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/build-image
       with:
-        dockerfile_path: complete-setups/Go-and-VSCode/Go_1-16_and_VSCode_on_Ubuntu_focal.Dockerfile
+        dockerfile_path: complete-setups/Go-and-GoLand/Go_1-18_and_GoLand_on_Ubuntu_focal.Dockerfile
         environment: ${{ inputs.environment }}
         github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
         github_username: ${{ github.actor }}
-        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-vscode:20.04-1.16
-        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-vscode:focal-1.16
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-goland:20.04-1.16
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-goland:focal-1.16
         publish: ${{ inputs.publish }}
 
   Go_1-17_and_VSCode:
@@ -605,6 +589,22 @@ jobs:
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-vscode:20.04-1.17
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-vscode:focal-1.17
+        publish: ${{ inputs.publish }}
+
+  Go_1-18_and_VSCode:
+    needs: detect_image_source_changes
+    if: ${{ needs.detect_image_source_changes.outputs.Go_1-18_and_VSCode_changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/build-image
+      with:
+        dockerfile_path: complete-setups/Go-and-VSCode/Go_1-18_and_VSCode_on_Ubuntu_focal.Dockerfile
+        environment: ${{ inputs.environment }}
+        github_personal_access_token: ${{ secrets.GITHUB_TOKEN }}
+        github_username: ${{ github.actor }}
+        image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-vscode:20.04-1.16
+        image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-go-vscode:focal-1.16
         publish: ${{ inputs.publish }}
 
   GoLand:
