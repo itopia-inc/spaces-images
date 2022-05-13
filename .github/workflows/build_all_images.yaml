@@ -395,6 +395,7 @@ jobs:
         github_username: ${{ github.actor }}
         image_tag_1: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:20.04-18
         image_tag_2: ghcr.io/itopia-inc/spaces-images/spaces-ubuntu-nodejs-webstorm:focal-18
+        publish: ${{ inputs.publish }}
 
   OpenJDK_8:
     runs-on: ubuntu-latest
