@@ -9,7 +9,7 @@ RUN bash -ce '/usr/share/dev-scripts/install_dotNET_6_on_Ubuntu_focal.sh'
 COPY languages/Go/install_Go_1-18_on_Linux.sh /usr/share/dev-scripts/
 RUN bash -ce '/usr/share/dev-scripts/install_Go_1-18_on_Linux.sh'
 COPY languages/NodeJS/install_NodeJS_18_on_Ubuntu_focal.sh /usr/share/dev-scripts/
-RUN bash -ce '/usr/share/dev-scripts/install_NodeJS_16_on_Ubuntu_focal.sh'
+RUN bash -ce '/usr/share/dev-scripts/install_NodeJS_18_on_Ubuntu_focal.sh'
 COPY languages/OpenJDK/install_OpenJDK_11_on_Ubuntu_focal.sh /usr/share/dev-scripts/
 RUN bash -ce '/usr/share/dev-scripts/install_OpenJDK_11_on_Ubuntu_focal.sh'
 COPY languages/Python/install_Python_3-10_on_Ubuntu_focal.sh /usr/share/dev-scripts/
