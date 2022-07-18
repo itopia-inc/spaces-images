@@ -1,6 +1,7 @@
 # syntax=docker/dockerfile:1
 ARG BASE_IMAGE=ghcr.io/itopia-inc/spaces-base-images/spaces-ubuntu-base:focal
 FROM ${BASE_IMAGE}
+RUN nope
 
 LABEL org.opencontainers.image.description="itopia Spaces image for development on Ubuntu (with all supported language dev tools & IDEs installed)"
 LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-images"
