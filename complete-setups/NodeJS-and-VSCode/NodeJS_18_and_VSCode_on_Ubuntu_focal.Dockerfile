@@ -1,9 +1,10 @@
 # syntax=docker/dockerfile:1
 FROM ghcr.io/itopia-inc/spaces-base-images/spaces-ubuntu-base:focal
-RUN nope
 
 LABEL org.opencontainers.image.description="itopia Spaces image for Node.js development in VS Code on Ubuntu"
 LABEL org.opencontainers.image.source="https://github.com/itopia-inc/spaces-images"
+
+RUN sudo apt-get -y update && sudo apt-get -y dist-upgrade
 
 COPY languages/NodeJS/install_NodeJS_18_on_Ubuntu_focal.sh /usr/share/dev-scripts/
 RUN bash -ce '/usr/share/dev-scripts/install_NodeJS_18_on_Ubuntu_focal.sh'
