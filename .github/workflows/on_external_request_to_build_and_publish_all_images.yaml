@@ -8,8 +8,10 @@ jobs:
     uses: itopia-inc/spaces-images/.github/workflows/build_all_images.yaml@main
     with:
       environment: "dev"
+      publish: true
 
   build_all_prod:
     uses: itopia-inc/spaces-images/.github/workflows/build_all_images.yaml@main
     with:
       environment: "prod"
+      publish: true
