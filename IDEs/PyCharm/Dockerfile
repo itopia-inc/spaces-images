@@ -13,3 +13,6 @@ COPY IDEs/PyCharm/configure_PyCharm_to_autostart.sh /usr/share/dev-scripts/
 COPY IDEs/PyCharm/PyCharm_CE.desktop /usr/share/dev-scripts/
 RUN bash -ce '/usr/share/dev-scripts/create_PyCharm_desktop_shortcut.sh'
 RUN bash -ce '/usr/share/dev-scripts/configure_PyCharm_to_autostart.sh'
+
+COPY IDEs/PyCharm/PyCharm_ide_settings.xml /usr/share/dev-scripts/
+COPY IDEs/PyCharm/configure_PyCharm_settings.sh /etc/selkies-user-init/03-PyCharm-settings.sh
