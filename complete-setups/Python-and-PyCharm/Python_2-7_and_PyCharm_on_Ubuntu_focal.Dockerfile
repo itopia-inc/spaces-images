@@ -18,3 +18,6 @@ COPY IDEs/PyCharm/start_PyCharm_with_repo.sh /usr/share/dev-scripts/
 
 COPY IDEs/PyCharm/configure_PyCharm_to_autostart.sh /usr/share/dev-scripts/
 RUN bash -ce '/usr/share/dev-scripts/configure_PyCharm_to_autostart.sh'
+
+COPY languages/Python/get-pip.py /usr/share/dev-scripts/
+COPY languages/Python/install_pip.sh /etc/selkies-user-init/03-install-pip.sh
