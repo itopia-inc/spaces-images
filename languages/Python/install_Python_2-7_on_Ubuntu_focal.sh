@@ -6,3 +6,6 @@ sudo apt-get install -y python2
 
 sudo cp /usr/bin/python2.7 /usr/bin/python2
 sudo cp /usr/bin/python2.7 /usr/bin/python
+
+# Remove alternatives
+sudo rm /usr/bin/python3.8
